@@ -490,9 +490,9 @@ Disassembly of section .irom0.text:
 40210506:	0e4ba2        	s8i	a10, a11, 14
 40210509:	20c112        	addi	a1, a1, 32
 4021050c:	f00d      	ret.n
-4021050e:	300000        	xor	a0, a0, a0
-40210511:	402416        	beqz	a4, 40210917 <rijndaelKeySetupEnc+0x35b>
-40210514:	0cd8      	l32i.n	a13, a12, 0
+4021050e:	f00000        	subx8	a0, a0, a0
+40210511:	241d      	excw
+40210513:	0cd840        	excw
 40210516:	a04010        	addx4	a4, a0, a1
 40210519:	100d      	excw
 4021051b:	a04240        	addx4	a4, a2, a4
@@ -855,7 +855,7 @@ Disassembly of section .irom0.text:
 402108bd:	7f          	.byte 0x7f
 402108be:	9c0000        	excw
 402108c1:	3ffe87        	bbsi	a14, 24, 40210904 <rijndaelKeySetupEnc+0x348>
-402108c4:	2414a0        	extui	a1, a10, 4, 3
+402108c4:	241c60        	extui	a1, a6, 12, 3
 402108c7:	e26840        	excw
 402108ca:	124000        	excw
 402108cd:	c9f0c1        	l32r	a12, 40203090 <_lit4_end+0xfcc68>
@@ -1296,26 +1296,26 @@ Disassembly of section .irom0.text:
 40210d09:	052d      	mov.n	a2, a5
 40210d0b:	f00d      	ret.n
 40210d0d:	000000        	ill
-40210d10:	0a28      	l32i.n	a2, a10, 0
-40210d12:	104024        	excw
-40210d15:	240a      	add.n	a2, a4, a0
-40210d17:	0a3840        	excw
+40210d10:	11e8      	l32i.n	a14, a1, 4
+40210d12:	d04024        	excw
+40210d15:	402411        	l32r	a1, 401e0da8 <_lit4_end+0xda980>
+40210d18:	11f8      	l32i.n	a15, a1, 4
 40210d1a:	c44024        	excw
 40210d1d:	8e          	.byte 0x8e
 40210d1e:	fe          	.byte 0xfe
 40210d1f:	3f          	.byte 0x3f
-40210d20:	240a40        	extui	a0, a4, 10, 3
+40210d20:	241200        	extui	a1, a0, 2, 3
 40210d23:	8cc440        	excw
 40210d26:	fe          	.byte 0xfe
 40210d27:	3f          	.byte 0x3f
-40210d28:	240a30        	extui	a0, a3, 10, 3
-40210d2b:	0a9040        	excw
-40210d2e:	684024        	excw
-40210d31:	240a      	add.n	a2, a4, a0
-40210d33:	0a7040        	excw
-40210d36:	604024        	excw
-40210d39:	240a      	add.n	a2, a4, a0
-40210d3b:	0ef040        	excw
+40210d28:	2411f0        	extui	a1, a15, 1, 3
+40210d2b:	125040        	excw
+40210d2e:	284024        	excw
+40210d31:	402412        	l32i	a1, a4, 0x100
+40210d34:	241230        	extui	a1, a3, 2, 3
+40210d37:	122040        	excw
+40210d3a:	f04024        	excw
+40210d3d:	0e          	.byte 0xe
 40210d3e:	284010        	excw
 40210d41:	0e          	.byte 0xe
 40210d42:	124010        	excw
@@ -2027,9 +2027,9 @@ Disassembly of section .irom0.text:
 40211476:	002102        	l32i	a0, a1, 0
 40211479:	10c112        	addi	a1, a1, 16
 4021147c:	f00d      	ret.n
-4021147e:	a00000        	addx4	a0, a0, a0
-40211481:	240a      	add.n	a2, a4, a0
-40211483:	dc2840        	excw
+4021147e:	600000        	neg	a0, a0
+40211481:	402412        	l32i	a1, a4, 0x100
+40211484:	dc28      	l32i.n	a2, a12, 52
 40211486:	fe          	.byte 0xfe
 40211487:	3f          	.byte 0x3f
 40211488:	fedc24        	excw
@@ -3713,7 +3713,7 @@ Disassembly of section .irom0.text:
 402125e0:	8768      	l32i.n	a6, a7, 32
 402125e2:	fe          	.byte 0xfe
 402125e3:	3f          	.byte 0x3f
-402125e4:	240ae0        	extui	a0, a14, 10, 3
+402125e4:	2412a0        	extui	a1, a10, 2, 3
 402125e7:	0e0040        	excw
 402125ea:	646000        	extui	a6, a0, 0, 7
 402125ed:	3ffee0        	excw
@@ -3721,7 +3721,7 @@ Disassembly of section .irom0.text:
 402125f2:	fe          	.byte 0xfe
 402125f3:	3f          	.byte 0x3f
 402125f4:	001000        	excw
-402125f7:	0ac000        	excw
+402125f7:	128000        	excw
 402125fa:	a84024        	excw
 402125fd:	402125        	excw
 40212600:	619c      	beqz.n	a1, 4021261a <freqcal_scan_done+0x72>
@@ -5276,7 +5276,7 @@ Disassembly of section .irom0.text:
 40213605:	ff          	.byte 0xff
 40213606:	8f          	.byte 0x8f
 40213607:	ff          	.byte 0xff
-40213608:	240af0        	extui	a0, a15, 10, 3
+40213608:	2412b0        	extui	a1, a11, 2, 3
 4021360b:	c11240        	mul16u	a1, a2, a4
 4021360e:	6102e0        	excw
 40213611:	61e203        	excw
@@ -5613,9 +5613,8 @@ Disassembly of section .irom0.text:
 40213947:	0108      	l32i.n	a0, a1, 0
 40213949:	10c112        	addi	a1, a1, 16
 4021394c:	f00d      	ret.n
-4021394e:	100000        	and	a0, a0, a0
-40213951:	240b      	addi.n	a2, a4, -1
-40213953:	c11240        	mul16u	a1, a2, a4
+4021394e:	d00000        	subx2	a0, a0, a0
+40213951:	402412        	l32i	a1, a4, 0x100
 
 40213954 <ieee80211_alloc_challenge>:
 40213954:	f0c112        	addi	a1, a1, -16
@@ -6467,7 +6466,7 @@ Disassembly of section .irom0.text:
 40214220:	fff046        	j	402141e5 <ieee80211_parse_rsn+0xc5>
 40214223:	020c      	movi.n	a2, 0
 40214225:	ffcd46        	j	4021415e <ieee80211_parse_rsn+0x3e>
-40214228:	2410a4        	excw
+40214228:	241864        	excw
 4021422b:	c11240        	mul16u	a1, a2, a4
 
 4021422c <ieee80211_parse_action>:
@@ -7688,10 +7687,9 @@ Disassembly of section .irom0.text:
 40214e23:	044232        	s8i	a3, a2, 4
 40214e26:	225b      	addi.n	a2, a2, 5
 40214e28:	f00d      	ret.n
-40214e2a:	500000        	excw
-40214e2d:	240b      	addi.n	a2, a4, -1
-40214e2f:	d99040        	excw
-40214e32:	fe          	.byte 0xfe
+40214e2a:	100000        	and	a0, a0, a0
+40214e2d:	402413        	excw
+40214e30:	fed990        	excw
 40214e33:	3f          	.byte 0x3f
 
 40214e34 <ieee80211_send_probereq>:
@@ -9726,11 +9724,11 @@ Disassembly of section .irom0.text:
 40216220:	220b      	addi.n	a2, a2, -1
 40216222:	932320        	movnez	a2, a3, a2
 40216225:	f00d      	ret.n
-40216227:	0b7000        	excw
-4021622a:	804024        	excw
-4021622d:	240b      	addi.n	a2, a4, -1
-4021622f:	0c5440        	excw
-40216232:	314024        	excw
+40216227:	133000        	excw
+4021622a:	404024        	excw
+4021622d:	402413        	excw
+40216230:	241414        	excw
+40216233:	fd3140        	excw
 
 40216234 <ieee80211_setup_ratetable>:
 40216234:	fffd31        	l32r	a3, 40216228 <ieee80211_phy_type_get+0x10>
@@ -10387,7 +10385,7 @@ Disassembly of section .irom0.text:
 40216850:	02f0c1        	l32r	a12, 401d7410 <_lit4_end+0xd0fe8>
 40216853:	220061        	l32r	a6, 401df054 <_lit4_end+0xd8c2c>
 40216856:	322725        	excw
-40216859:	42a005        	call0	4025925c <_irom0_text_end+0x17be8>
+40216859:	42a005        	call0	4025925c <_irom0_text_end+0x17428>
 4021685c:	522925        	excw
 4021685f:	c52a25        	excw
 40216862:	020014        	excw
@@ -10396,11 +10394,10 @@ Disassembly of section .irom0.text:
 4021686b:	000000        	ill
 4021686e:	3a0000        	excw
 40216871:	3ffee0        	excw
-40216874:	240d50        	extui	a0, a5, 13, 3
-40216877:	0d6040        	excw
-4021687a:	684024        	excw
-4021687d:	240d      	excw
-4021687f:	c11240        	mul16u	a1, a2, a4
+40216874:	241510        	extui	a1, a1, 5, 3
+40216877:	152040        	extui	a2, a4, 16, 2
+4021687a:	284024        	excw
+4021687d:	402415        	excw
 
 40216880 <freq_changle_scan_start>:
 40216880:	f0c112        	addi	a1, a1, -16
@@ -10800,10 +10797,9 @@ Disassembly of section .irom0.text:
 40216c9a:	002102        	l32i	a0, a1, 0
 40216c9d:	10c112        	addi	a1, a1, 16
 40216ca0:	f00d      	ret.n
-40216ca2:	700000        	excw
-40216ca5:	240d      	excw
-40216ca7:	ff2140        	excw
-40216caa:	ff          	.byte 0xff
+40216ca2:	300000        	xor	a0, a0, a0
+40216ca5:	402415        	excw
+40216ca8:	ffff21        	l32r	a2, 40216ca4 <scan_cancel+0x34>
 40216cab:	e0c112        	addi	a1, a1, -32
 40216cae:	0361e2        	s32i	a14, a1, 12
 40216cb1:	41f9      	s32i.n	a15, a1, 16
@@ -11211,7 +11207,7 @@ Disassembly of section .irom0.text:
 402170a8:	fdd021        	l32r	a2, 402167e8 <unregister_ieee80211_rfid_locp_recv_cb+0xc>
 402170ab:	0228      	l32i.n	a2, a2, 0
 402170ad:	f00d      	ret.n
-402170af:	0d8000        	excw
+402170af:	154000        	extui	a4, a0, 16, 2
 402170b2:	124024        	excw
 
 402170b4 <scan_connect_state>:
@@ -11251,11 +11247,11 @@ Disassembly of section .irom0.text:
 40217103:	3f          	.byte 0x3f
 40217104:	fedba7        	bbs	a11, a10, 40217106 <scan_connect_state+0x52>
 40217107:	3f          	.byte 0x3f
-40217108:	240d90        	extui	a0, a9, 13, 3
+40217108:	241550        	extui	a1, a5, 5, 3
 4021710b:	dc0940        	excw
 4021710e:	fe          	.byte 0xfe
 4021710f:	3f          	.byte 0x3f
-40217110:	240d30        	extui	a0, a3, 13, 3
+40217110:	2414f0        	extui	a1, a15, 4, 3
 40217113:	c11240        	mul16u	a1, a2, a4
 
 40217114 <scan_profile_check>:
@@ -11656,7 +11652,7 @@ Disassembly of section .irom0.text:
 40217528:	000c      	movi.n	a0, 0
 4021752a:	ffd7c6        	j	4021748d <scan_profile_check+0x379>
 4021752d:	000000        	ill
-40217530:	240db0        	extui	a0, a11, 13, 3
+40217530:	241570        	extui	a1, a7, 5, 3
 40217533:	2ab840        	excw
 40217536:	124000        	excw
 
@@ -12072,8 +12068,8 @@ Disassembly of section .irom0.text:
 40217985:	4788      	l32i.n	a8, a7, 16
 40217987:	d04822        	s8i	a2, a8, 208
 4021798a:	f00d      	ret.n
-4021798c:	240dd0        	extui	a0, a13, 13, 3
-4021798f:	0dc040        	excw
+4021798c:	241590        	extui	a1, a9, 5, 3
+4021798f:	158040        	extui	a8, a4, 16, 2
 40217992:	154024        	excw
 40217995:	3ffee1        	l32r	a14, 401e7990 <_lit4_end+0xe1568>
 40217998:	e54c      	movi.n	a5, 78
@@ -14059,7 +14055,7 @@ Disassembly of section .irom0.text:
 40218dd8:	0108      	l32i.n	a0, a1, 0
 40218dda:	10c112        	addi	a1, a1, 16
 40218ddd:	f00d      	ret.n
-40218ddf:	0e0000        	excw
+40218ddf:	15c000        	extui	a12, a0, 16, 2
 40218de2:	124024        	excw
 
 40218de4 <cnx_sta_scan_cmd>:
@@ -14342,7 +14338,7 @@ Disassembly of section .irom0.text:
 402190b1:	1108      	l32i.n	a0, a1, 4
 402190b3:	10c112        	addi	a1, a1, 16
 402190b6:	f00d      	ret.n
-402190b8:	240e20        	extui	a0, a2, 14, 3
+402190b8:	2415e0        	extui	a1, a14, 5, 3
 402190bb:	e4cc40        	extui	a12, a4, 12, 15
 402190be:	fe          	.byte 0xfe
 402190bf:	3f          	.byte 0x3f
@@ -14464,8 +14460,8 @@ Disassembly of section .irom0.text:
 402191d5:	000000        	ill
 402191d8:	fee4d0        	excw
 402191db:	3f          	.byte 0x3f
-402191dc:	240df0        	extui	a0, a15, 13, 3
-402191df:	0e3040        	excw
+402191dc:	2415b0        	extui	a1, a11, 5, 3
+402191df:	15f040        	extui	a15, a4, 16, 2
 402191e2:	324024        	excw
 402191e5:	4110a0        	srli	a1, a10, 0
 402191e8:	21de86        	j	40221966 <system_upgrade_reboot+0x11a>
@@ -14603,7 +14599,7 @@ Disassembly of section .irom0.text:
 40219353:	105570        	and	a5, a5, a7
 40219356:	0659      	s32i.n	a5, a6, 0
 40219358:	ffd7c6        	j	402192bb <cnx_start_handoff_cb+0xf7>
-4021935b:	0e6000        	excw
+4021935b:	162000        	excw
 4021935e:	314024        	excw
 
 40219360 <cnx_csa_fn>:
@@ -15778,7 +15774,7 @@ Disassembly of section .irom0.text:
 40219f14:	4108      	l32i.n	a0, a1, 16
 40219f16:	20c112        	addi	a1, a1, 32
 40219f19:	f00d      	ret.n
-40219f1b:	0e8000        	excw
+40219f1b:	164000        	excw
 40219f1e:	604024        	excw
 40219f21:	9f          	.byte 0x9f
 40219f22:	214021        	l32r	a2, 401e2424 <_lit4_end+0xdbffc>
@@ -15802,13 +15798,12 @@ Disassembly of section .irom0.text:
 40219f52:	10c112        	addi	a1, a1, 16
 40219f55:	f00d      	ret.n
 40219f57:	9f2400        	excw
-40219f5a:	a04021        	l32r	a2, 4020205c <_lit4_end+0xfbc34>
-40219f5d:	0e          	.byte 0xe
-40219f5e:	124024        	excw
-40219f61:	c9f0c1        	l32r	a12, 4020c724 <_lit4_end+0x1062fc>
-40219f64:	26c111        	l32r	a1, 401e3a68 <_lit4_end+0xdd640>
-40219f67:	31db      	addi.n	a3, a1, 13
-40219f69:	fffc      	bnez.n	a15, 40219fac <cnx_sta_leave+0x218>
+40219f5a:	604021        	l32r	a2, 401f205c <_lit4_end+0xebc34>
+40219f5d:	402416        	beqz	a4, 4021a363 <cnx_node_leave+0xaf>
+40219f60:	f0c112        	addi	a1, a1, -16
+40219f63:	11c9      	s32i.n	a12, a1, 4
+40219f65:	db26c1        	l32r	a12, 40210c00 <ieee80211_freedom_init+0x24>
+40219f68:	fffc31        	l32r	a3, 40219f58 <cnx_sta_leave+0x1c4>
 40219f6b:	4c28      	l32i.n	a2, a12, 16
 40219f6d:	0109      	s32i.n	a0, a1, 0
 40219f6f:	400202        	l8ui	a0, a2, 64
@@ -16141,8 +16136,8 @@ Disassembly of section .irom0.text:
 4021a2a3:	262ff2        	l32i	a15, a15, 152
 4021a2a6:	fff986        	j	4021a290 <cnx_node_search+0x58>
 4021a2a9:	000000        	ill
-4021a2ac:	240ee0        	extui	a0, a14, 14, 3
-4021a2af:	0f2040        	excw
+4021a2ac:	2416a0        	extui	a1, a10, 6, 3
+4021a2af:	16e040        	excw
 4021a2b2:	124024        	excw
 
 4021a2b4 <cnx_node_leave>:
@@ -16241,12 +16236,10 @@ Disassembly of section .irom0.text:
 4021a3a7:	4108      	l32i.n	a0, a1, 16
 4021a3a9:	20c112        	addi	a1, a1, 32
 4021a3ac:	f00d      	ret.n
-4021a3ae:	400000        	ssr	a0
-4021a3b1:	0f          	.byte 0xf
-4021a3b2:	604024        	excw
-4021a3b5:	0f          	.byte 0xf
-4021a3b6:	804024        	excw
-4021a3b9:	0f          	.byte 0xf
+4021a3ae:	000000        	ill
+4021a3b1:	402417        	blt	a4, a1, 4021a3f5 <cnx_node_join+0x35>
+4021a3b4:	241720        	extui	a1, a2, 7, 3
+4021a3b7:	174040        	excw
 4021a3ba:	6c4024        	excw
 4021a3bd:	3ffe87        	bbsi	a14, 24, 4021a400 <cnx_node_join+0x40>
 
@@ -16631,12 +16624,12 @@ Disassembly of section .irom0.text:
 4021a774:	10c112        	addi	a1, a1, 16
 4021a777:	f00d      	ret.n
 4021a779:	000000        	ill
-4021a77c:	240fc0        	extui	a0, a12, 15, 3
-4021a77f:	0ff040        	excw
+4021a77c:	241780        	extui	a1, a8, 7, 3
+4021a77f:	17b040        	excw
 4021a782:	6c4024        	excw
 4021a785:	3ffee5        	excw
-4021a788:	241020        	extui	a1, a2, 0, 3
-4021a78b:	104040        	and	a4, a0, a4
+4021a788:	2417e0        	extui	a1, a14, 7, 3
+4021a78b:	180040        	excw
 4021a78e:	784024        	excw
 4021a791:	3ffee5        	excw
 
@@ -16776,7 +16769,7 @@ Disassembly of section .irom0.text:
 4021a8e6:	ffdb86        	j	4021a858 <ieee80211_recv_action_vendor_spec+0xc4>
 4021a8e9:	000000        	ill
 4021a8ec:	21a794        	excw
-4021a8ef:	106040        	and	a6, a0, a4
+4021a8ef:	182040        	excw
 4021a8f2:	224024        	excw
 
 4021a8f4 <ieee80211_action_vendor_spec_attach>:
@@ -17097,7 +17090,7 @@ Disassembly of section .irom0.text:
 4021abf5:	22ab      	addi.n	a2, a2, 10
 4021abf7:	20c112        	addi	a1, a1, 32
 4021abfa:	f00d      	ret.n
-4021abfc:	241644        	excw
+4021abfc:	241e04        	excw
 4021abff:	005140        	excw
 4021ac02:	00d8      	l32i.n	a13, a0, 0
 4021ac04:	4048      	l32i.n	a4, a0, 16
@@ -17247,7 +17240,7 @@ Disassembly of section .irom0.text:
 4021ad7e:	180892        	l8ui	a9, a8, 24
 4021ad81:	349090        	extui	a9, a9, 0, 4
 4021ad84:	ffd586        	j	4021acde <ieee80211_add_ie_vendor_esp_manufacturer+0x132>
-4021ad87:	165c00        	excw
+4021ad87:	1e1c00        	excw
 4021ad8a:	cc4024        	excw
 4021ad8d:	030c33        	excw
 4021ad90:	0012c6        	j	4021addf <ieee80211_add_ie_vendor_esp_manufacturer+0x233>
@@ -17534,7 +17527,7 @@ Disassembly of section .irom0.text:
 4021b031:	0b5322        	s16i	a2, a3, 22
 4021b034:	120c      	movi.n	a2, 1
 4021b036:	f00d      	ret.n
-4021b038:	2414d0        	extui	a1, a13, 4, 3
+4021b038:	241c90        	extui	a1, a9, 12, 3
 4021b03b:	dc8540        	excw
 4021b03e:	fe          	.byte 0xfe
 4021b03f:	3f          	.byte 0x3f
@@ -17742,7 +17735,7 @@ Disassembly of section .irom0.text:
 4021b21c:	20c112        	addi	a1, a1, 32
 4021b21f:	f00d      	ret.n
 4021b221:	000000        	ill
-4021b224:	2414e0        	extui	a1, a14, 4, 3
+4021b224:	241ca0        	extui	a1, a10, 12, 3
 4021b227:	c11240        	mul16u	a1, a2, a4
 
 4021b228 <wpa_config_parse_string>:
@@ -17966,7 +17959,7 @@ Disassembly of section .irom0.text:
 4021b438:	103350        	and	a3, a3, a5
 4021b43b:	0439      	s32i.n	a3, a4, 0
 4021b43d:	f00d      	ret.n
-4021b43f:	14f000        	extui	a15, a0, 0, 2
+4021b43f:	1cb000        	excw
 4021b442:	124024        	excw
 4021b445:	e2b0c1        	l32r	a12, 40213f08 <ieee80211_parse_beacon+0x568>
 4021b448:	f21161        	l32r	a6, 40217c8c <ieee80211_sta_new_state+0x2f0>
@@ -18131,9 +18124,9 @@ Disassembly of section .irom0.text:
 4021b5f3:	0108      	l32i.n	a0, a1, 0
 4021b5f5:	10c112        	addi	a1, a1, 16
 4021b5f8:	f00d      	ret.n
-4021b5fa:	200000        	or	a0, a0, a0
-4021b5fd:	402415        	excw
-4021b600:	ba48      	l32i.n	a4, a10, 44
+4021b5fa:	e00000        	subx4	a0, a0, a0
+4021b5fd:	241c      	movi.n	a4, 18
+4021b5ff:	ba4840        	excw
 4021b602:	5d4000        	excw
 4021b605:	c11203        	excw
 4021b608:	612280        	excw
@@ -19733,7 +19726,7 @@ Disassembly of section .irom0.text:
 4021c63c:	40c112        	addi	a1, a1, 64
 4021c63f:	f00d      	ret.n
 4021c641:	000000        	ill
-4021c644:	241530        	extui	a1, a3, 5, 3
+4021c644:	241cf0        	extui	a1, a15, 12, 3
 4021c647:	a05240        	addx4	a5, a2, a4
 4021c64a:	633030        	excw
 4021c64d:	047d20        	extui	a7, a2, 13, 1
@@ -20452,11 +20445,11 @@ Disassembly of section .irom0.text:
 4021cdb6:	030c      	movi.n	a3, 0
 4021cdb8:	02b2c5        	call0	4021f8e8 <wpa_auth_for_each_sta+0x5c>
 4021cdbb:	ffe2c6        	j	4021cd4a <wpa_remove_ptk+0x9c2>
-4021cdbe:	500000        	excw
-4021cdc1:	402415        	excw
-4021cdc4:	20a042        	movi	a4, 32
-4021cdc7:	c0c112        	addi	a1, a1, -64
-4021cdca:	b109      	s32i.n	a0, a1, 44
+4021cdbe:	100000        	and	a0, a0, a0
+4021cdc1:	241d      	excw
+4021cdc3:	a04240        	addx4	a4, a2, a4
+4021cdc6:	c11220        	mul16u	a1, a2, a2
+4021cdc9:	b109c0        	excw
 4021cdcc:	c1c9      	s32i.n	a12, a1, 48
 4021cdce:	8129      	s32i.n	a2, a1, 32
 4021cdd0:	03cd      	mov.n	a12, a3
@@ -20876,8 +20869,9 @@ Disassembly of section .irom0.text:
 4021d1f7:	f00d      	ret.n
 4021d1f9:	f27c      	movi.n	a2, -1
 4021d1fb:	fffb46        	j	4021d1ec <wpa_write_rsn_ie+0xf4>
-4021d1fe:	700000        	excw
-4021d201:	402415        	excw
+4021d1fe:	300000        	xor	a0, a0, a0
+4021d201:	241d      	excw
+4021d203:	a03240        	addx4	a3, a2, a4
 
 4021d204 <wpa_auth_gen_wpa_ie>:
 4021d204:	90a032        	movi	a3, 144
@@ -21118,7 +21112,7 @@ Disassembly of section .irom0.text:
 4021d446:	0f          	.byte 0xf
 4021d447:	027200        	excw
 4021d44a:	025201        	l32r	a0, 401ddd94 <_lit4_end+0xd796c>
-4021d44d:	27cc05        	call0	40245110 <_irom0_text_end+0x3a9c>
+4021d44d:	27cc05        	call0	40245110 <_irom0_text_end+0x32dc>
 4021d450:	120c      	movi.n	a2, 1
 4021d452:	f00d      	ret.n
 4021d454:	3767b6        	bltui	a7, 6, 4021d48f <wpa_validate_wpa_ie+0x187>
@@ -21567,7 +21561,7 @@ Disassembly of section .irom0.text:
 4021d8b8:	5178      	l32i.n	a7, a1, 20
 4021d8ba:	044762        	s8i	a6, a7, 4
 4021d8bd:	ffd5c6        	j	4021d818 <wpa_parse_kde_ies+0x304>
-4021d8c0:	241580        	extui	a1, a8, 5, 3
+4021d8c0:	241d40        	extui	a1, a4, 13, 3
 4021d8c3:	a06240        	addx4	a6, a2, a4
 4021d8c6:	744030        	extui	a4, a3, 0, 8
 4021d8c9:	c11220        	mul16u	a1, a2, a2
@@ -23944,11 +23938,11 @@ Disassembly of section .irom0.text:
 4021f07c:	1b2102        	l32i	a0, a1, 108
 4021f07f:	112a      	add.n	a1, a1, a2
 4021f081:	f00d      	ret.n
-4021f083:	15a000        	extui	a10, a0, 16, 2
-4021f086:	b04024        	excw
-4021f089:	402415        	excw
-4021f08c:	00b8b4        	excw
-4021f08f:	c11240        	mul16u	a1, a2, a4
+4021f083:	1d6000        	excw
+4021f086:	704024        	excw
+4021f089:	241d      	excw
+4021f08b:	b8b440        	excw
+4021f08e:	124000        	excw
 
 4021f090 <rsn_pmkid>:
 4021f090:	a0c112        	addi	a1, a1, -96
@@ -24197,7 +24191,7 @@ Disassembly of section .irom0.text:
 4021f305:	4108      	l32i.n	a0, a1, 16
 4021f307:	20c112        	addi	a1, a1, 32
 4021f30a:	f00d      	ret.n
-4021f30c:	2415c0        	extui	a1, a12, 5, 3
+4021f30c:	241d80        	extui	a1, a8, 13, 3
 4021f30f:	035d40        	excw
 
 4021f310 <ppInstallKey>:
@@ -24435,19 +24429,18 @@ Disassembly of section .irom0.text:
 4021f55b:	250c      	movi.n	a5, 2
 4021f55d:	d24452        	s8i	a5, a4, 210
 4021f560:	f00d      	ret.n
-4021f562:	d00000        	subx2	a0, a0, a0
-4021f565:	402415        	excw
-4021f568:	21f544        	excw
-4021f56b:	e54d40        	extui	a4, a4, 29, 15
-4021f56e:	fe          	.byte 0xfe
-4021f56f:	3f          	.byte 0x3f
+4021f562:	900000        	addx2	a0, a0, a0
+4021f565:	241d      	excw
+4021f567:	f54440        	extui	a4, a4, 20, 16
+4021f56a:	4d4021        	l32r	a2, 401f2a6c <_lit4_end+0xec644>
+4021f56d:	3ffee5        	excw
 4021f570:	fe8012        	excw
 4021f573:	3f          	.byte 0x3f
-4021f574:	2415f0        	extui	a1, a15, 5, 3
+4021f574:	241db0        	extui	a1, a11, 13, 3
 4021f577:	8ed040        	excw
 4021f57a:	fe          	.byte 0xfe
 4021f57b:	3f          	.byte 0x3f
-4021f57c:	241610        	extui	a1, a1, 6, 3
+4021f57c:	241dd0        	extui	a1, a13, 13, 3
 4021f57f:	c11240        	mul16u	a1, a2, a4
 
 4021f580 <eagle_auth_done>:
@@ -34316,7 +34309,7 @@ static void ICACHE_FLASH_ATTR web_client_discon_cb(void *arg)
 40225577:	3f          	.byte 0x3f
 40225578:	fe8a14        	excw
 4022557b:	3f          	.byte 0x3f
-4022557c:	0008c4        	excw
+4022557c:	001084        	excw
 4022557f:	8a1000        	excw
 40225582:	fe          	.byte 0xfe
 40225583:	3f          	.byte 0x3f
@@ -34324,7 +34317,7 @@ static void ICACHE_FLASH_ATTR web_client_discon_cb(void *arg)
 40225586:	fe          	.byte 0xfe
 40225587:	3f          	.byte 0x3f
 40225588:	23f9d4        	excw
-4022558b:	098c40        	excw
+4022558b:	114c40        	slli	a4, a12, 12
 4022558e:	3c0000        	excw
 40225591:	fe8a      	add.n	a15, a14, a8
 40225593:	3f          	.byte 0x3f
@@ -37174,7 +37167,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40226bec:	0108      	l32i.n	a0, a1, 0
 40226bee:	10c112        	addi	a1, a1, 16
 40226bf1:	f00d      	ret.n
-40226bf3:	02a000        	excw
+40226bf3:	0a6000        	excw
 40226bf6:	124024        	excw
 
 40226bf8 <wait_rfpll_cal_end>:
@@ -38689,12 +38682,13 @@ void ICACHE_FLASH_ATTR user_init(void)
 40227b20:	3108      	l32i.n	a0, a1, 12
 40227b22:	20c112        	addi	a1, a1, 32
 40227b25:	f00d      	ret.n
-40227b27:	037000        	excw
-40227b2a:	404024        	excw
-40227b2d:	402403        	excw
-40227b30:	240360        	extui	a0, a6, 3, 3
-40227b33:	031040        	excw
-40227b36:	ad4024        	excw
+40227b27:	0b3000        	excw
+40227b2a:	004024        	excw
+40227b2d:	240b      	addi.n	a2, a4, -1
+40227b2f:	0b2040        	excw
+40227b32:	d04024        	excw
+40227b35:	240a      	add.n	a2, a4, a0
+40227b37:	05ad40        	extui	a10, a4, 29, 1
 
 40227b38 <set_rx_gain_cal_iq>:
 40227b38:	05ad      	mov.n	a10, a5
@@ -39025,7 +39019,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40227e7f:	174c      	movi.n	a7, 65
 40227e81:	106172        	s32i	a7, a1, 64
 40227e84:	ff5286        	j	40227bd2 <set_rx_gain_cal_iq+0x9a>
-40227e87:	03d000        	rsr.208	a0
+40227e87:	0b9000        	excw
 40227e8a:	504024        	excw
 40227e8d:	3ffe84        	excw
 
@@ -41111,7 +41105,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40229364:	2108      	l32i.n	a0, a1, 8
 40229366:	10c112        	addi	a1, a1, 16
 40229369:	f00d      	ret.n
-4022936b:	040000        	extui	a0, a0, 0, 1
+4022936b:	0bc000        	excw
 4022936e:	7d4024        	excw
 
 40229370 <sdt_on_noise_start>:
@@ -45589,7 +45583,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022c0a0:	91fc      	bnez.n	a1, 4022c0dd <txiq_cover+0x35>
 4022c0a2:	fe          	.byte 0xfe
 4022c0a3:	3f          	.byte 0x3f
-4022c0a4:	240460        	extui	a0, a6, 4, 3
+4022c0a4:	240c20        	extui	a0, a2, 12, 3
 4022c0a7:	039d40        	excw
 
 4022c0a8 <txiq_cover>:
@@ -45800,10 +45794,9 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022c2af:	41d8      	l32i.n	a13, a1, 16
 4022c2b1:	50c112        	addi	a1, a1, 80
 4022c2b4:	f00d      	ret.n
-4022c2b6:	700000        	excw
-4022c2b9:	402404        	excw
-4022c2bc:	ff          	.byte 0xff
-4022c2bd:	ff          	.byte 0xff
+4022c2b6:	300000        	xor	a0, a0, a0
+4022c2b9:	240c      	movi.n	a4, 2
+4022c2bb:	ffff40        	excw
 4022c2be:	30e000        	xor	a14, a0, a0
 
 4022c2c0 <ram_rfcal_txiq>:
@@ -46362,10 +46355,11 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022c839:	fff946        	j	4022c822 <get_pwctrl_correct+0x2e>
 4022c83c:	fe9344        	excw
 4022c83f:	3f          	.byte 0x3f
-4022c840:	240490        	extui	a0, a9, 4, 3
+4022c840:	240c50        	extui	a0, a5, 12, 3
 4022c843:	0ff340        	excw
-4022c846:	200000        	or	a0, a0, a0
-4022c849:	402405        	call0	4026ca8c <_irom0_text_end+0x2b418>
+4022c846:	e00000        	subx4	a0, a0, a0
+4022c849:	240c      	movi.n	a4, 2
+4022c84b:	c11240        	mul16u	a1, a2, a4
 
 4022c84c <tx_pwctrl_cal>:
 4022c84c:	a0c112        	addi	a1, a1, -96
@@ -47060,10 +47054,10 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022cf6e:	012280        	slli	a2, a2, 24
 4022cf71:	312820        	srai	a2, a2, 24
 4022cf74:	f00d      	ret.n
-4022cf76:	b00000        	addx8	a0, a0, a0
-4022cf79:	402405        	call0	4026d1bc <_irom0_text_end+0x2bb48>
-4022cf7c:	2405d0        	extui	a0, a13, 5, 3
-4022cf7f:	070c40        	excw
+4022cf76:	700000        	excw
+4022cf79:	240d      	excw
+4022cf7b:	0d9040        	excw
+4022cf7e:	0c4024        	excw
 
 4022cf80 <ram_rfcal_txcap>:
 4022cf80:	070c      	movi.n	a7, 0
@@ -47251,8 +47245,9 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022d135:	000772        	l8ui	a7, a7, 0
 4022d138:	0000c0        	callx0	a0
 4022d13b:	ffedc6        	j	4022d0f6 <ram_rfcal_txcap+0x176>
-4022d13e:	f00000        	subx8	a0, a0, a0
-4022d141:	402405        	call0	4026d384 <_irom0_text_end+0x2bd10>
+4022d13e:	b00000        	addx8	a0, a0, a0
+4022d141:	240d      	excw
+4022d143:	c11240        	mul16u	a1, a2, a4
 
 4022d144 <ram_rfcal_pwrctrl>:
 4022d144:	a0c112        	addi	a1, a1, -96
@@ -47472,10 +47467,10 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022d36f:	7108      	l32i.n	a0, a1, 28
 4022d371:	60c112        	addi	a1, a1, 96
 4022d374:	f00d      	ret.n
-4022d376:	300000        	xor	a0, a0, a0
-4022d379:	402406        	j	4023d40d <tcp_input+0x7e5>
-4022d37c:	00ce60        	excw
-4022d37f:	c28240        	excw
+4022d376:	f00000        	subx8	a0, a0, a0
+4022d379:	240d      	excw
+4022d37b:	ce6040        	excw
+4022d37e:	824000        	mull	a4, a0, a0
 
 4022d380 <ram_rxiq_get_mis>:
 4022d380:	fec282        	addi	a8, a2, -2
@@ -49571,13 +49566,14 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022e82b:	0108      	l32i.n	a0, a1, 0
 4022e82d:	10c112        	addi	a1, a1, 16
 4022e830:	f00d      	ret.n
-4022e832:	600000        	neg	a0, a0
-4022e835:	402406        	j	4023e8c9 <udp_sendto_if+0x3d>
-4022e838:	f0c112        	addi	a1, a1, -16
-4022e83b:	0161c2        	s32i	a12, a1, 4
-4022e83e:	006102        	s32i	a0, a1, 0
-4022e841:	02cd      	mov.n	a12, a2
-4022e843:	fffc21        	l32r	a2, 4022e834 <ic_interface_is_p2p+0x4c>
+4022e832:	200000        	or	a0, a0, a0
+4022e835:	0e          	.byte 0xe
+4022e836:	124024        	excw
+4022e839:	c2f0c1        	l32r	a12, 4021f3fc <ppInstallKey+0xec>
+4022e83c:	020161        	l32r	a6, 401ef040 <_lit4_end+0xe8c18>
+4022e83f:	cd0061        	l32r	a6, 40221c40 <system_deep_sleep+0x88>
+4022e842:	fc2102        	l32i	a0, a1, 0x3f0
+4022e845:	ff          	.byte 0xff
 4022e846:	0c3d      	mov.n	a3, a12
 4022e848:	893d01        	l32r	a0, 40210d3c <ieee80211_chan2ieee+0x44>
 4022e84b:	0000c0        	callx0	a0
@@ -49595,8 +49591,8 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022e869:	0108      	l32i.n	a0, a1, 0
 4022e86b:	10c112        	addi	a1, a1, 16
 4022e86e:	f00d      	ret.n
-4022e870:	240670        	extui	a0, a7, 6, 3
-4022e873:	068040        	excw
+4022e870:	240e30        	extui	a0, a3, 14, 3
+4022e873:	0e4040        	excw
 4022e876:	644024        	excw
 4022e879:	3ffe93        	excw
 4022e87c:	22e6a0        	excw
@@ -49673,7 +49669,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022e92f:	0000c0        	callx0	a0
 4022e932:	00ba05        	call0	4022f4d4 <pm_shutdown>
 4022e935:	fff9c6        	j	4022e920 <ic_set_vif+0xa0>
-4022e938:	240690        	extui	a0, a9, 6, 3
+4022e938:	240e50        	extui	a0, a5, 14, 3
 4022e93b:	c11240        	mul16u	a1, a2, a4
 
 4022e93c <ic_set_sta>:
@@ -49769,10 +49765,11 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022ea27:	fd4016        	beqz	a0, 4022e9ff <ic_set_sta+0xc3>
 4022ea2a:	000b      	addi.n	a0, a0, -1
 4022ea2c:	fff246        	j	4022e9f9 <ic_set_sta+0xbd>
-4022ea2f:	06a000        	excw
-4022ea32:	a84024        	excw
-4022ea35:	402406        	j	4023eac9 <udp_remove+0x19>
-4022ea38:	0698      	l32i.n	a9, a6, 0
+4022ea2f:	0e6000        	excw
+4022ea32:	684024        	excw
+4022ea35:	0e          	.byte 0xe
+4022ea36:	584024        	excw
+4022ea39:	0e          	.byte 0xe
 4022ea3a:	124024        	excw
 
 4022ea3c <ic_bss_info_update>:
@@ -50366,15 +50363,16 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022eff0:	8eea      	add.n	a8, a14, a14
 4022eff2:	fe          	.byte 0xfe
 4022eff3:	3f          	.byte 0x3f
-4022eff4:	2406f0        	extui	a0, a15, 6, 3
+4022eff4:	240eb0        	extui	a0, a11, 14, 3
 4022eff7:	96a840        	excw
 4022effa:	fe          	.byte 0xfe
 4022effb:	3f          	.byte 0x3f
-4022effc:	240700        	extui	a0, a0, 7, 3
-4022efff:	071040        	excw
-4022f002:	204024        	excw
-4022f005:	402407        	blt	a4, a0, 4022f049 <pm_set_sleep_type_from_upper+0x3d>
-4022f008:	0bb8      	l32i.n	a11, a11, 0
+4022effc:	240ec0        	extui	a0, a12, 14, 3
+4022efff:	0ed040        	excw
+4022f002:	e04024        	excw
+4022f005:	0e          	.byte 0xe
+4022f006:	b84024        	excw
+4022f009:	000b      	addi.n	a0, a0, -1
 	...
 
 4022f00c <pm_set_sleep_type_from_upper>:
@@ -50546,11 +50544,11 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022f1cb:	020c      	movi.n	a2, 0
 4022f1cd:	c439      	s32i.n	a3, a4, 48
 4022f1cf:	fff786        	j	4022f1b1 <pm_get_sleep_type+0xb5>
-4022f1d2:	300000        	xor	a0, a0, a0
-4022f1d5:	402407        	blt	a4, a0, 4022f219 <pm_get_sleep_type+0x11d>
-4022f1d8:	e0c112        	addi	a1, a1, -32
-4022f1db:	41d9      	s32i.n	a13, a1, 16
-4022f1dd:	31c9      	s32i.n	a12, a1, 12
+4022f1d2:	f00000        	subx8	a0, a0, a0
+4022f1d5:	0e          	.byte 0xe
+4022f1d6:	124024        	excw
+4022f1d9:	d9e0c1        	l32r	a12, 4022595c <web_client_recv_cb+0xb0>
+4022f1dc:	31c941        	l32r	a4, 401fb900 <_lit4_end+0xf54d8>
 4022f1df:	2109      	s32i.n	a0, a1, 8
 4022f1e1:	02cd      	mov.n	a12, a2
 4022f1e3:	ffb9c5        	call0	4022ed80 <pm_set_sleep_time+0x70>
@@ -50750,7 +50748,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022f3d0:	10c112        	addi	a1, a1, 16
 4022f3d3:	f00d      	ret.n
 4022f3d5:	000000        	ill
-4022f3d8:	240750        	extui	a0, a5, 7, 3
+4022f3d8:	240f10        	extui	a0, a1, 15, 3
 4022f3db:	c11240        	mul16u	a1, a2, a4
 4022f3de:	0109f0        	slli	a0, a9, 17
 4022f3e1:	ffbf85        	call0	4022efdc <pm_rf_is_closed>
@@ -50773,11 +50771,12 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022f40e:	10c112        	addi	a1, a1, 16
 4022f411:	f00d      	ret.n
 4022f413:	0c0000        	excw
-4022f416:	700000        	excw
-4022f419:	402407        	blt	a4, a0, 4022f45d <pm_suspend+0x1a5>
-4022f41c:	f0c112        	addi	a1, a1, -16
-4022f41f:	0109      	s32i.n	a0, a1, 0
-4022f421:	ffbb85        	call0	4022efdc <pm_rf_is_closed>
+4022f416:	300000        	xor	a0, a0, a0
+4022f419:	0f          	.byte 0xf
+4022f41a:	124024        	excw
+4022f41d:	09f0c1        	l32r	a12, 401f1be0 <_lit4_end+0xeb7b8>
+4022f420:	bb8501        	l32r	a0, 4021e234 <wpa_parse_kde_ies+0xd20>
+4022f423:	ff          	.byte 0xff
 4022f424:	b2dc      	bnez.n	a2, 4022f443 <pm_suspend+0x18b>
 4022f426:	020c      	movi.n	a2, 0
 4022f428:	130c      	movi.n	a3, 1
@@ -50839,10 +50838,11 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022f4bf:	000000        	ill
 4022f4c2:	fff585        	call0	4022f41c <pm_suspend+0x164>
 4022f4c5:	fffb46        	j	4022f4b6 <pm_suspend+0x1fe>
-4022f4c8:	240790        	extui	a0, a9, 7, 3
+4022f4c8:	240f50        	extui	a0, a5, 15, 3
 4022f4cb:	232840        	excw
-4022f4ce:	e00000        	subx4	a0, a0, a0
-4022f4d1:	402406        	j	4023f565 <default_ssid+0x145>
+4022f4ce:	a00000        	addx4	a0, a0, a0
+4022f4d1:	0e          	.byte 0xe
+4022f4d2:	124024        	excw
 
 4022f4d4 <pm_shutdown>:
 4022f4d4:	f0c112        	addi	a1, a1, -16
@@ -50959,12 +50959,14 @@ void ICACHE_FLASH_ATTR user_init(void)
 
 4022f5f8 <pm_idle_sleep>:
 4022f5f8:	f00d      	ret.n
-4022f5fa:	a00000        	addx4	a0, a0, a0
-4022f5fd:	402407        	blt	a4, a0, 4022f641 <pm_open+0x31>
-4022f600:	fe8f00        	excw
+4022f5fa:	600000        	neg	a0, a0
+4022f5fd:	0f          	.byte 0xf
+4022f5fe:	004024        	excw
+4022f601:	8f          	.byte 0x8f
+4022f602:	fe          	.byte 0xfe
 4022f603:	3f          	.byte 0x3f
-4022f604:	2407c0        	extui	a0, a12, 7, 3
-4022f607:	07e040        	excw
+4022f604:	240f80        	extui	a0, a8, 15, 3
+4022f607:	0fa040        	excw
 4022f60a:	334024        	excw
 4022f60d:	3ffe95        	excw
 
@@ -51077,7 +51079,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022f730:	94fc      	bnez.n	a4, 4022f76d <pm_onBcnRx+0x21>
 4022f732:	fe          	.byte 0xfe
 4022f733:	3f          	.byte 0x3f
-4022f734:	240800        	extui	a0, a0, 8, 3
+4022f734:	240fc0        	extui	a0, a12, 15, 3
 4022f737:	954440        	extui	a4, a4, 20, 10
 4022f73a:	fe          	.byte 0xfe
 4022f73b:	3f          	.byte 0x3f
@@ -51447,7 +51449,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4022faef:	8f1400        	excw
 4022faf2:	fe          	.byte 0xfe
 4022faf3:	3f          	.byte 0x3f
-4022faf4:	240810        	extui	a0, a1, 8, 3
+4022faf4:	240fd0        	extui	a0, a13, 15, 3
 4022faf7:	4cf040        	excw
 4022fafa:	124000        	excw
 4022fafd:	c9e0c1        	l32r	a12, 40222280 <wifi_station_dhcpc_stop+0xc>
@@ -52407,7 +52409,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 402304a8:	440b      	addi.n	a4, a4, -1
 402304aa:	832340        	moveqz	a2, a3, a4
 402304ad:	f00d      	ret.n
-402304af:	082000        	excw
+402304af:	0fe000        	excw
 402304b2:	214024        	excw
 
 402304b4 <pm_scan_lock>:
@@ -52435,7 +52437,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 402304e8:	10c112        	addi	a1, a1, 16
 402304eb:	f00d      	ret.n
 402304ed:	000000        	ill
-402304f0:	0828      	l32i.n	a2, a8, 0
+402304f0:	0fe8      	l32i.n	a14, a15, 0
 402304f2:	214024        	excw
 
 402304f4 <pm_force_scan_unlock>:
@@ -52700,12 +52702,12 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023077c:	962c      	movi.n	a6, 41
 4023077e:	fe          	.byte 0xfe
 4023077f:	3f          	.byte 0x3f
-40230780:	240850        	extui	a0, a5, 8, 3
-40230783:	087040        	excw
-40230786:	904024        	excw
-40230789:	2408      	l32i.n	a0, a4, 8
-4023078b:	08a040        	excw
-4023078e:	124024        	excw
+40230780:	241010        	extui	a1, a1, 0, 3
+40230783:	103040        	and	a3, a0, a4
+40230786:	504024        	excw
+40230789:	402410        	excw
+4023078c:	241060        	extui	a1, a6, 0, 3
+4023078f:	c11240        	mul16u	a1, a2, a4
 
 40230790 <fpm_set_type_from_upper>:
 40230790:	f0c112        	addi	a1, a1, -16
@@ -52814,8 +52816,8 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023088f:	3f          	.byte 0x3f
 40230890:	fe9644        	excw
 40230893:	3f          	.byte 0x3f
-40230894:	2408b0        	extui	a0, a11, 8, 3
-40230897:	083040        	excw
+40230894:	241070        	extui	a1, a7, 0, 3
+40230897:	0ff040        	excw
 4023089a:	124024        	excw
 
 4023089c <fpm_close>:
@@ -52871,8 +52873,8 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023091c:	10c112        	addi	a1, a1, 16
 4023091f:	f00d      	ret.n
 40230921:	000000        	ill
-40230924:	2408c0        	extui	a0, a12, 8, 3
-40230927:	08e040        	excw
+40230924:	241080        	extui	a1, a8, 0, 3
+40230927:	10a040        	and	a10, a0, a4
 4023092a:	124024        	excw
 
 4023092c <fpm_open>:
@@ -53487,7 +53489,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40230f86:	ff          	.byte 0xff
 40230f87:	0f          	.byte 0xf
 40230f88:	002d50        	excw
-40230f8b:	090000        	excw
+40230f8b:	10c000        	and	a12, a0, a0
 40230f8e:	124024        	excw
 40230f91:	c9f0c1        	l32r	a12, 40223754 <wifi_station_set_hostname+0x98>
 40230f94:	110921        	l32r	a2, 401f53b8 <_lit4_end+0xeef90>
@@ -53754,12 +53756,11 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023125f:	4879      	s32i.n	a7, a8, 16
 40231261:	020c      	movi.n	a2, 0
 40231263:	ffefc6        	j	40231226 <fpm_do_sleep+0x52>
-40231266:	100000        	and	a0, a0, a0
-40231269:	2409      	s32i.n	a0, a4, 8
-4023126b:	093040        	excw
-4023126e:	404024        	excw
-40231271:	2409      	s32i.n	a0, a4, 8
-40231273:	c11240        	mul16u	a1, a2, a4
+40231266:	d00000        	subx2	a0, a0, a0
+40231269:	402410        	excw
+4023126c:	2410f0        	extui	a1, a15, 0, 3
+4023126f:	110040        	slli	a0, a0, 12
+40231272:	124024        	excw
 
 40231274 <fpm_auto_sleep_set_in_null_mode>:
 40231274:	f0c112        	addi	a1, a1, -16
@@ -53926,8 +53927,8 @@ void ICACHE_FLASH_ATTR user_init(void)
 402313e8:	10c112        	addi	a1, a1, 16
 402313eb:	f00d      	ret.n
 402313ed:	000000        	ill
-402313f0:	240960        	extui	a0, a6, 9, 3
-402313f3:	097040        	excw
+402313f0:	241120        	extui	a1, a2, 1, 3
+402313f3:	113040        	slli	a3, a0, 12
 402313f6:	214024        	excw
 
 402313f8 <pp_enable_noise_timer>:
@@ -54124,7 +54125,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 402315cf:	90b800        	addx2	a11, a8, a0
 402315d2:	fe          	.byte 0xfe
 402315d3:	3f          	.byte 0x3f
-402315d4:	240950        	extui	a0, a5, 9, 3
+402315d4:	241110        	extui	a1, a1, 1, 3
 402315d7:	c11240        	mul16u	a1, a2, a4
 
 402315d8 <ppPeocessRxPktHdr>:
@@ -54511,7 +54512,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 402319d4:	8c4c      	movi.n	a12, 72
 402319d6:	fe          	.byte 0xfe
 402319d7:	3f          	.byte 0x3f
-402319d8:	240980        	extui	a0, a8, 9, 3
+402319d8:	241140        	extui	a1, a4, 1, 3
 402319db:	493040        	excw
 402319de:	e84010        	excw
 402319e1:	401044        	excw
@@ -55262,7 +55263,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40232143:	146532        	s32i	a3, a5, 80
 40232146:	4a4542        	s8i	a4, a5, 74
 40232149:	f00d      	ret.n
-4023214b:	099000        	excw
+4023214b:	115000        	slli	a5, a0, 16
 4023214e:	124024        	excw
 
 40232150 <freq_change_check_scan_done>:
@@ -55446,9 +55447,9 @@ void ICACHE_FLASH_ATTR user_init(void)
 40232333:	120c      	movi.n	a2, 1
 40232335:	144322        	s8i	a2, a3, 20
 40232338:	f00d      	ret.n
-4023233a:	b00000        	addx8	a0, a0, a0
-4023233d:	2409      	s32i.n	a0, a4, 8
-4023233f:	96dc40        	excw
+4023233a:	700000        	excw
+4023233d:	402411        	l32r	a1, 402023d0 <_lit4_end+0xfbfa8>
+40232340:	96dc      	bnez.n	a6, 4023235d <DefFreqCalTimerCB+0x2d>
 40232342:	fe          	.byte 0xfe
 40232343:	3f          	.byte 0x3f
 40232344:	232330        	excw
@@ -56698,7 +56699,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40233031:	f00d      	ret.n
 40233033:	46d400        	excw
 40233036:	544010        	extui	a4, a1, 0, 6
-40233039:	3ffe86        	j	40243037 <_irom0_text_end+0x19c3>
+40233039:	3ffe86        	j	40243037 <_irom0_text_end+0x1203>
 4023303c:	104664        	excw
 4023303f:	85a040        	extui	a10, a4, 16, 9
 40233042:	fe          	.byte 0xfe
@@ -56942,10 +56943,10 @@ void ICACHE_FLASH_ATTR user_init(void)
 40233293:	103340        	and	a3, a3, a4
 40233296:	5239      	s32i.n	a3, a2, 20
 40233298:	f00d      	ret.n
-4023329a:	e00000        	subx4	a0, a0, a0
-4023329d:	2409      	s32i.n	a0, a4, 8
-4023329f:	09d040        	excw
-402332a2:	0c4024        	excw
+4023329a:	a00000        	addx4	a0, a0, a0
+4023329d:	402411        	l32r	a1, 40203330 <_lit4_end+0xfcf08>
+402332a0:	241190        	extui	a1, a9, 1, 3
+402332a3:	180c40        	excw
 
 402332a4 <rc_enable_trc>:
 402332a4:	180c      	movi.n	a8, 1
@@ -57039,10 +57040,9 @@ void ICACHE_FLASH_ATTR user_init(void)
 40233382:	f00d      	ret.n
 40233384:	fe9ac6        	j	40232df3 <pp_attach+0x57b>
 40233387:	3f          	.byte 0x3f
-40233388:	09e8      	l32i.n	a14, a9, 0
-4023338a:	f04024        	excw
-4023338d:	2409      	s32i.n	a0, a4, 8
-4023338f:	170c40        	excw
+40233388:	11a8      	l32i.n	a10, a1, 4
+4023338a:	b04024        	excw
+4023338d:	402411        	l32r	a1, 40203420 <_lit4_end+0xfcff8>
 
 40233390 <rc_disable_trc>:
 40233390:	170c      	movi.n	a7, 1
@@ -57859,7 +57859,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40233bc1:	8f6522        	s32i	a2, a5, 0x23c
 40233bc4:	f00d      	ret.n
 40233bc6:	000000        	ill
-40233bc9:	3ff206        	j	40243b95 <_irom0_text_end+0x2521>
+40233bc9:	3ff206        	j	40243b95 <_irom0_text_end+0x1d61>
 40233bcc:	f21200        	excw
 40233bcf:	3f          	.byte 0x3f
 
@@ -58402,7 +58402,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023413b:	cec000        	excw
 4023413e:	fe          	.byte 0xfe
 4023413f:	3f          	.byte 0x3f
-40234140:	240a00        	extui	a0, a0, 10, 3
+40234140:	2411c0        	extui	a1, a12, 1, 3
 40234143:	046d40        	extui	a6, a4, 13, 1
 
 40234144 <esf_buf_alloc>:
@@ -59089,7 +59089,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 402347f4:	10c112        	addi	a1, a1, 16
 402347f7:	f00d      	ret.n
 402347f9:	000000        	ill
-402347fc:	241470        	extui	a1, a7, 4, 3
+402347fc:	241c30        	extui	a1, a3, 12, 3
 402347ff:	c11240        	mul16u	a1, a2, a4
 40234802:	61c9e0        	excw
 40234805:	82c8      	l32i.n	a12, a2, 32
@@ -59706,10 +59706,10 @@ void ICACHE_FLASH_ATTR user_init(void)
 40234e20:	e85c      	movi.n	a8, 94
 40234e22:	fe          	.byte 0xfe
 40234e23:	3f          	.byte 0x3f
-40234e24:	241474        	excw
+40234e24:	241c34        	excw
 40234e27:	c11240        	mul16u	a1, a2, a4
 40234e2a:	1432a0        	extui	a3, a10, 2, 2
-40234e2d:	61c205        	call0	40296a50 <_irom0_text_end+0x553dc>
+40234e2d:	61c205        	call0	40296a50 <_irom0_text_end+0x54c1c>
 40234e30:	61e216        	beqz	a2, 40235452 <dhcp_network_changed+0xe>
 40234e33:	61f214        	excw
 40234e36:	02cd13        	excw
@@ -60677,8 +60677,9 @@ void ICACHE_FLASH_ATTR user_init(void)
 402357c6:	10c112        	addi	a1, a1, 16
 402357c9:	f00d      	ret.n
 402357cb:	11e000        	slli	a14, a0, 16
-402357ce:	bc6000        	excw
-402357d1:	402410        	excw
+402357ce:	7c6000        	excw
+402357d1:	2418      	l32i.n	a1, a4, 8
+402357d3:	a92140        	excw
 
 402357d4 <dhcp_fine_tmr>:
 402357d4:	ffa921        	l32r	a2, 40235678 <dhcp_renew+0x13c>
@@ -61121,7 +61122,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40235c23:	e87c00        	excw
 40235c26:	fe          	.byte 0xfe
 40235c27:	3f          	.byte 0x3f
-40235c28:	10cc      	bnez.n	a0, 40235c2d <node_remove_from_list+0x2d>
+40235c28:	188c      	beqz.n	a8, 40235c2d <node_remove_from_list+0x2d>
 40235c2a:	784024        	excw
 40235c2d:	fee8      	l32i.n	a14, a14, 60
 40235c2f:	3f          	.byte 0x3f
@@ -61908,7 +61909,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 402363b4:	50c112        	addi	a1, a1, 80
 402363b7:	f00d      	ret.n
 402363b9:	000000        	ill
-402363bc:	2410f4        	excw
+402363bc:	2418b4        	excw
 402363bf:	c11240        	mul16u	a1, a2, a4
 402363c2:	61d2b0        	xsr.excsave2	a11
 402363c5:	610211        	l32r	a1, 4020e7d0 <_lit4_end+0x1083a8>
@@ -62385,7 +62386,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023689d:	f6be56        	bnez	a14, 4023680c <wifi_softap_dhcps_client_update+0x6a4>
 402368a0:	ffd246        	j	402367ed <wifi_softap_dhcps_client_update+0x685>
 402368a3:	2f4200        	excw
-402368a6:	0d2d45        	call0	40243b7c <_irom0_text_end+0x2508>
+402368a6:	0d2d45        	call0	40243b7c <_irom0_text_end+0x1d48>
 402368a9:	030c      	movi.n	a3, 0
 402368ab:	0005c0        	callx0	a5
 402368ae:	020c      	movi.n	a2, 0
@@ -64158,7 +64159,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023791f:	10c112        	addi	a1, a1, 16
 40237922:	000080        	ret
 40237925:	000000        	ill
-40237928:	1118      	l32i.n	a1, a1, 4
+40237928:	18d8      	l32i.n	a13, a8, 4
 4023792a:	844024        	excw
 4023792d:	fe8c      	beqz.n	a14, 40237940 <espconn_dns_getserver+0x30>
 4023792f:	3f          	.byte 0x3f
@@ -64233,7 +64234,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 402379ca:	2239      	s32i.n	a3, a2, 8
 402379cc:	1239      	s32i.n	a3, a2, 4
 402379ce:	f00d      	ret.n
-402379d0:	1138      	l32i.n	a3, a1, 4
+402379d0:	18f8      	l32i.n	a15, a8, 4
 402379d2:	b14024        	excw
 402379d5:	fe8c      	beqz.n	a14, 402379e8 <ringbuf_free+0x10>
 402379d7:	3f          	.byte 0x3f
@@ -64336,7 +64337,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40237a94 <ringbuf_head>:
 40237a94:	1228      	l32i.n	a2, a2, 4
 40237a96:	f00d      	ret.n
-40237a98:	241130        	extui	a1, a3, 1, 3
+40237a98:	2418f0        	extui	a1, a15, 8, 3
 40237a9b:	8ca140        	excw
 40237a9e:	fe          	.byte 0xfe
 40237a9f:	3f          	.byte 0x3f
@@ -64406,11 +64407,11 @@ void ICACHE_FLASH_ATTR user_init(void)
 40237b31:	b1f8      	l32i.n	a15, a1, 44
 40237b33:	40c112        	addi	a1, a1, 64
 40237b36:	f00d      	ret.n
-40237b38:	1128      	l32i.n	a2, a1, 4
+40237b38:	18e8      	l32i.n	a14, a8, 4
 40237b3a:	924024        	excw
 40237b3d:	fe8c      	beqz.n	a14, 40237b50 <ringbuf_memset+0xc>
 40237b3f:	3f          	.byte 0x3f
-40237b40:	241120        	extui	a1, a2, 1, 3
+40237b40:	2418e0        	extui	a1, a14, 8, 3
 40237b43:	c11240        	mul16u	a1, a2, a4
 
 40237b44 <ringbuf_memset>:
@@ -64486,11 +64487,11 @@ void ICACHE_FLASH_ATTR user_init(void)
 40237be8:	30c112        	addi	a1, a1, 48
 40237beb:	f00d      	ret.n
 40237bed:	000000        	ill
-40237bf0:	241110        	extui	a1, a1, 1, 3
+40237bf0:	2418d0        	extui	a1, a13, 8, 3
 40237bf3:	8c7040        	excw
 40237bf6:	fe          	.byte 0xfe
 40237bf7:	3f          	.byte 0x3f
-40237bf8:	1108      	l32i.n	a0, a1, 4
+40237bf8:	18c8      	l32i.n	a12, a8, 4
 40237bfa:	124024        	excw
 
 40237bfc <ringbuf_memcpy_into>:
@@ -64562,11 +64563,11 @@ void ICACHE_FLASH_ATTR user_init(void)
 40237c99:	71f8      	l32i.n	a15, a1, 28
 40237c9b:	30c112        	addi	a1, a1, 48
 40237c9e:	f00d      	ret.n
-40237ca0:	241100        	extui	a1, a0, 1, 3
+40237ca0:	2418c0        	extui	a1, a12, 8, 3
 40237ca3:	8c5c40        	excw
 40237ca6:	fe          	.byte 0xfe
 40237ca7:	3f          	.byte 0x3f
-40237ca8:	10f8      	l32i.n	a15, a0, 4
+40237ca8:	18b8      	l32i.n	a11, a8, 4
 40237caa:	124024        	excw
 
 40237cac <ringbuf_memcpy_from>:
@@ -65000,9 +65001,9 @@ void ICACHE_FLASH_ATTR user_init(void)
 402380e2:	40c112        	addi	a1, a1, 64
 402380e5:	f00d      	ret.n
 402380e7:	8c4400        	excw
-402380ea:	5c4023        	excw
-402380ed:	402411        	l32r	a1, 40208180 <_lit4_end+0x101d58>
-402380f0:	8c3c      	movi.n	a12, 56
+402380ea:	1c4023        	excw
+402380ed:	2419      	s32i.n	a1, a4, 8
+402380ef:	8c3c40        	excw
 402380f2:	fe          	.byte 0xfe
 402380f3:	3f          	.byte 0x3f
 402380f4:	f0c112        	addi	a1, a1, -16
@@ -65565,7 +65566,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40238661:	003506        	j	40238739 <espconn_tcp_memp_free+0x1fd>
 40238664:	2c3200        	excw
 40238667:	e34713        	excw
-4023866a:	3cc005        	call0	4027526c <_irom0_text_end+0x33bf8>
+4023866a:	3cc005        	call0	4027526c <_irom0_text_end+0x33438>
 4023866d:	6d4520        	excw
 40238670:	fe          	.byte 0xfe
 40238671:	ffc845        	call0	402382f8 <espconn_kill_oldest_pcb>
@@ -65782,7 +65783,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40238884:	3108      	l32i.n	a0, a1, 12
 40238886:	10c112        	addi	a1, a1, 16
 40238889:	f00d      	ret.n
-4023888b:	11a400        	slli	a10, a4, 16
+4023888b:	196400        	excw
 4023888e:	124024        	excw
 
 40238890 <espconn_recv_hold>:
@@ -65814,7 +65815,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 402388d4:	20c112        	addi	a1, a1, 32
 402388d7:	f00d      	ret.n
 402388d9:	000000        	ill
-402388dc:	1178      	l32i.n	a7, a1, 4
+402388dc:	1938      	l32i.n	a3, a9, 4
 402388de:	124024        	excw
 
 402388e0 <espconn_recv_unhold>:
@@ -65960,7 +65961,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40238a34:	000606        	j	40238a50 <espconn_lock_recv+0x10c>
 40238a37:	2f3200        	excw
 40238a3a:	1f4201        	l32r	a0, 40200744 <_lit4_end+0xfa31c>
-40238a3d:	2c2205        	call0	40264c60 <_irom0_text_end+0x235ec>
+40238a3d:	2c2205        	call0	40264c60 <_irom0_text_end+0x22e2c>
 40238a40:	8519      	s32i.n	a1, a5, 32
 40238a42:	ff1b      	addi.n	a15, a15, 1
 40238a44:	202ff0        	or	a2, a15, a15
@@ -66051,7 +66052,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40238b10:	000606        	j	40238b2c <espconn_lock_recv+0x1e8>
 40238b13:	2f3200        	excw
 40238b16:	1f4201        	l32r	a0, 40200820 <_lit4_end+0xfa3f8>
-40238b19:	2c2205        	call0	40264d3c <_irom0_text_end+0x236c8>
+40238b19:	2c2205        	call0	40264d3c <_irom0_text_end+0x22f08>
 40238b1c:	c519      	s32i.n	a1, a5, 48
 40238b1e:	ff0d      	ret.n
 40238b20:	202ff0        	or	a2, a15, a15
@@ -66144,7 +66145,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40238beb:	3f0c      	movi.n	a15, 3
 40238bed:	000f86        	j	40238c2f <espconn_tcp_write+0xb3>
 40238bf0:	1c2200        	excw
-40238bf3:	3e2a06        	j	4024849f <_irom0_text_end+0x6e2b>
+40238bf3:	3e2a06        	j	4024849f <_irom0_text_end+0x666b>
 40238bf6:	f43030        	extui	a3, a3, 0, 16
 40238bf9:	051c22        	l16ui	a2, a12, 10
 40238bfc:	065c32        	s16i	a3, a12, 12
@@ -66365,7 +66366,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40238e14:	31f8      	l32i.n	a15, a1, 12
 40238e16:	20c112        	addi	a1, a1, 32
 40238e19:	f00d      	ret.n
-40238e1b:	114000        	slli	a4, a0, 16
+40238e1b:	190000        	excw
 40238e1e:	124024        	excw
 
 40238e20 <espconn_tcp_delete>:
@@ -67437,7 +67438,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023983a:	f00d      	ret.n
 4023983c:	feed04        	excw
 4023983f:	3f          	.byte 0x3f
-40239840:	1478      	l32i.n	a7, a4, 4
+40239840:	1c38      	l32i.n	a3, a12, 4
 40239842:	124024        	excw
 
 40239844 <etharp_query>:
@@ -67813,7 +67814,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40239bf8:	002446        	j	40239c8d <ethernet_input+0x1dd>
 40239bfb:	d81600        	excw
 40239bfe:	0c08      	l32i.n	a0, a12, 0
-40239c00:	413805        	call0	4027af84 <_irom0_text_end+0x39910>
+40239c00:	413805        	call0	4027af84 <_irom0_text_end+0x39150>
 40239c03:	5128      	l32i.n	a2, a1, 20
 40239c05:	144e52        	s8i	a5, a14, 20
 40239c08:	154e92        	s8i	a9, a14, 21
@@ -67941,7 +67942,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40239d43:	830c      	movi.n	a3, 8
 40239d45:	202cc0        	or	a2, a12, a12
 40239d48:	086142        	s32i	a4, a1, 32
-40239d4b:	076885        	call0	402413d4 <inet_chksum>
+40239d4b:	07e485        	call0	40241b94 <inet_chksum>
 40239d4e:	024c22        	s8i	a2, a12, 2
 40239d51:	f42820        	extui	a2, a2, 8, 16
 40239d54:	034c22        	s8i	a2, a12, 3
@@ -68194,7 +68195,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 40239f89:	003346        	j	4023a05a <igmp_input+0x106>
 40239f8c:	012dc2        	l32i	a12, a13, 4
 40239f8f:	202cc0        	or	a2, a12, a12
-40239f92:	074405        	call0	402413d4 <inet_chksum>
+40239f92:	07c005        	call0	40241b94 <inet_chksum>
 40239f95:	204220        	or	a4, a2, a2
 40239f98:	0be256        	bnez	a2, 4023a05a <igmp_input+0x106>
 40239f9b:	0e2d      	mov.n	a2, a14
@@ -68555,7 +68556,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023a308:	10c112        	addi	a1, a1, 16
 4023a30b:	f00d      	ret.n
 4023a30d:	000000        	ill
-4023a310:	145c      	movi.n	a4, 81
+4023a310:	1c1c      	movi.n	a12, 17
 4023a312:	414024        	excw
 
 4023a314 <ip_router>:
@@ -68645,7 +68646,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023a3e3:	202ee0        	or	a2, a14, a14
 4023a3e6:	0f3d      	mov.n	a3, a15
 4023a3e8:	026162        	s32i	a6, a1, 8
-4023a3eb:	06fe85        	call0	402413d4 <inet_chksum>
+4023a3eb:	077a85        	call0	40241b94 <inet_chksum>
 4023a3ee:	fbf256        	bnez	a2, 4023a3b1 <ip_input+0x31>
 4023a3f1:	0d3d      	mov.n	a3, a13
 4023a3f3:	0c2d      	mov.n	a2, a12
@@ -68692,7 +68693,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023a464:	15c256        	bnez	a2, 4023a5c4 <ip_input+0x244>
 4023a467:	005286        	j	4023a5b5 <ip_input+0x235>
 4023a46a:	220000        	excw
-4023a46d:	073905        	call0	40241800 <_irom0_text_end+0x18c>
+4023a46d:	073905        	call0	40241800 <ieee80211_opcap+0x620>
 4023a470:	ec04e2        	l8ui	a14, a4, 236
 4023a473:	0c46a7        	ball	a6, a10, 4023a483 <ip_input+0x103>
 4023a476:	253200        	extui	a3, a0, 18, 3
@@ -68780,7 +68781,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023a559:	0010c6        	j	4023a5a0 <ip_input+0x220>
 4023a55c:	2d0000        	excw
 4023a55f:	3d0c      	movi.n	a13, 3
-4023a561:	5b4506        	j	40251279 <_irom0_text_end+0xfc05>
+4023a561:	5b4506        	j	40251279 <_irom0_text_end+0xf445>
 4023a564:	0dc604        	excw
 4023a567:	2cc000        	excw
 4023a56a:	366020        	excw
@@ -71025,9 +71026,10 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023ba38:	11d8      	l32i.n	a13, a1, 4
 4023ba3a:	10c112        	addi	a1, a1, 16
 4023ba3d:	f00d      	ret.n
-4023ba3f:	14b000        	extui	a11, a0, 0, 2
-4023ba42:	b74024        	excw
-4023ba45:	402414        	excw
+4023ba3f:	1c7000        	excw
+4023ba42:	774024        	excw
+4023ba45:	241c      	movi.n	a4, 18
+4023ba47:	c11240        	mul16u	a1, a2, a4
 
 4023ba48 <tcp_slowtmr>:
 4023ba48:	d0c112        	addi	a1, a1, -48
@@ -72247,7 +72249,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023c668:	280552        	l8ui	a5, a5, 40
 4023c66b:	335002        	s16i	a0, a0, 102
 4023c66e:	1252c0        	excw
-4023c671:	253705        	call0	402619e4 <_irom0_text_end+0x20370>
+4023c671:	253705        	call0	402619e4 <_irom0_text_end+0x1fbb0>
 4023c674:	ee          	.byte 0xee
 4023c675:	603030        	neg	a3, a3
 4023c678:	113300        	slli	a3, a3, 16
@@ -72572,7 +72574,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023c9e5:	fff8c6        	j	4023c9cc <tcp_connect+0x8c4>
 4023c9e8:	2f6200        	excw
 4023c9eb:	06a204        	excw
-4023c9ee:	06b205        	call0	40243510 <_irom0_text_end+0x1e9c>
+4023c9ee:	06b205        	call0	40243510 <_irom0_text_end+0x16dc>
 4023c9f1:	069204        	excw
 4023c9f4:	aa8006        	j	402273f8 <chip_v6_rf_init+0x10>
 4023c9f7:	066211        	l32r	a1, 401fe380 <_lit4_end+0xf7f58>
@@ -72583,7 +72585,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023ca06:	669001        	l32r	a0, 40216448 <ieee80211_node_pwrsave+0x8>
 4023ca09:	676020        	excw
 4023ca0c:	b696c0        	excw
-4023ca0f:	685005        	call0	402a4f10 <_irom0_text_end+0x6389c>
+4023ca0f:	685005        	call0	402a4f10 <_irom0_text_end+0x630dc>
 4023ca12:	16e6c0        	excw
 4023ca15:	352155        	excw
 4023ca18:	fe          	.byte 0xfe
@@ -72754,7 +72756,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023cbdb:	000d06        	j	4023cc13 <tcp_connect+0xb0b>
 4023cbde:	520000        	excw
 4023cbe1:	660104        	excw
-4023cbe4:	523245        	call0	4028ef0c <_irom0_text_end+0x4d898>
+4023cbe4:	523245        	call0	4028ef0c <_irom0_text_end+0x4d0d8>
 4023cbe7:	6703c3        	excw
 4023cbea:	522ca5        	excw
 4023cbed:	420204        	excw
@@ -72828,7 +72830,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023cc93:	0f3d      	mov.n	a3, a15
 4023cc95:	0c4d      	mov.n	a4, a12
 4023cc97:	650c      	movi.n	a5, 6
-4023cc99:	0459c5        	call0	40241238 <inet_chksum_pseudo>
+4023cc99:	04d5c5        	call0	402419f8 <inet_chksum_pseudo>
 4023cc9c:	fc2256        	bnez	a2, 4023cc62 <tcp_input+0x3a>
 4023cc9f:	0e28      	l32i.n	a2, a14, 0
 4023cca1:	0c0232        	l8ui	a3, a2, 12
@@ -74191,7 +74193,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023dad4:	0e4d      	mov.n	a4, a14
 4023dad6:	650c      	movi.n	a5, 6
 4023dad8:	202dd0        	or	a2, a13, a13
-4023dadb:	0375c5        	call0	40241238 <inet_chksum_pseudo>
+4023dadb:	03f1c5        	call0	402419f8 <inet_chksum_pseudo>
 4023dade:	104f22        	s8i	a2, a15, 16
 4023dae1:	f42820        	extui	a2, a2, 8, 16
 4023dae4:	114f22        	s8i	a2, a15, 17
@@ -74215,7 +74217,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023db0e:	20c112        	addi	a1, a1, 32
 4023db11:	f00d      	ret.n
 4023db13:	040200        	extui	a0, a0, 2, 1
-4023db16:	12b405        	call0	40250658 <_irom0_text_end+0xefe4>
+4023db16:	12b405        	call0	40250658 <_irom0_text_end+0xe824>
 
 4023db18 <tcp_output>:
 4023db18:	d0c112        	addi	a1, a1, -48
@@ -74398,7 +74400,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023dd0d:	650c      	movi.n	a5, 6
 4023dd0f:	0c3d      	mov.n	a3, a12
 4023dd11:	1179      	s32i.n	a7, a1, 4
-4023dd13:	035245        	call0	40241238 <inet_chksum_pseudo>
+4023dd13:	03ce45        	call0	402419f8 <inet_chksum_pseudo>
 4023dd16:	1178      	l32i.n	a7, a1, 4
 4023dd18:	0c3d      	mov.n	a3, a12
 4023dd1a:	104722        	s8i	a2, a7, 16
@@ -74700,7 +74702,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023e04a:	650c      	movi.n	a5, 6
 4023e04c:	0d2d      	mov.n	a2, a13
 4023e04e:	036172        	s32i	a7, a1, 12
-4023e051:	031e45        	call0	40241238 <inet_chksum_pseudo>
+4023e051:	039a45        	call0	402419f8 <inet_chksum_pseudo>
 4023e054:	3178      	l32i.n	a7, a1, 12
 4023e056:	104c22        	s8i	a2, a12, 16
 4023e059:	f42820        	extui	a2, a2, 8, 16
@@ -74917,7 +74919,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023e265:	0d3d      	mov.n	a3, a13
 4023e267:	0e4d      	mov.n	a4, a14
 4023e269:	650c      	movi.n	a5, 6
-4023e26b:	02fcc5        	call0	40241238 <inet_chksum_pseudo>
+4023e26b:	0378c5        	call0	402419f8 <inet_chksum_pseudo>
 4023e26e:	104f22        	s8i	a2, a15, 16
 4023e271:	f42820        	extui	a2, a2, 8, 16
 4023e274:	114f22        	s8i	a2, a15, 17
@@ -75026,7 +75028,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023e379:	0e4d      	mov.n	a4, a14
 4023e37b:	650c      	movi.n	a5, 6
 4023e37d:	0f2d      	mov.n	a2, a15
-4023e37f:	02eb85        	call0	40241238 <inet_chksum_pseudo>
+4023e37f:	036785        	call0	402419f8 <inet_chksum_pseudo>
 4023e382:	104d22        	s8i	a2, a13, 16
 4023e385:	f42820        	extui	a2, a2, 8, 16
 4023e388:	114d22        	s8i	a2, a13, 17
@@ -75154,7 +75156,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023e49e:	f00d      	ret.n
 4023e4a0:	e51c      	movi.n	a5, 30
 4023e4a2:	244023        	excw
-4023e4a5:	600006        	j	402564a9 <_irom0_text_end+0x14e35>
+4023e4a5:	600006        	j	402564a9 <_irom0_text_end+0x14675>
 4023e4a8:	feee54        	excw
 4023e4ab:	3f          	.byte 0x3f
 
@@ -75454,7 +75456,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023e77d:	041d62        	l16ui	a6, a13, 8
 4023e780:	202dd0        	or	a2, a13, a13
 4023e783:	11a052        	movi	a5, 17
-4023e786:	02ab05        	call0	40241238 <inet_chksum_pseudo>
+4023e786:	032705        	call0	402419f8 <inet_chksum_pseudo>
 4023e789:	ecb256        	bnez	a2, 4023e658 <udp_input+0x38>
 4023e78c:	0d2d      	mov.n	a2, a13
 4023e78e:	837c      	movi.n	a3, -8
@@ -75654,7 +75656,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023e976:	0f3d      	mov.n	a3, a15
 4023e978:	151c      	movi.n	a5, 17
 4023e97a:	7199      	s32i.n	a9, a1, 28
-4023e97c:	028b85        	call0	40241238 <inet_chksum_pseudo>
+4023e97c:	030785        	call0	402419f8 <inet_chksum_pseudo>
 4023e97f:	48dd41        	l32r	a4, 40210cf4 <ieee80211_mhz2ieee+0x5c>
 4023e982:	7198      	l32i.n	a9, a1, 28
 4023e984:	934220        	movnez	a4, a2, a2
@@ -75893,7 +75895,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023eba7:	0282f6        	bgeui	a2, 8, 4023ebad <icmp_input+0x95>
 4023ebaa:	003d86        	j	4023eca4 <icmp_input+0x18c>
 4023ebad:	0c2d      	mov.n	a2, a12
-4023ebaf:	028405        	call0	402413f0 <inet_chksum_pbuf>
+4023ebaf:	030005        	call0	40241bb0 <inet_chksum_pbuf>
 4023ebb2:	0ee256        	bnez	a2, 4023eca4 <icmp_input+0x18c>
 4023ebb5:	0c2d      	mov.n	a2, a12
 4023ebb7:	232c      	movi.n	a3, 34
@@ -75967,7 +75969,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023ec74:	0b4d      	mov.n	a4, a11
 4023ec76:	431c      	movi.n	a3, 20
 4023ec78:	202dd0        	or	a2, a13, a13
-4023ec7b:	027585        	call0	402413d4 <inet_chksum>
+4023ec7b:	02f185        	call0	40241b94 <inet_chksum>
 4023ec7e:	0a4d22        	s8i	a2, a13, 10
 4023ec81:	5138      	l32i.n	a3, a1, 20
 4023ec83:	f42820        	extui	a2, a2, 8, 16
@@ -76031,7 +76033,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023ed08:	024cd2        	s8i	a13, a12, 2
 4023ed0b:	034cd2        	s8i	a13, a12, 3
 4023ed0e:	0c2d      	mov.n	a2, a12
-4023ed10:	026c05        	call0	402413d4 <inet_chksum>
+4023ed10:	02e805        	call0	40241b94 <inet_chksum>
 4023ed13:	024c22        	s8i	a2, a12, 2
 4023ed16:	f42820        	extui	a2, a2, 8, 16
 4023ed19:	034c22        	s8i	a2, a12, 3
@@ -76071,10 +76073,10 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023ed6c:	000000        	ill
 4023ed6f:	000500        	excw
 4023ed72:	050204        	excw
-4023ed75:	020505        	call0	40240dc8 <ieee80211_opcap+0x3a8>
-4023ed78:	040005        	call0	40242d7c <_irom0_text_end+0x1708>
-4023ed7b:	040505        	call0	40242dcc <_irom0_text_end+0x1758>
-4023ed7e:	040505        	call0	40242dd0 <_irom0_text_end+0x175c>
+4023ed75:	020505        	call0	40240dc8 <index_page_str$3062+0x13f4>
+4023ed78:	040005        	call0	40242d7c <_irom0_text_end+0xf48>
+4023ed7b:	040505        	call0	40242dcc <_irom0_text_end+0xf98>
+4023ed7e:	040505        	call0	40242dd0 <_irom0_text_end+0xf9c>
 4023ed81:	fe          	.byte 0xfe
 4023ed82:	fffd      	excw
 4023ed84:	f0f0f0        	subx8	a15, a0, a15
@@ -76118,7 +76120,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023ee27:	0a7074        	excw
 4023ee2a:	000000        	ill
 4023ee2d:	000000        	ill
-4023ee30:	746146        	j	4025bfb9 <_irom0_text_end+0x1a945>
+4023ee30:	746146        	j	4025bfb9 <_irom0_text_end+0x1a185>
 4023ee33:	206c61        	l32r	a6, 40206fe4 <_lit4_end+0x100bbc>
 4023ee36:	637865        	excw
 4023ee39:	747065        	excw
@@ -76243,7 +76245,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023ef83:	536461        	l32r	a6, 40213d14 <ieee80211_parse_beacon+0x374>
 4023ef86:	726f74        	excw
 4023ef89:	495065        	excw
-4023ef8c:	614446        	j	402574a1 <_irom0_text_end+0x15e2d>
+4023ef8c:	614446        	j	402574a1 <_irom0_text_end+0x1566d>
 4023ef8f:	456174        	excw
 4023ef92:	6f7272        	excw
 4023ef95:	614372        	s8i	a7, a3, 97
@@ -76267,7 +76269,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023efc3:	536461        	l32r	a6, 40213d54 <ieee80211_parse_beacon+0x3b4>
 4023efc6:	726f74        	excw
 4023efc9:	495065        	excw
-4023efcc:	644146        	j	402580d5 <_irom0_text_end+0x16a61>
+4023efcc:	644146        	j	402580d5 <_irom0_text_end+0x162a1>
 4023efcf:	457264        	excw
 4023efd2:	6f7272        	excw
 4023efd5:	614372        	s8i	a7, a3, 97
@@ -76743,954 +76745,1078 @@ void ICACHE_FLASH_ATTR user_init(void)
 4023f9a0:	3a7069 2e6425 2e6425 2e6425 2c6425 73616d     ip:%d.%d.%d.%d,m
 4023f9b0:	6b7361 64253a 64252e 64252e 64252e 77672c     ask:%d.%d.%d.%d,
 4023f9c0:	3a7767 2e6425 2e6425 2e6425 006425 0a2900     gw:%d.%d.%d.%d..
-4023f9d0:	000a29 544800                                 )...
+4023f9d0:	000a29 213c00                                 )...
 
 4023f9d4 <index_page_str$3062>:
-4023f9d4:	545448 312f50 20302e 303032 4b4f20 430a0d     HTTP/1.0 200 OK.
-4023f9e4:	6f430a 65746e 2d746e 707954 203a65 786574     .Content-Type: t
-4023f9f4:	747865 74682f 0d6c6d 0a0d0a 74683c 3e6c6d     ext/html....<htm
-4023fa04:	3c3e6c 616568 3c3e64 74656d 682061 707474     l><head><meta ht
-4023fa14:	2d7074 757165 3d7669 6f4327 65746e 2d746e     tp-equiv='Conten
-4023fa24:	542d74 657079 632027 746e6f 746e65 74273d     t-Type' content=
-4023fa34:	657427 2f7478 6d7468 203b6c 616863 657372     'text/html; char
-4023fa44:	746573 74753d 382d66 2f2027 743c3e 6c7469     set=utf-8' /><ti
-4023fa54:	656c74 8ee63e 88e5a7 8de5b6 2f3ca1 746974     tle>.........</t
-4023fa64:	6c7469 3c3e65 726373 747069 75663e 74636e     itle><script>fun
-4023fa74:	697463 206e6f 666572 736572 6e2868 097b29     ction refresh(n)
-4023fa84:	69097b 6e2866 313d3d 090929 6e6977 776f64     {.if(n==1)..wind
-4023fa94:	2e776f 626154 54656c 2e5458 776f72 305b73     ow.TableTXT.rows
-4023faa4:	5d305b 65632e 736c6c 5d305b 6e692e 72656e     [0].cells[0].inn
-4023fab4:	487265 4c4d54 69773d 6f646e 642e77 2e3174     erHTML=window.dt
-4023fac4:	762e31 756c61 093b65 736c65 090965 6e6977     1.value;.else..w
-4023fad4:	646e69 2e776f 626154 54656c 2e5458 776f72     indow.TableTXT.r
-4023fae4:	73776f 5d315b 65632e 736c6c 5d305b 6e692e     ows[1].cells[0].
-4023faf4:	6e6e69 487265 4c4d54 69773d 6f646e 642e77     innerHTML=window
-4023fb04:	74642e 762e32 756c61 7d3b65 732f3c 697263     .dt2.value;}</sc
-4023fb14:	706972 3c3e74 65682f 3e6461 6f623c 3e7964     ript></head><bod
-4023fb24:	3c3e79 626174 20656c 646977 3d6874 303927     y><table width='
-4023fb34:	253039 622027 64726f 3d7265 273127 6c6120     90%' border='1' 
-4023fb44:	696c61 3d6e67 656327 65746e 202772 3d6469     align='center' i
-4023fb54:	273d64 626154 54656c 275458 20203e 72743c     d='TableTXT'>  <
-4023fb64:	3e7274 202020 743c20 682064 676965 3d7468     tr>    <td heigh
-4023fb74:	273d74 273338 6c6120 6e6769 63273d 746e65     t='83' align='ce
-4023fb84:	65746e 202772 6c6176 6e6769 6d273d 646469     nter' valign='mi
-4023fb94:	6c6464 3e2765 626e26 3b7073 742f3c 203e64     ddle'>&nbsp;</td
-4023fba4:	20203e 742f3c 203e72 743c20 203e72 202020     >  </tr>  <tr>  
-4023fbb4:	3c2020 206474 696568 746867 38273d 202736       <td height='86
-4023fbc4:	612027 67696c 273d6e 6e6563 726574 762027     ' align='center'
-4023fbd4:	617620 67696c 273d6e 64696d 656c64 263e27      valign='middle'
-4023fbe4:	6e263e 707362 2f3c3b 3e6474 3c2020 72742f     >&nbsp;</td>  </
-4023fbf4:	3e7274 742f3c 6c6261 3c3e65 726f66 69206d     tr></table><form
-4023fc04:	646920 66273d 6d726f 202731 6d616e 273d65      id='form1' name
-4023fc14:	66273d 6d726f 202731 74656d 646f68 70273d     ='form1' method=
-4023fc24:	6f7027 277473 636120 6f6974 273d6e 203e27     'post' action=''
-4023fc34:	20203e 3c2020 62616c 206c65 726f66 64273d     >    <label for=
-4023fc44:	746427 3c3e27 616c2f 6c6562 20203e e52020     'dt'></label>   
-4023fc54:	8ce520 9fe5ba 20319f 202020 65733c 63656c      ......1    <sel
-4023fc64:	746365 616e20 3d656d 746427 202731 7a6973     ect name='dt1' s
-4023fc74:	657a69 31273d 692027 273d64 317464 6f2027     ize='1' id='dt1'
-4023fc84:	6e6f20 616863 65676e 72273d 726665 687365      onchange='refre
-4023fc94:	286873 272931 6f3c3e 697470 3e6e6f 8796e6     sh(1)'><option>.
-4023fca4:	e58796 3197ad 6f2f3c 697470 3e6e6f 202020     .....1</option> 
-4023fcb4:	202020 3c2020 74706f 6e6f69 96e63e ade587          <option>...
-4023fcc4:	97ade5 2f3c32 74706f 6e6f69 20203e 202020     ...2</option>   
-4023fcd4:	202020 706f3c 6f6974 e63e6e e58796 3397ad        <option>.....
-4023fce4:	3c3397 706f2f 6f6974 203e6e 202020 3c2020     .3</option>     
-4023fcf4:	6f3c20 697470 3e6e6f 8796e6 97ade5 2f3c34      <option>......4
-4023fd04:	6f2f3c 697470 3e6e6f 202020 202020 706f3c     </option>      <
-4023fd14:	74706f 6e6f69 96e63e ade587 3c3597 706f2f     option>......5</
-4023fd24:	74706f 6e6f69 20203e 3c2020 65732f 63656c     option>    </sel
-4023fd34:	746365 20203e 3c2020 62616c 206c65 726f66     ect>    <label f
-4023fd44:	3d726f 617227 6f6964 3c3e27 616c2f 6c6562     or='radio'></lab
-4023fd54:	3e6c65 3c2020 e53e70 e5ba8c e49f9f 208cba     el>  <p>........
-4023fd64:	20208c 3c2020 6c6573 746365 616e20 3d656d     .    <select nam
-4023fd74:	273d65 327464 732027 657a69 31273d 692027     e='dt2' size='1'
-4023fd84:	646920 64273d 273274 6e6f20 616863 65676e      id='dt2' onchan
-4023fd94:	3d6567 657227 657266 286873 272932 6f3c3e     ge='refresh(2)'>
-4023fda4:	706f3c 6f6974 e63e6e e58796 3197ad 6f2f3c     <option>......1<
-4023fdb4:	706f2f 6f6974 203e6e 202020 3c2020 74706f     /option>      <o
-4023fdc4:	697470 3e6e6f 8796e6 97ade5 2f3c32 74706f     ption>......2</o
-4023fdd4:	697470 3e6e6f 202020 202020 706f3c 6f6974     ption>      <opt
-4023fde4:	6e6f69 96e63e ade587 3c3397 706f2f 6f6974     ion>......3</opt
-4023fdf4:	6e6f69 20203e 202020 6f3c20 697470 3e6e6f     ion>      <optio
-4023fe04:	e63e6e e58796 3497ad 6f2f3c 697470 3e6e6f     n>......4</optio
-4023fe14:	203e6e 202020 3c2020 74706f 6e6f69 96e63e     n>      <option>
-4023fe24:	8796e6 97ade5 2f3c35 74706f 6e6f69 09203e     ......5</option>
-4023fe34:	200920 2f3c20 6c6573 746365 20203e 702f3c      .  </select>  <
-4023fe44:	3e702f 202020 6c3c20 656261 66206c 3d726f     /p>    <label fo
-4023fe54:	273d72 277366 2f3c3e 62616c 3e6c65 e52020     r='fs'></label> 
-4023fe64:	ade520 bde497 202093 6c3c20 656261 66206c      ......   <label
-4023fe74:	6f6620 273d72 276e66 2f3c3e 62616c 3e6c65      for='fn'></labe
-4023fe84:	203e6c 733c20 656c65 207463 6d616e 273d65     l>  <select name
-4023fe94:	66273d 20276e 3d6469 6e6627 203e27 202020     ='fn' id='fn'>  
-4023fea4:	3c2020 74706f 6e6f69 aee53e bde48b 2f3c93       <option>......
-4023feb4:	6f2f3c 697470 3e6e6f 202020 6f3c20 697470     </option>    <op
-4023fec4:	6f6974 e43e6e e5bfbb 3c8bae 706f2f 6f6974     tion>......</opt
-4023fed4:	6e6f69 20203e 3c2020 74706f 6e6f69 a5e63e     ion>    <option>
-4023fee4:	b7a5e6 93bde4 6f2f3c 697470 3e6e6f 202020     ......</option> 
-4023fef4:	202020 706f3c 6f6974 e93e6e e491bb 3c93bd        <option>.....
-4023ff04:	2f3c93 74706f 6e6f69 20203e 732f3c 656c65     .</option>  </se
-4023ff14:	63656c 203e74 703c20 ade53e 8fe597 bfefb7     lect>  <p>......
-4023ff24:	bdbfef 3c2020 6c6573 746365 616e20 3d656d     ...  <select nam
-4023ff34:	273d65 277366 646920 66273d 3e2773 202020     e='fs' id='fs'> 
-4023ff44:	202020 706f3c 6f6974 e53e6e 3ca7a4 706f2f        <option>...</
-4023ff54:	74706f 6e6f69 20203e 3c2020 74706f 6e6f69     option>    <opti
-4023ff64:	3e6e6f adb8e4 6f2f3c 697470 3e6e6f 202020     on>...</option> 
-4023ff74:	202020 706f3c 6f6974 e53e6e 3c8fb0 706f2f        <option>...</
-4023ff84:	74706f 6e6f69 20203e 732f3c 656c65 3e7463     option>  </selec
-4023ff94:	203e74 2f3c20 203e70 202020 616c3c 6c6562     t>  </p>    <lab
-4023ffa4:	206c65 726f66 73273d 3e2770 6c2f3c 656261     el for='sp'></la
-4023ffb4:	6c6562 20203e e92020 e59f80 20a6ba 202020     bel>    ......  
-4023ffc4:	3c2020 6c6573 746365 616e20 3d656d 707327       <select name='
-4023ffd4:	277073 646920 73273d 3e2770 202020 202020     sp' id='sp'>    
-4023ffe4:	3c2020 74706f 6e6f69 bfe53e 80e9ab 2f3c9f       <option>......
-4023fff4:	6f2f3c 697470 3e6e6f 202020 202020 706f3c     </option>      <
-40240004:	74706f 6e6f69 b8e43e 80e9ad 2f3c9f 74706f     option>......</o
-40240014:	697470 3e6e6f 202020 202020 706f3c 6f6974     ption>      <opt
-40240024:	6e6f69 85e63e 80e9a2 2f3c9f 74706f 6e6f69     ion>......</opti
-40240034:	3e6e6f 202020 2f3c20 6c6573 746365 20203e     on>    </select>
-40240044:	202020 6c3c20 656261 66206c 3d726f 706b27         <label for='
-40240054:	27706b a3cd3e 9c81e5 9995e7 2f3c20 62616c     kp'>........ </l
-40240064:	656261 203e6c 202020 65733c 63656c 6e2074     abel>    <select
-40240074:	616e20 3d656d 706b27 692027 273d64 27706b      name='kp' id='k
-40240084:	3e2770 202020 202020 706f3c 6f6974 303e6e     p'>      <option
-40240094:	2e303e a7e732 2f3c92 74706f 6e6f69 20203e     >0.2...</option>
-402400a4:	202020 202020 706f3c 6f6974 303e6e e7342e           <option>0.
-402400b4:	a7e734 2f3c92 74706f 6e6f69 20203e 202020     4...</option>   
-402400c4:	202020 706f3c 6f6974 303e6e e7362e 3c92a7        <option>0.6..
-402400d4:	2f3c92 74706f 6e6f69 20203e 3c2020 65732f     .</option>    </
-402400e4:	6c6573 746365 20203e 3c2020 62616c 206c65     select>    <labe
-402400f4:	66206c 3d726f 6e6927 3c3e27 616c2f 6c6562     l for='in'></lab
-40240104:	3e6c65 202020 bfe820 85e59b 2020a5 202020     el>    ......   
-40240114:	3c2020 6c6573 746365 616e20 3d656d 6e6927       <select name='
-40240124:	276e69 646920 69273d 3e276e 202020 202020     in' id='in'>    
-40240134:	3c2020 74706f 6e6f69 bbe43e b7e58e 88e5a6       <option>......
-40240144:	b088e5 b38fe5 6f2f3c 697470 3e6e6f 202020     ......</option> 
-40240154:	202020 3c2020 74706f 6e6f69 bbe43e 8fe58e          <option>...
-40240164:	b38fe5 b088e5 a6b7e5 6f2f3c 697470 3e6e6f     .........</optio
-40240174:	093e6e 3c2020 65732f 63656c 203e74 703c20     n>.  </select>  
-40240184:	3e703c bfbae7 86a1e6 616c3c 6c6562 6f6620     <p>......<label 
-40240194:	726f66 62273d 3e2772 6c2f3c 656261 203e6c     for='br'></label
-402401a4:	20203e 3c2020 6c6573 746365 616e20 3d656d     >    <select nam
-402401b4:	273d65 277262 646920 62273d 3e2772 202020     e='br' id='br'> 
-402401c4:	202020 3c2020 74706f 6e6f69 97e63e 2f3ca0          <option>...
-402401d4:	6f2f3c 697470 3e6e6f 202020 202020 706f3c     </option>      <
-402401e4:	74706f 6e6f69 2a2a3e 6f2f3c 697470 3e6e6f     option>**</optio
-402401f4:	203e6e 202020 3c2020 74706f 6e6f69 2d2d3e     n>      <option>
-40240204:	3c2d2d 706f2f 6f6974 203e6e 202020 732f3c     --</option>    <
-40240214:	65732f 63656c 203e74 2f3c20 203e70 703c20     /select>  </p>  
-40240224:	3e703c 202020 693c20 75706e 742074 657079     <p>    <input ty
-40240234:	3d6570 757327 696d62 202774 6d616e 273d65     pe='submit' name
-40240244:	62273d 747475 276e6f 646920 62273d 747475     ='button' id='bu
-40240254:	6f7474 20276e 6c6176 3d6575 8fe527 80e991     tton' value='...
-40240264:	8180e9 2f2027 20203e 702f3c 2f3c3e 726f66     ...' />  </p></f
-40240274:	6d726f 703c3e 6e263e 707362 2f3c3b 3c3e70     orm><p>&nbsp;</p
-40240284:	2f3c3e 646f62 3c3e79 74682f 3e6c6d 000000     ></body></html>.
+4023f9d4:	44213c 54434f 455059 746820 206c6d 425550     <!DOCTYPE html P
+4023f9e4:	4c4255 204349 2f2d27 33572f 2f2f43 445444     UBLIC '-//W3C//D
+4023f9f4:	204454 544858 204c4d 302e31 725420 736e61     TD XHTML 1.0 Tra
+4023fa04:	69736e 6f6974 6c616e 452f2f 20274e 746827     nsitional//EN' '
+4023fa14:	747468 2f3a70 77772f 772e77 6f2e33 2f6772     http://www.w3.or
+4023fa24:	542f67 782f52 6d7468 2f316c 445444 68782f     g/TR/xhtml1/DTD/
+4023fa34:	746878 316c6d 72742d 736e61 697469 616e6f     xhtml1-transitio
+4023fa44:	6c616e 74642e 3e2764 683c20 646165 3c203e     nal.dtd'> <head>
+4023fa54:	6d3c20 617465 746820 2d7074 757165 3d7669      <meta http-equi
+4023fa64:	273d76 6e6f43 6e6574 542d74 657079 632027     v='Content-Type'
+4023fa74:	6f6320 65746e 3d746e 657427 2f7478 6d7468      content='text/h
+4023fa84:	6c6d74 63203b 726168 746573 74753d 382d66     tml; charset=utf
+4023fa94:	27382d 3e2f20 69743c 656c74 98e63e a4e7be     -8' /><title>...
+4023faa4:	baa4e7 a1bfe4 af81e6 beaee8 aebde7 742f3c     ...............<
+4023fab4:	69742f 656c74 733c3e 697263 3e7470 6e7566     /title><script>f
+4023fac4:	636e75 6f6974 72206e 726665 687365 296e28     unction refresh(
+4023fad4:	7b296e 666909 3d6e28 29313d 770909 646e69     n){.if(n==1)..wi
+4023fae4:	6f646e 542e77 6c6261 585465 722e54 73776f     ndow.TableTXT.ro
+4023faf4:	5b7377 2e5d30 6c6563 5b736c 2e5d30 6e6e69     ws[0].cells[0].i
+4023fb04:	656e6e 544872 3d4c4d 6e6977 776f64 74642e     nnerHTML=window.
+4023fb14:	317464 61762e 65756c 65093b 65736c 770909     dt1.value;.else.
+4023fb24:	697709 6f646e 542e77 6c6261 585465 722e54     .window.TableTXT
+4023fb34:	6f722e 5b7377 2e5d31 6c6563 5b736c 2e5d30     .rows[1].cells[0
+4023fb44:	692e5d 656e6e 544872 3d4c4d 6e6977 776f64     ].innerHTML=wind
+4023fb54:	2e776f 327464 61762e 65756c 667d3b 636e75     ow.dt2.value;}fu
+4023fb64:	74636e 6e6f69 657220 657266 546873 287478     nction refreshTx
+4023fb74:	6e2874 097b29 286669 3d3d6e 092931 697709     t(n){.if(n==1)..
+4023fb84:	6e6977 776f64 61542e 656c62 545854 6f722e     window.TableTXT.
+4023fb94:	776f72 305b73 632e5d 6c6c65 305b73 692e5d     rows[0].cells[0]
+4023fba4:	6e692e 72656e 4d5448 773d4c 646e69 2e776f     .innerHTML=windo
+4023fbb4:	612e77 616572 762e31 756c61 093b65 736c65     w.area1.value;.e
+4023fbc4:	65736c 770909 646e69 2e776f 626154 54656c     lse..window.Tabl
+4023fbd4:	585465 722e54 73776f 5d315b 65632e 736c6c     eTXT.rows[1].cel
+4023fbe4:	5b736c 2e5d30 6e6e69 487265 4c4d54 69773d     ls[0].innerHTML=
+4023fbf4:	6e6977 776f64 72612e 326165 61762e 65756c     window.area2.val
+4023fc04:	3b6575 2f3c7d 726373 747069 2f3c3e 616568     ue;}</script></h
+4023fc14:	646165 623c3e 79646f 663c3e 6d726f 646920     ead><body><form 
+4023fc24:	3d6469 6f6627 316d72 6e2027 656d61 66273d     id='form1' name=
+4023fc34:	6f6627 316d72 6d2027 687465 3d646f 6f7027     'form1' method='
+4023fc44:	736f70 202774 746361 6e6f69 27273d 743c3e     post' action=''>
+4023fc54:	61743c 656c62 697720 687464 39273d 272530     <table width='90
+4023fc64:	202725 726f62 726564 31273d 612027 67696c     %' border='1' al
+4023fc74:	6e6769 63273d 746e65 277265 747320 656c79     ign='center' sty
+4023fc84:	3d656c 6f6227 656472 632d72 6c6c6f 737061     le='border-colla
+4023fc94:	657370 6f633a 616c6c 657370 203e27 743c20     pse:collapse'>  
+4023fca4:	72743c 20203e 3c2020 206474 696568 746867     <tr>    <td heig
+4023fcb4:	3d7468 363827 612027 67696c 273d6e 6e6563     ht='86' align='c
+4023fcc4:	746e65 277265 617620 67696c 273d6e 64696d     enter' valign='m
+4023fcd4:	646469 27656c 6c3c3e 656261 203e6c 202020     iddle'><label>  
+4023fce4:	202020 693c20 75706e 742074 657079 74273d         <input type=
+4023fcf4:	657427 277478 616e20 3d656d 726127 316165     'text' name='are
+4023fd04:	273161 646920 61273d 616572 202731 797473     a1' id='area1' s
+4023fd14:	6c7974 273d65 696568 746867 30353a 203b78     tyle='height:50x
+4023fd24:	77203b 746469 383a68 3b2530 6f6620 2d746e     ; width:80%; fon
+4023fd34:	732d74 657a69 30343a 3b7870 6f6220 656472     t-size:40px; bor
+4023fd44:	726564 6f6e3a 3b656e 657420 2d7478 696c61     der:none; text-a
+4023fd54:	67696c 633a6e 746e65 3b7265 6f6320 726f6c     lign:center; col
+4023fd64:	3a726f 304623 3e2730 202020 202020 72623c     or:#F00'>      <
+4023fd74:	3e7262 202020 202020 72623c 20203e 202020     br>      <br>   
+4023fd84:	202020 809ce6 91bfe8 bfbde4 a894e7 8796e6        .............
+4023fd94:	e68796 20ac9c 6c2f3c 656261 203e6c 202020     ..... </label>  
+4023fda4:	202020 733c20 656c65 207463 6d616e 273d65         <select name
+4023fdb4:	64273d 273174 697320 3d657a 273127 646920     ='dt1' size='1' 
+4023fdc4:	3d6469 746427 202731 436e6f 6e6168 3d6567     id='dt1' onChang
+4023fdd4:	273d65 666572 736572 312868 3e2729 202020     e='refresh(1)'> 
+4023fde4:	202020 202020 6f3c20 697470 3e6e6f 8796e6            <option>.
+4023fdf4:	e58796 3197ad 6f2f3c 697470 3e6e6f 202020     .....1</option> 
+4023fe04:	202020 202020 6f3c20 697470 3e6e6f 8796e6            <option>.
+4023fe14:	e58796 3297ad 6f2f3c 697470 3e6e6f 202020     .....2</option> 
+4023fe24:	202020 202020 6f3c20 697470 3e6e6f 8796e6            <option>.
+4023fe34:	e58796 3397ad 6f2f3c 697470 3e6e6f 202020     .....3</option> 
+4023fe44:	202020 202020 6f3c20 697470 3e6e6f 8796e6            <option>.
+4023fe54:	e58796 3497ad 6f2f3c 697470 3e6e6f 202020     .....4</option> 
+4023fe64:	202020 202020 6f3c20 697470 3e6e6f 8796e6            <option>.
+4023fe74:	e58796 3597ad 6f2f3c 697470 3e6e6f 202020     .....5</option> 
+4023fe84:	202020 202020 2f3c20 6c6573 746365 20203e            </select>
+4023fe94:	202020 202020 616c3c 6c6562 6f6620 273d72           <label for
+4023fea4:	72273d 696461 3e276f 6c2f3c 656261 203e6c     ='radio'></label
+4023feb4:	20203e 202020 703c20 ade53e bde497 202093     >      <p>......
+4023fec4:	202020 202020 3c2020 62616c 206c65 726f66             <label f
+4023fed4:	3d726f 6e6627 3e2734 6c2f3c 656261 203e6c     or='fn4'></label
+4023fee4:	20203e 202020 202020 65733c 63656c 6e2074     >        <select
+4023fef4:	616e20 3d656d 6e6627 202731 3d6469 6e6627      name='fn1' id='
+4023ff04:	346e66 203e27 202020 202020 202020 706f3c     fn4'>          <
+4023ff14:	74706f 6e6f69 aee53e bde48b 2f3c93 74706f     option>......</o
+4023ff24:	697470 3e6e6f 202020 202020 202020 6f3c20     ption>          
+4023ff34:	706f3c 6f6974 e43e6e e5bfbb 3c8bae 706f2f     <option>......</
+4023ff44:	74706f 6e6f69 20203e 202020 202020 3c2020     option>         
+4023ff54:	6f3c20 697470 3e6e6f b7a5e6 93bde4 6f2f3c      <option>......<
+4023ff64:	706f2f 6f6974 203e6e 202020 202020 202020     /option>        
+4023ff74:	3c2020 74706f 6e6f69 bbe93e bde491 2f3c93       <option>......
+4023ff84:	6f2f3c 697470 3e6e6f 202020 202020 202020     </option>       
+4023ff94:	202020 732f3c 656c65 3e7463 202020 202020        </select>    
+4023ffa4:	202020 ade520 8fe597 2020b7 202020 202020         ......      
+4023ffb4:	3c2020 6c6573 746365 616e20 3d656d 736627       <select name='
+4023ffc4:	317366 692027 273d64 317366 203e27 202020     fs1' id='fs1'>  
+4023ffd4:	202020 202020 3c2020 74706f 6e6f69 a4e53e             <option>
+4023ffe4:	a7a4e5 6f2f3c 697470 3e6e6f 202020 202020     ...</option>    
+4023fff4:	202020 202020 706f3c 6f6974 e43e6e 3cadb8           <option>..
+40240004:	2f3cad 74706f 6e6f69 20203e 202020 202020     .</option>      
+40240014:	202020 6f3c20 697470 3e6e6f 8fb0e5 6f2f3c         <option>...<
+40240024:	706f2f 6f6974 203e6e 202020 202020 202020     /option>        
+40240034:	3c2020 65732f 63656c 203e74 202020 202020       </select>     
+40240044:	202020 702f3c 20203e 202020 703c20 80e93e        </p>      <p>
+40240054:	9f80e9 a6bae5 202020 202020 3c2020 6c6573     ......        <s
+40240064:	656c65 207463 6d616e 273d65 317073 692027     elect name='sp1'
+40240074:	646920 73273d 273170 20203e 202020 202020      id='sp1'>      
+40240084:	202020 6f3c20 697470 3e6e6f abbfe5 9f80e9         <option>....
+40240094:	3c9f80 706f2f 6f6974 203e6e 202020 202020     ..</option>     
+402400a4:	202020 3c2020 74706f 6e6f69 b8e43e 80e9ad          <option>...
+402400b4:	9f80e9 6f2f3c 697470 3e6e6f 202020 202020     ...</option>    
+402400c4:	202020 202020 706f3c 6f6974 e63e6e e9a285           <option>..
+402400d4:	80e9a2 2f3c9f 74706f 6e6f69 20203e 202020     ....</option>   
+402400e4:	202020 202020 2f3c20 6c6573 746365 20203e            </select>
+402400f4:	202020 202020 3c2020 62616c 206c65 726f66             <label f
+40240104:	3d726f 706b27 3e2734 9c81e5 9995e7 2f3c20     or='kp4'>...... 
+40240114:	6c2f3c 656261 203e6c 202020 202020 733c20     </label>        
+40240124:	65733c 63656c 6e2074 656d61 6b273d 273170     <select name='kp
+40240134:	202731 3d6469 706b27 3e2734 202020 202020     1' id='kp4'>    
+40240144:	202020 202020 706f3c 6f6974 303e6e e7322e           <option>0.
+40240154:	a7e732 2f3c92 74706f 6e6f69 20203e 202020     2...</option>   
+40240164:	202020 202020 6f3c20 697470 3e6e6f 342e30            <option>0
+40240174:	e7342e 3c92a7 706f2f 6f6974 203e6e 202020     .4...</option>  
+40240184:	202020 202020 3c2020 74706f 6e6f69 2e303e             <option>
+40240194:	362e30 92a7e7 6f2f3c 697470 3e6e6f 202020     0.6...</option> 
+402401a4:	202020 202020 202020 732f3c 656c65 3e7463              </selec
+402401b4:	203e74 202020 202020 2f3c20 203e70 202020     t>        </p>  
+402401c4:	202020 703c20 bfe83e 85e59b 2020a5 202020         <p>......   
+402401d4:	202020 3c2020 6c6573 746365 616e20 3d656d          <select nam
+402401e4:	273d65 316e69 692027 273d64 316e69 203e27     e='in1' id='in1'
+402401f4:	20203e 202020 202020 3c2020 74706f 6e6f69     >          <opti
+40240204:	3e6e6f 8ebbe4 a6b7e5 b088e5 b38fe5 6f2f3c     on>............<
+40240214:	706f2f 6f6974 203e6e 202020 202020 202020     /option>        
+40240224:	3c2020 74706f 6e6f69 bbe43e 8fe58e 88e5b3       <option>......
+40240234:	b088e5 a6b7e5 6f2f3c 697470 3e6e6f 202020     ......</option> 
+40240244:	202020 202020 202020 732f3c 656c65 3e7463              </selec
+40240254:	203e74 202020 202020 bee820 a1e6b9 202086     t>        ......
+40240264:	202020 202020 3c2020 62616c 206c65 726f66             <label f
+40240274:	3d726f 726227 3e2735 6c2f3c 656261 203e6c     or='br5'></label
+40240284:	20203e 202020 202020 65733c 63656c 6e2074     >        <select
+40240294:	616e20 3d656d 726227 202731 3d6469 726227      name='br1' id='
+402402a4:	357262 203e27 202020 202020 202020 706f3c     br5'>          <
+402402b4:	74706f 6e6f69 97e63e 2f3ca0 74706f 6e6f69     option>...</opti
+402402c4:	3e6e6f 202020 202020 202020 6f3c20 697470     on>          <op
+402402d4:	6f6974 2a3e6e 2f3c2a 74706f 6e6f69 20203e     tion>**</option>
+402402e4:	202020 202020 202020 6f3c20 697470 3e6e6f               <optio
+402402f4:	2d3e6e 2f3c2d 74706f 6e6f69 20203e 202020     n>--</option>   
+40240304:	202020 202020 2f3c20 6c6573 746365 20203e            </select>
+40240314:	202020 202020 702f3c 20203e 202020 703c20           </p>      
+40240324:	3e703c 626e26 3b7073 702f3c 2f3c3e 3e6474     <p>&nbsp;</p></t
+40240334:	203e64 2f3c20 3e7274 3c2020 3e7274 202020     d>  </tr>  <tr> 
+40240344:	202020 64743c 6c6120 6e6769 63273d 746e65        <td align='ce
+40240354:	65746e 202772 6c6176 6e6769 6d273d 646469     nter' valign='mi
+40240364:	6c6464 3e2765 3e703c 202020 202020 6e693c     ddle'><p>      <
+40240374:	706e69 207475 707974 273d65 786574 202774     input type='text
+40240384:	6e2027 656d61 61273d 616572 202732 3d6469     ' name='area2' i
+40240394:	273d64 657261 273261 747320 656c79 68273d     d='area2' style=
+402403a4:	656827 686769 353a74 3b7830 697720 687464     'height:50x; wid
+402403b4:	3a6874 253038 66203b 746e6f 69732d 3a657a     th:80%; font-siz
+402403c4:	343a65 787030 62203b 64726f 3a7265 6e6f6e     e:40px; border:n
+402403d4:	656e6f 74203b 747865 6c612d 6e6769 65633a     one; text-align:
+402403e4:	6e6563 726574 63203b 6f6c6f 233a72 303046     center; color:#F
+402403f4:	273030 20203e 202020 2f3c20 203e70 202020     00'>      </p>  
+40240404:	202020 703c20 20203e 202020 202020 616c3c         <p>        <
+40240414:	62616c 3e6c65 809ce6 91bfe8 bfbde4 a894e7     label>..........
+40240424:	e6a894 e68796 3cac9c 616c2f 6c6562 20203e     ........</label>
+40240434:	202020 202020 3c2020 6c6573 746365 616e20             <select 
+40240444:	6d616e 273d65 327464 732027 657a69 31273d     name='dt2' size=
+40240454:	273127 646920 64273d 273274 6e6f20 616843     '1' id='dt2' onC
+40240464:	6e6168 3d6567 657227 657266 286873 272932     hange='refresh(2
+40240474:	3e2729 202020 202020 202020 6f3c20 697470     )'>          <op
+40240484:	6f6974 e63e6e e58796 3197ad 6f2f3c 697470     tion>......1</op
+40240494:	6f6974 203e6e 202020 202020 202020 706f3c     tion>          <
+402404a4:	74706f 6e6f69 96e63e ade587 3c3297 706f2f     option>......2</
+402404b4:	74706f 6e6f69 20203e 202020 202020 3c2020     option>         
+402404c4:	6f3c20 697470 3e6e6f 8796e6 97ade5 2f3c33      <option>......3
+402404d4:	6f2f3c 697470 3e6e6f 202020 202020 202020     </option>       
+402404e4:	202020 706f3c 6f6974 e63e6e e58796 3497ad        <option>.....
+402404f4:	3c3497 706f2f 6f6974 203e6e 202020 202020     .4</option>     
+40240504:	202020 3c2020 74706f 6e6f69 96e63e ade587          <option>...
+40240514:	97ade5 2f3c35 74706f 6e6f69 20203e 202020     ...5</option>   
+40240524:	202020 202020 2f3c20 6c6573 746365 20203e            </select>
+40240534:	202020 202020 3c2020 3e702f 202020 202020             </p>    
+40240544:	3c2020 e53e70 e497ad 2093bd 202020 202020       <p>......     
+40240554:	202020 616c3c 6c6562 6f6620 273d72 356e66        <label for='f
+40240564:	27356e 2f3c3e 62616c 3e6c65 202020 202020     n5'></label>    
+40240574:	202020 733c20 656c65 207463 6d616e 273d65         <select name
+40240584:	66273d 27326e 646920 66273d 27356e 20203e     ='fn2' id='fn5'>
+40240594:	202020 202020 202020 6f3c20 697470 3e6e6f               <optio
+402405a4:	e53e6e e48bae 3c93bd 706f2f 6f6974 203e6e     n>......</option
+402405b4:	20203e 202020 202020 3c2020 74706f 6e6f69     >          <opti
+402405c4:	3e6e6f bfbbe4 8baee5 6f2f3c 697470 3e6e6f     on>......</optio
+402405d4:	203e6e 202020 202020 202020 706f3c 6f6974     n>          <opt
+402405e4:	6e6f69 a5e63e bde4b7 2f3c93 74706f 6e6f69     ion>......</opti
+402405f4:	3e6e6f 202020 202020 202020 6f3c20 697470     on>          <op
+40240604:	6f6974 e93e6e e491bb 3c93bd 706f2f 6f6974     tion>......</opt
+40240614:	6e6f69 20203e 202020 202020 3c2020 65732f     ion>          </
+40240624:	6c6573 746365 20203e 202020 202020 97ade5     select>        .
+40240634:	e597ad 20b78f 202020 202020 733c20 656c65     .....        <se
+40240644:	63656c 6e2074 656d61 66273d 273273 646920     lect name='fs2' 
+40240654:	3d6469 736627 3e2732 202020 202020 202020     id='fs2'>       
+40240664:	202020 706f3c 6f6974 e53e6e 3ca7a4 706f2f        <option>...</
+40240674:	74706f 6e6f69 20203e 202020 202020 3c2020     option>         
+40240684:	6f3c20 697470 3e6e6f adb8e4 6f2f3c 697470      <option>...</op
+40240694:	6f6974 203e6e 202020 202020 202020 706f3c     tion>          <
+402406a4:	74706f 6e6f69 b0e53e 2f3c8f 74706f 6e6f69     option>...</opti
+402406b4:	3e6e6f 202020 202020 202020 2f3c20 6c6573     on>          </s
+402406c4:	656c65 3e7463 202020 202020 3c2020 3e702f     elect>        </
+402406d4:	203e70 202020 3c2020 203e70 9f80e9 a6bae5     p>      <p> ....
+402406e4:	20a6ba 202020 202020 733c20 656c65 207463     ..        <selec
+402406f4:	6e2074 656d61 73273d 273270 646920 73273d     t name='sp2' id=
+40240704:	707327 3e2732 202020 202020 202020 6f3c20     'sp2'>          
+40240714:	706f3c 6f6974 e53e6e e9abbf 3c9f80 706f2f     <option>......</
+40240724:	74706f 6e6f69 20203e 202020 202020 3c2020     option>         
+40240734:	6f3c20 697470 3e6e6f adb8e4 9f80e9 6f2f3c      <option>......<
+40240744:	706f2f 6f6974 203e6e 202020 202020 202020     /option>        
+40240754:	3c2020 74706f 6e6f69 85e63e 80e9a2 2f3c9f       <option>......
+40240764:	6f2f3c 697470 3e6e6f 202020 202020 202020     </option>       
+40240774:	202020 732f3c 656c65 3e7463 202020 202020        </select>    
+40240784:	202020 6c3c20 656261 66206c 3d726f 706b27         <label for='
+40240794:	35706b e53e27 e79c81 209995 6c2f3c 656261     kp5'>...... </la
+402407a4:	6c6562 20203e 202020 202020 65733c 63656c     bel>        <sel
+402407b4:	746365 616e20 3d656d 706b27 202732 3d6469     ect name='kp2' i
+402407c4:	273d64 35706b 203e27 202020 202020 202020     d='kp5'>        
+402407d4:	3c2020 74706f 6e6f69 2e303e a7e732 2f3c92       <option>0.2...
+402407e4:	6f2f3c 697470 3e6e6f 202020 202020 202020     </option>       
+402407f4:	202020 706f3c 6f6974 303e6e e7342e 3c92a7        <option>0.4..
+40240804:	2f3c92 74706f 6e6f69 20203e 202020 202020     .</option>      
+40240814:	202020 6f3c20 697470 3e6e6f 362e30 92a7e7         <option>0.6.
+40240824:	3c92a7 706f2f 6f6974 203e6e 202020 202020     ..</option>     
+40240834:	202020 3c2020 65732f 63656c 203e74 202020          </select>  
+40240844:	202020 202020 702f3c 20203e 202020 703c20           </p>      
+40240854:	3e703c 9bbfe8 a585e5 202020 202020 3c2020     <p>......       
+40240864:	733c20 656c65 207463 6d616e 273d65 326e69      <select name='i
+40240874:	27326e 646920 69273d 27326e 20203e 202020     n2' id='in2'>   
+40240884:	202020 202020 6f3c20 697470 3e6e6f 8ebbe4            <option>.
+40240894:	e58ebb e5a6b7 e5b088 3cb38f 706f2f 6f6974     ...........</opt
+402408a4:	6e6f69 20203e 202020 202020 3c2020 74706f     ion>          <o
+402408b4:	697470 3e6e6f 8ebbe4 b38fe5 b088e5 a6b7e5     ption>..........
+402408c4:	3ca6b7 706f2f 6f6974 203e6e 202020 202020     ..</option>     
+402408d4:	202020 3c2020 65732f 63656c 203e74 202020          </select>  
+402408e4:	202020 202020 b9bee8 86a1e6 202020 202020           ......    
+402408f4:	202020 6c3c20 656261 66206c 3d726f 726227         <label for='
+40240904:	367262 3c3e27 616c2f 6c6562 20203e 202020     br6'></label>   
+40240914:	202020 3c2020 6c6573 746365 616e20 3d656d          <select nam
+40240924:	273d65 327262 692027 273d64 367262 203e27     e='br2' id='br6'
+40240934:	20203e 202020 202020 3c2020 74706f 6e6f69     >          <opti
+40240944:	3e6e6f a097e6 6f2f3c 697470 3e6e6f 202020     on>...</option> 
+40240954:	202020 202020 202020 706f3c 6f6974 2a3e6e              <option
+40240964:	2a2a3e 6f2f3c 697470 3e6e6f 202020 202020     >**</option>    
+40240974:	202020 202020 706f3c 6f6974 2d3e6e 2f3c2d           <option>--
+40240984:	6f2f3c 697470 3e6e6f 202020 202020 3c2020     </option>       
+40240994:	2f3c20 6c6573 746365 20203e 202020 2f3c20      </select>      
+402409a4:	702f3c 2f3c3e 3e6474 3c2020 72742f 20203e     </p></td>  </tr>
+402409b4:	3c2020 3e7274 202020 743c20 682064 676965       <tr>    <td he
+402409c4:	686769 273d74 273638 6c6120 6e6769 63273d     ight='86' align=
+402409d4:	656327 65746e 202772 6c6176 6e6769 6d273d     'center' valign=
+402409e4:	696d27 6c6464 3e2765 6e693c 747570 797420     'middle'><input 
+402409f4:	707974 273d65 627573 74696d 6e2027 656d61     type='submit' na
+40240a04:	3d656d 756227 6f7474 20276e 3d6469 756227     me='button' id='
+40240a14:	747562 6e6f74 762027 756c61 273d65 918fe5     button' value='.
+40240a24:	e9918f 278180 3e2f20 742f3c 203e64 2f3c20     .....' /></td>  
+40240a34:	742f3c 3c3e72 61742f 656c62 2f3c3e 726f66     </tr></table></f
+40240a44:	6d726f 2f3c3e 646f62 3c3e79 74682f 3e6c6d     orm></body></htm
+40240a54:	003e6c 000000 000000 000000 727265 3a726f     l>..........erro
+40240a64:	203a72 6c6c70 61635f 65206c 656378 736465     r: pll_cal excee
+40240a74:	207364 736d32 212121 00000a 2c6425 000020     ds 2ms!!!...%d, 
+40240a84:	000000 642500 00202c 000000 2c6425 642520     ....%d, ....%d, 
+40240a94:	2c6425 000020 000000 000000 2c6425 642520     %d, ........%d, 
+40240aa4:	2c6425 000020 000000 000000 2c6425 642520     %d, ........%d, 
+40240ab4:	2c6425 000020 000000 000000 2c6425 000020     %d, ........%d, 
 	...
-402402a0:	727265 3a726f 6c7020 635f6c 206c61 637865     error: pll_cal e
-402402b0:	656378 736465 6d3220 212173 000a21 642500     xceeds 2ms!!!...
-402402c0:	2c6425 000020 250000 202c64 000000 642500     %d, ....%d, ....
-402402d0:	2c6425 642520 00202c 000000 000000 642500     %d, %d, ........
-402402e0:	2c6425 642520 00202c 000000 000000 642500     %d, %d, ........
-402402f0:	2c6425 642520 00202c 000000 000000 642500     %d, %d, ........
-40240300:	2c6425 000020 000000 000000 000000 787200     %d, ............
-40240310:	697872 725f71 3a6765 3d6920 2c6425 5f6120     rxiq_reg: i=%d, 
-40240320:	6d5f61 3d7369 2c6425 5f7020 73696d 64253d     a_mis=%d, p_mis=
-40240330:	0a6425 000000 000000 000000 000000 6f7400     %d..............
-40240340:	746f74 5f6c61 727770 6c253d 202c64 78616d     total_pwr=%ld, m
-40240350:	3d7861 646c25 0a202c 000000 000000 642500     ax=%ld, ........
-40240360:	5f6425 5f6425 0a6425 000000 000000 657300     %d_%d_%d........
-40240370:	746573 78725f 61675f 3a6e69 667220 3d7874     set_rx_gain: rft
-40240380:	253d78 202c78 726672 783d78 2c7825 746120     x=%x, rfrx=x%x, 
-40240390:	747461 64253d 74202c 626278 78303d 2c7825     att=%d, txbb=0x%
-402403a0:	202c78 726262 3d3178 257830 202c78 726262     x, bbrx1=0x%x, b
-402403b0:	787262 303d32 782578 74202c 3a6364 2c6425     brx2=0x%x, tdc:%
-402403c0:	252c64 000a64 000000 000000 000000 6e6900     d,%d............
-402403d0:	646e69 3a7865 642520 617620 65756c 30203a     index: %d value:
-402403e0:	783020 207825 257830 302078 782578 783020      0x%x 0x%x 0x%x 
-402403f0:	257830 000a78 000000 000000 000000 000a00     0x%x............
-40240400:	00000a 000000 000000 000000 000000 4b4200     ................
-40240410:	3a4b42 2c6425 2c6425 2c6425 2c6425 257830     BK:%d,%d,%d,%d,0
-40240420:	782578 00000a 000000 000000 000000 787400     x%x.............
-40240430:	647874 253a63 252c64 000a64 000000 626400     txdc:%d,%d......
-40240440:	706264 64253a 25202c 202c78 2c6425 642520     dbp:%d, %x, %d, 
-40240450:	2c6425 642520 25202c 000a64 000000 332500     %d, %d, %d......
-40240460:	643325 33252c 203b64 000000 000000 787400     %3d,%3d; .......
-40240470:	697874 675f71 6e6961 64253d 74202c 716978     txiq_gain=%d, tx
-40240480:	5f7169 616870 3d6573 0a6425 000000 2c3100     iq_phase=%d.....
-40240490:	742c31 677261 5f7465 776f70 2c7265 2c6425     1,target_power,%
-402404a0:	202c64 655f70 6f7272 252c72 202c64 726f63     d, p_error,%d, c
-402404b0:	72726f 746365 2c765f 2c6425 726520 726f72     orrect_v,%d, err
-402404c0:	5f726f 636361 2c6d75 642520 74202c 5f746f     or_accum, %d, to
-402404d0:	705f74 64252c 63202c 74616f 252c74 202c64     t_p,%d, coatt,%d
-402404e0:	61202c 2c7474 2c6425 667220 2c675f 2c7825     , att,%d, rf_g,%
-402404f0:	202c78 717874 61725f 2c6574 2c6425 686320     x, txq_rate,%d, 
-40240500:	616863 252c6e 202c64 746172 615f65 2c7474     chan,%d, rate_at
-40240510:	252c74 000a64 000000 000000 000000 2c3200     t,%d............
-40240520:	742c32 677261 5f7465 776f70 2c7265 2c6425     2,target_power,%
-40240530:	202c64 655f70 6f7272 252c72 202c64 726f63     d, p_error,%d, c
-40240540:	72726f 746365 2c765f 2c6425 726520 726f72     orrect_v,%d, err
-40240550:	5f726f 636361 2c6d75 642520 74202c 5f746f     or_accum, %d, to
-40240560:	705f74 64252c 63202c 74616f 252c74 202c64     t_p,%d, coatt,%d
-40240570:	61202c 2c7474 2c6425 667220 2c675f 2c7825     , att,%d, rf_g,%
-40240580:	202c78 717874 61725f 2c6574 2c6425 686320     x, txq_rate,%d, 
-40240590:	616863 252c6e 202c64 746172 615f65 2c7474     chan,%d, rate_at
-402405a0:	252c74 000a64 000000 000000 000000 756e00     t,%d............
-402405b0:	6d756e 3d6b5f 2c6425 6f7020 726577 756f5f     num_k=%d, power_
-402405c0:	74756f 64253d 00000a 000000 000000 657200     out=%d..........
-402405d0:	676572 3d695f 2c6425 6e6920 746164 253d61     reg_i=%d, indata
-402405e0:	64253d 00000a 000000 000000 000000 3d6900     =%d.............
-402405f0:	253d69 643230 612020 3d6363 333025 202064     i=%02d  acc=%03d
-40240600:	742020 3d7467 333025 202064 727265 30253d       tgt=%03d  err=
-40240610:	333025 202064 726573 30253d 206433 747461     %03d  ser=%03d a
-40240620:	3d7474 333025 000a64 000000 000000 787200     tt=%03d.........
-40240630:	697872 675f71 5f7465 73696d 74203a 61746f     rxiq_get_mis: to
-40240640:	6c6174 77705f 253d72 202c64 2d6425 2c6425     tal_pwr=%d, %d-%
-40240650:	202c64 f00d00                                 d, .
+40240ad0:	697872 725f71 3a6765 3d6920 2c6425 5f6120     rxiq_reg: i=%d, 
+40240ae0:	6d5f61 3d7369 2c6425 5f7020 73696d 64253d     a_mis=%d, p_mis=
+40240af0:	0a6425 000000 000000 000000 000000 6f7400     %d..............
+40240b00:	746f74 5f6c61 727770 6c253d 202c64 78616d     total_pwr=%ld, m
+40240b10:	3d7861 646c25 0a202c 000000 000000 642500     ax=%ld, ........
+40240b20:	5f6425 5f6425 0a6425 000000 000000 657300     %d_%d_%d........
+40240b30:	746573 78725f 61675f 3a6e69 667220 3d7874     set_rx_gain: rft
+40240b40:	253d78 202c78 726672 783d78 2c7825 746120     x=%x, rfrx=x%x, 
+40240b50:	747461 64253d 74202c 626278 78303d 2c7825     att=%d, txbb=0x%
+40240b60:	202c78 726262 3d3178 257830 202c78 726262     x, bbrx1=0x%x, b
+40240b70:	787262 303d32 782578 74202c 3a6364 2c6425     brx2=0x%x, tdc:%
+40240b80:	252c64 000a64 000000 000000 000000 6e6900     d,%d............
+40240b90:	646e69 3a7865 642520 617620 65756c 30203a     index: %d value:
+40240ba0:	783020 207825 257830 302078 782578 783020      0x%x 0x%x 0x%x 
+40240bb0:	257830 000a78 000000 000000 000000 000a00     0x%x............
+40240bc0:	00000a 000000 000000 000000 000000 4b4200     ................
+40240bd0:	3a4b42 2c6425 2c6425 2c6425 2c6425 257830     BK:%d,%d,%d,%d,0
+40240be0:	782578 00000a 000000 000000 000000 787400     x%x.............
+40240bf0:	647874 253a63 252c64 000a64 000000 626400     txdc:%d,%d......
+40240c00:	706264 64253a 25202c 202c78 2c6425 642520     dbp:%d, %x, %d, 
+40240c10:	2c6425 642520 25202c 000a64 000000 332500     %d, %d, %d......
+40240c20:	643325 33252c 203b64 000000 000000 787400     %3d,%3d; .......
+40240c30:	697874 675f71 6e6961 64253d 74202c 716978     txiq_gain=%d, tx
+40240c40:	5f7169 616870 3d6573 0a6425 000000 2c3100     iq_phase=%d.....
+40240c50:	742c31 677261 5f7465 776f70 2c7265 2c6425     1,target_power,%
+40240c60:	202c64 655f70 6f7272 252c72 202c64 726f63     d, p_error,%d, c
+40240c70:	72726f 746365 2c765f 2c6425 726520 726f72     orrect_v,%d, err
+40240c80:	5f726f 636361 2c6d75 642520 74202c 5f746f     or_accum, %d, to
+40240c90:	705f74 64252c 63202c 74616f 252c74 202c64     t_p,%d, coatt,%d
+40240ca0:	61202c 2c7474 2c6425 667220 2c675f 2c7825     , att,%d, rf_g,%
+40240cb0:	202c78 717874 61725f 2c6574 2c6425 686320     x, txq_rate,%d, 
+40240cc0:	616863 252c6e 202c64 746172 615f65 2c7474     chan,%d, rate_at
+40240cd0:	252c74 000a64 000000 000000 000000 2c3200     t,%d............
+40240ce0:	742c32 677261 5f7465 776f70 2c7265 2c6425     2,target_power,%
+40240cf0:	202c64 655f70 6f7272 252c72 202c64 726f63     d, p_error,%d, c
+40240d00:	72726f 746365 2c765f 2c6425 726520 726f72     orrect_v,%d, err
+40240d10:	5f726f 636361 2c6d75 642520 74202c 5f746f     or_accum, %d, to
+40240d20:	705f74 64252c 63202c 74616f 252c74 202c64     t_p,%d, coatt,%d
+40240d30:	61202c 2c7474 2c6425 667220 2c675f 2c7825     , att,%d, rf_g,%
+40240d40:	202c78 717874 61725f 2c6574 2c6425 686320     x, txq_rate,%d, 
+40240d50:	616863 252c6e 202c64 746172 615f65 2c7474     chan,%d, rate_at
+40240d60:	252c74 000a64 000000 000000 000000 756e00     t,%d............
+40240d70:	6d756e 3d6b5f 2c6425 6f7020 726577 756f5f     num_k=%d, power_
+40240d80:	74756f 64253d 00000a 000000 000000 657200     out=%d..........
+40240d90:	676572 3d695f 2c6425 6e6920 746164 253d61     reg_i=%d, indata
+40240da0:	64253d 00000a 000000 000000 000000 3d6900     =%d.............
+40240db0:	253d69 643230 612020 3d6363 333025 202064     i=%02d  acc=%03d
+40240dc0:	742020 3d7467 333025 202064 727265 30253d       tgt=%03d  err=
+40240dd0:	333025 202064 726573 30253d 206433 747461     %03d  ser=%03d a
+40240de0:	3d7474 333025 000a64 000000 000000 787200     tt=%03d.........
+40240df0:	697872 675f71 5f7465 73696d 74203a 61746f     rxiq_get_mis: to
+40240e00:	6c6174 77705f 253d72 202c64 2d6425 2c6425     tal_pwr=%d, %d-%
+40240e10:	202c64 f00d00                                 d, .
 
-40240654 <chip_v6_set_sense>:
-40240654:	f00d      	ret.n
-	...
-
-40240658 <chip_v6_get_sense>:
-40240658:	f00d      	ret.n
-	...
-
-4024065c <chip_v6_unset_chanfreq>:
-4024065c:	020c      	movi.n	a2, 0
-4024065e:	f00d      	ret.n
-40240660:	6c6564        	excw
-40240663:	666920        	excw
-40240666:	0a6425        	excw
-40240669:	000000        	ill
-4024066c:	000000        	ill
-4024066f:	686300        	excw
-40240672:	692067        	blt	a0, a6, 402406df <chip_v6_unset_chanfreq+0x83>
-40240675:	642566        	bnei	a5, 2, 402406dd <chip_v6_unset_chanfreq+0x81>
-40240678:	000a      	add.n	a0, a0, a0
-4024067a:	000000        	ill
-4024067d:	000000        	ill
-40240680:	646461        	l32r	a6, 40219810 <cnx_bss_alloc+0x88>
-40240683:	666920        	excw
-40240686:	0a6425        	excw
-40240689:	000000        	ill
-4024068c:	000000        	ill
-4024068f:	696100        	excw
-40240692:	252064        	excw
-40240695:	000a64        	excw
-40240698:	6e6362        	s32i	a6, a3, 0x1b8
-4024069b:	642520        	extui	a2, a2, 5, 7
-4024069e:	000a      	add.n	a0, a0, a0
-402406a0:	746e63        	excw
-402406a3:	000a20        	excw
-402406a6:	750000        	extui	a0, a0, 16, 8
-402406a9:	6e          	.byte 0x6e
-402406aa:	746e63        	excw
-402406ad:	000a20        	excw
-402406b0:	207874        	excw
-402406b3:	737472        	excw
-402406b6:	726520        	excw
-402406b9:	726f72        	s32i	a7, a15, 0x1c8
-402406bc:	783020        	excw
-402406bf:	0a7825        	excw
-	...
-402406ce:	740000        	extui	a0, a0, 0, 8
-402406d1:	2078      	l32i.n	a7, a0, 8
-402406d3:	727265        	excw
-402406d6:	6f          	.byte 0x6f
-402406d7:	302072        	l32i	a7, a0, 192
-402406da:	2578      	l32i.n	a7, a5, 8
-402406dc:	0a78      	l32i.n	a7, a10, 0
-402406de:	700000        	excw
-402406e1:	2e6d      	excw
-402406e3:	000063        	excw
-	...
-402406ee:	730000        	excw
-402406f1:	656c      	movi.n	a5, -26
-402406f3:	207065        	excw
-402406f6:	736964        	excw
-402406f9:	6c6261        	l32r	a6, 4021b884 <wpa_auth_sta_associated+0x9c>
-402406fc:	000065        	excw
-402406ff:	6c7300        	excw
-40240702:	706565        	excw
-40240705:	6e6520        	excw
-40240708:	6c6261        	l32r	a6, 4021b890 <wpa_auth_sta_associated+0xa8>
-4024070b:	000065        	excw
-4024070e:	2c0000        	excw
-40240711:	707974        	excw
-40240714:	203a65        	excw
-40240717:	006425        	excw
-4024071a:	000000        	ill
-4024071d:	000000        	ill
-40240720:	000a      	add.n	a0, a0, a0
-	...
-4024072e:	700000        	excw
-40240731:	206d      	excw
-40240733:	6b6177        	bbci	a1, 7, 402407a2 <chip_v6_unset_chanfreq+0x146>
-40240736:	707565        	excw
-40240739:	747320        	extui	a7, a2, 3, 8
-4024073c:	203a      	add.n	a2, a0, a3
-4024073e:	2c6425        	excw
-40240741:	616320        	excw
-40240744:	657375        	excw
-40240747:	203a      	add.n	a2, a0, a3
-40240749:	0a6425        	excw
-4024074c:	000000        	ill
-4024074f:	667200        	excw
-40240752:	6c6320        	excw
-40240755:	6f          	.byte 0x6f
-40240756:	2c6573        	excw
-40240759:	6e          	.byte 0x6e
-4024075a:	6c6c75        	excw
-4024075d:	746164        	excw
-40240760:	745f61        	l32r	a6, 4021d8dc <wpa_parse_kde_ies+0x3c8>
-40240763:	657275        	excw
-	...
-4024076e:	720000        	excw
-40240771:	632066        	bnei	a0, 2, 402407d8 <chip_v6_unset_chanfreq+0x17c>
-40240774:	6f6c      	movi.n	a15, -26
-40240776:	2c6573        	excw
-40240779:	6e          	.byte 0x6e
-4024077a:	6c6c75        	excw
-4024077d:	746164        	excw
-40240780:	665f61        	l32r	a6, 4021a0fc <cnx_sta_associated+0xc8>
-40240783:	736c61        	l32r	a6, 4021d534 <wpa_parse_kde_ies+0x20>
-40240786:	000065        	excw
-40240789:	000000        	ill
-4024078c:	000000        	ill
-4024078f:	6d7000        	excw
-40240792:	6c6320        	excw
-40240795:	6f          	.byte 0x6f
-40240796:	206573        	excw
-40240799:	0a6425        	excw
-4024079c:	000000        	ill
-4024079f:	6d7000        	excw
-402407a2:	5f          	.byte 0x5f
-402407a3:	727265        	excw
-402407a6:	662c      	movi.n	a6, 38
-402407a8:	616c      	movi.n	a1, -26
-402407aa:	5f6873        	excw
-402407ad:	706d74        	excw
-402407b0:	6c6120        	excw
-402407b3:	6f6c      	movi.n	a15, -26
-402407b5:	662063        	excw
-402407b8:	6c6961        	l32r	a6, 4021b95c <wpa_auth_sta_deinit+0xa8>
-402407bb:	000a      	add.n	a0, a0, a0
-402407bd:	000000        	ill
-402407c0:	5f6d70        	excw
-402407c3:	616c66        	bnei	a12, 6, 40240828 <chip_v6_unset_chanfreq+0x1cc>
-402407c6:	5f6873        	excw
-402407c9:	616572        	s32i	a7, a5, 0x184
-402407cc:	652064        	excw
-402407cf:	0a7272        	excw
-	...
-402407de:	700000        	excw
-402407e1:	206d      	excw
-402407e3:	6f          	.byte 0x6f
-402407e4:	6e6570        	excw
-402407e7:	742c      	movi.n	a4, 39
-402407e9:	7079      	s32i.n	a7, a0, 28
-402407eb:	253a65        	excw
-402407ee:	252064        	excw
-402407f1:	000a64        	excw
-	...
-40240800:	6e          	.byte 0x6e
-40240801:	6f          	.byte 0x6f
-40240802:	4d4954        	excw
-40240805:	0a2121        	l32r	a2, 4020308c <_lit4_end+0xfcc64>
-	...
-40240810:	696c      	movi.n	a9, -26
-40240812:	5f7473        	excw
-40240815:	6e          	.byte 0x6e
-40240816:	6c6c75        	excw
-40240819:	000a      	add.n	a0, a0, a0
-4024081b:	000000        	ill
-4024081e:	730000        	excw
-40240821:	0a6c      	movi.n	a10, -32
-40240823:	000000        	ill
-40240826:	750000        	extui	a0, a0, 16, 8
-40240829:	0a6c73        	excw
-4024082c:	000000        	ill
-4024082f:	6d7000        	excw
-40240832:	5f          	.byte 0x5f
-40240833:	726f66        	bnei	a15, 6, 402408a9 <chip_v6_unset_chanfreq+0x24d>
-40240836:	5f          	.byte 0x5f
-40240837:	6e6362        	s32i	a6, a3, 0x1b8
-4024083a:	5f          	.byte 0x5f
-4024083b:	6f          	.byte 0x6f
-4024083c:	6e          	.byte 0x6e
-4024083d:	796c      	movi.n	a9, -25
-4024083f:	5f          	.byte 0x5f
-40240840:	6f6d      	excw
-40240842:	2e6564        	excw
-40240845:	000063        	excw
-	...
-40240850:	726f66        	bnei	a15, 6, 402408c6 <chip_v6_unset_chanfreq+0x26a>
-40240853:	206563        	excw
-40240856:	706c73        	excw
-40240859:	696420        	excw
-4024085c:	626173        	excw
-4024085f:	656c      	movi.n	a5, -26
-	...
-4024086d:	000000        	ill
-40240870:	726f66        	bnei	a15, 6, 402408e6 <chip_v6_unset_chanfreq+0x28a>
-40240873:	206563        	excw
-40240876:	706c73        	excw
-40240879:	6e6520        	excw
-4024087c:	6c6261        	l32r	a6, 4021ba04 <wpa_receive+0x84>
-4024087f:	000065        	excw
-	...
-4024088e:	2c0000        	excw
-40240891:	707974        	excw
-40240894:	203a65        	excw
-40240897:	006425        	excw
-4024089a:	000000        	ill
-4024089d:	000000        	ill
-402408a0:	000a      	add.n	a0, a0, a0
-	...
-402408ae:	660000        	excw
-402408b1:	206d70        	or	a6, a13, a7
-402408b4:	6f6c63        	excw
-402408b7:	206573        	excw
-402408ba:	206425        	excw
-402408bd:	000a      	add.n	a0, a0, a0
-402408bf:	706600        	excw
-402408c2:	5f6d      	excw
-402408c4:	727265        	excw
-402408c7:	662c      	movi.n	a6, 38
-402408c9:	616c      	movi.n	a1, -26
-402408cb:	5f6873        	excw
-402408ce:	706d74        	excw
-402408d1:	6c6120        	excw
-402408d4:	6f6c      	movi.n	a15, -26
-402408d6:	662063        	excw
-402408d9:	6c6961        	l32r	a6, 4021ba80 <wpa_receive+0x100>
-402408dc:	000a      	add.n	a0, a0, a0
-402408de:	660000        	excw
-402408e1:	206d70        	or	a6, a13, a7
-402408e4:	6f          	.byte 0x6f
-402408e5:	6e6570        	excw
-402408e8:	742c      	movi.n	a4, 39
-402408ea:	7079      	s32i.n	a7, a0, 28
-402408ec:	253a65        	excw
-402408ef:	252064        	excw
-402408f2:	000a64        	excw
-	...
-402408fd:	000000        	ill
-40240900:	696c      	movi.n	a9, -26
-40240902:	5f7473        	excw
-40240905:	6e          	.byte 0x6e
-40240906:	6c6c75        	excw
-40240909:	000a      	add.n	a0, a0, a0
-4024090b:	000000        	ill
-4024090e:	6e0000        	excw
-40240911:	206c75        	excw
-40240914:	6f6d      	excw
-40240916:	2c6564        	excw
-40240919:	706620        	excw
-4024091c:	206d      	excw
-4024091e:	747561        	l32r	a6, 4021daf4 <wpa_parse_kde_ies+0x5e0>
-40240921:	6f          	.byte 0x6f
-40240922:	6c7320        	excw
-40240925:	706565        	excw
-40240928:	657320        	extui	a7, a2, 19, 7
-4024092b:	003a74        	excw
-4024092e:	640000        	extui	a0, a0, 0, 7
-40240931:	7369      	s32i.n	a6, a3, 28
-40240933:	626c61        	l32r	a6, 402192e4 <cnx_start_handoff_cb+0x120>
-40240936:	000a65        	excw
-40240939:	000000        	ill
-4024093c:	000000        	ill
-4024093f:	6e6500        	excw
-40240942:	626c61        	l32r	a6, 402192f4 <cnx_start_handoff_cb+0x130>
-40240945:	000a65        	excw
-	...
-40240950:	2e7070        	excw
-40240953:	000063        	excw
-	...
-4024095e:	4c0000        	excw
-40240961:	616d      	excw
-40240963:	785263        	excw
-40240966:	6b6c42        	s32i	a4, a12, 0x1ac
-40240969:	253a      	add.n	a2, a5, a3
-4024096b:	000a64        	excw
-4024096e:	4c0000        	excw
-40240971:	616d      	excw
-40240973:	785463        	excw
-40240976:	6b6c42        	s32i	a4, a12, 0x1ac
-40240979:	253a      	add.n	a2, a5, a3
-4024097b:	000a64        	excw
-4024097e:	6d0000        	excw
-40240981:	207061        	l32r	a6, 40208b44 <_lit4_end+0x10271c>
-40240984:	696166        	bnei	a1, 6, 402409f1 <chip_v6_unset_chanfreq+0x395>
-40240987:	0a6c      	movi.n	a10, -32
-40240989:	000000        	ill
-4024098c:	000000        	ill
-4024098f:	747300        	extui	a7, a0, 3, 8
-40240992:	732061        	l32r	a6, 4021d614 <wpa_parse_kde_ies+0x100>
-40240995:	6e6163        	excw
-40240998:	727420        	excw
-4024099b:	656361        	l32r	a6, 40219f28 <cnx_sta_leave+0x194>
-4024099e:	642520        	extui	a2, a2, 5, 7
-402409a1:	000a      	add.n	a0, a0, a0
-	...
-402409af:	747300        	extui	a7, a0, 3, 8
-402409b2:	742061        	l32r	a6, 4021da34 <wpa_parse_kde_ies+0x520>
-402409b5:	636172        	s32i	a7, a1, 0x18c
-402409b8:	252065        	excw
-402409bb:	000a64        	excw
-402409be:	3d0000        	excw
-402409c1:	643d      	excw
-402409c3:	0a6c      	movi.n	a10, -32
-	...
-402409cd:	000000        	ill
-402409d0:	646461        	l32r	a6, 40219b60 <cnx_rc_update_age+0xc>
-402409d3:	696d20        	excw
-402409d6:	616d73        	excw
-402409d9:	686374        	excw
-402409dc:	000a      	add.n	a0, a0, a0
-402409de:	610000        	excw
-402409e1:	206464        	excw
-402409e4:	0a6425        	excw
-402409e7:	6d7200        	excw
-402409ea:	642520        	extui	a2, a2, 5, 7
-402409ed:	000a      	add.n	a0, a0, a0
-402409ef:	6d7200        	excw
-402409f2:	696d20        	excw
-402409f5:	000a73        	excw
-402409f8:	656477        	bbci	a4, 7, 40240a61 <ieee80211_opcap+0x41>
-402409fb:	632e76        	excw
-402409fe:	650000        	extui	a0, a0, 16, 7
-40240a01:	5f6673        	excw
-40240a04:	667562        	excw
-40240a07:	2e          	.byte 0x2e
-40240a08:	000063        	excw
-40240a0b:	000000        	ill
-40240a0e:	690000        	excw
-40240a11:	656565        	excw
-40240a14:	3038      	l32i.n	a3, a0, 12
-40240a16:	313132        	excw
-40240a19:	2e          	.byte 0x2e
-40240a1a:	000063        	excw
-40240a1d:	000000        	ill
-
-40240a20 <ieee80211_opcap>:
-40240a20:	000001 040000 6d0000 65646f 203a20 756e00     ........mode : .
-40240a30:	6c756e 00006c 730000 006174 000000 252800     null....sta.....
-40240a40:	302528 3a7832 323025 253a78 783230 30253a     (%02x:%02x:%02x:
-40240a50:	323025 253a78 783230 30253a 297832 2b2000     %02x:%02x:%02x).
-40240a60:	202b20 000000 730000 74666f 005041 252800      + .....softAP..
-40240a70:	302528 3a7832 323025 253a78 783230 30253a     (%02x:%02x:%02x:
-40240a80:	323025 253a78 783230 30253a 297832 000a00     %02x:%02x:%02x).
-40240a90:	00000a 000000 000000 000000 000000 656900     ................
-40240aa0:	656569 303865 313132 6f685f 617473 632e70     ieee80211_hostap
-40240ab0:	00632e 000000 000000 000000 000000 706100     .c..............
-40240ac0:	207061 657266 6a2071 706d75 742030 25206f     ap freq jump0 to
-40240ad0:	642520 00000a 000000 000000 000000 706100      %d.............
-40240ae0:	207061 617274 206563 0a6425 000000 6f6e00     ap trace %d.....
-40240af0:	206f6e 667562 6f6620 612072 697463 206e6f     no buf for actio
-40240b00:	66206e 6d6172 000a65 000000 000000 656900     n frame.........
-40240b10:	656569 303865 313132 6e695f 747570 00632e     ieee80211_input.
-40240b20:	000063 000000 000000 000000 000000 656900     c...............
-40240b30:	656569 303865 313132 756f5f 757074 632e74     ieee80211_output
-40240b40:	00632e 000000 000000 000000 000000 6f6e00     .c..............
-40240b50:	206f6e 667562 6f6620 702072 626f72 202c65     no buf for probe
-40240b60:	69202c 6c2065 206e65 0a6425 000000 656900     , ie len %d.....
-40240b70:	656569 303865 313132 68705f 632e79 000400     ieee80211_phy.c.
-40240b80:	000004 000000 000000 000000 000000 000000     ................
-	...
-40240b98:	00157c 020400 df018b 007f00 000000 2af800     |...............
-40240ba8:	002af8 030400 d50196 007500 000000 03e800     .*........u.....
-40240bb8:	0003e8 000000 3a0082 013a01 000000 07d000     ........:.:.....
-40240bc8:	0007d0 010400 020184 00a201 000000 000000     ................
-	...
-40240c54:	00000c 000000 000000 000000 000000 000000     ................
-	...
-40240c6c:	00157c 020400 df028b 007f00 000000 2af800     |...............
-40240c7c:	002af8 030400 d50396 007500 000000 03e800     .*........u.....
-40240c8c:	0003e8 000000 3a0082 013a01 000000 07d000     ........:.:.....
-40240c9c:	0007d0 010400 020184 00a201 000001 177000     ................
-40240cac:	001770 0b0000 3c040c 003c00 000001 2ee000     p.......<.<.....
-40240cbc:	002ee0 0a0000 300618 003000 000001 5dc000     ........0.0.....
-40240ccc:	005dc0 090000 2c0830 002c00 000001 bb8000     .]....0.,.,.....
-40240cdc:	00bb80 080000 2c0860 002c00 000001 d2f000     ......`.,.,.....
-40240cec:	00d2f0 0c0000 2c086c 002c00 000001 232800     ......l.,.,.....
-40240cfc:	002328 0f0000 3c0412 003c00 000001 465000     (#......<.<.....
-40240d0c:	004650 0e0000 300624 003000 000001 8ca000     PF....$.0.0.....
-40240d1c:	008ca0 0d0000 2c0848 002c00 000000 000000     ......H.,.,.....
-40240d2c:	000000 656900 386565 313230 735f31 6e6163     ....ieee80211_sc
-40240d3c:	2e6e61 000063 000000 000000 000000 000000     an.c............
-40240d4c:	000000 206600 30322d 202c30 000000 000000     ....f -200, ....
-40240d5c:	000000 206600 202c30 000000 722066 2c6425     ....f 0, ...f r%
-40240d6c:	202c64 637300 646e61 656e6f 00000a 000000     d, .scandone....
-40240d7c:	000000 676200 00000a 000000 000000 000000     ....bg..........
-40240d8c:	000000 6e4900 6c6176 206469 504557 656b20     ....Invalid WEP 
-40240d9c:	79656b 732520 00000a 000000 000000 000000     key %s..........
-40240dac:	000000 706100 6f6c5f 0a7373 000000 000000     ....ap_loss.....
-40240dbc:	000000 656900 386565 313230 735f31 2e6174     ....ieee80211_st
-40240dcc:	632e61 747300 657461 25203a 2d2064 25203e     a.c.state: %d ->
-40240ddc:	642520 252820 0a2978 000000 000000 000000      %d (%x)........
-40240dec:	000000 6c7700 6e635f 632e78 000000 000000     ....wl_cnx.c....
-40240dfc:	000000 745300 697461 206e6f 6f7473 202c70     ....Station stop
-40240e0c:	73202c 706f74 637320 0a6e61 000000 000000     , stop scan.....
-40240e1c:	000000 657200 6e6f63 63656e 000a74 000000     ....reconnect...
-40240e2c:	000000 6f6e00 732520 6f6620 646e75 72202c     ....no %s found,
-40240e3c:	657220 6e6f63 63656e 612074 657466 312072      reconnect after
-40240e4c:	733120 00000a 000000 000000 000000 000000      1s.............
-40240e5c:	000000 777300 637469 742068 63206f 6e6168     ....switch to ch
-40240e6c:	6e6e61 206c65 0a6425 000000 000000 000000     annel %d........
-40240e7c:	000000 636200 745f6e 6f6d69 2c7475 5f7061     ....bcn_timout,a
-40240e8c:	705f70 626f72 735f65 646e65 74735f 747261     p_probe_send_sta
-40240e9c:	0a7472 706100 72705f 65626f 65735f 20646e     rt..ap_probe_sen
-40240eac:	6f2064 726576 72202c 747365 697720 206966     d over, rest wif
-40240ebc:	732069 746174 207375 206f74 736964 737361     i status to disa
-40240ecc:	6f7373 000a63 000000 000000 000000 000000     ssoc............
-40240edc:	000000 747300 697461 3a6e6f 302520 3a7832     ....station: %02
-40240eec:	253a78 783230 30253a 3a7832 323025 253a78     x:%02x:%02x:%02x
-40240efc:	30253a 3a7832 323025 6c2078 766165 202c65     :%02x:%02x leave
-40240f0c:	41202c 204449 25203d 000a64 000000 000000     , AID = %d......
-40240f1c:	000000 616d00 632078 6e6e6f 746365 6e6f69     ....max connecti
-40240f2c:	216e6f 00000a 000000 000000 000000 000000     on!.............
-40240f3c:	000000 616d00 632078 6e6e6f 746365 6e6f69     ....max connecti
-40240f4c:	216e6f 00000a 000000 000000 000000 000000     on!.............
-40240f5c:	000000 726500 612072 65726c 796461 736120     ....err already 
-40240f6c:	737361 69636f 216465 00000a 000000 000000     associed!.......
-40240f7c:	000000 747300 697461 3a6e6f 302520 3a7832     ....station: %02
-40240f8c:	253a78 783230 30253a 3a7832 323025 253a78     x:%02x:%02x:%02x
-40240f9c:	30253a 3a7832 323025 6a2078 6e696f 41202c     :%02x:%02x join,
-40240fac:	494120 3d2044 642520 00000a 000000 000000      AID = %d.......
-40240fbc:	000000 455600 4f444e 412052 495443 3a4e4f     ....VENDOR ACTIO
-40240fcc:	203a4e 6e656c 726520 726f72 747320 317065     N: len error ste
-40240fdc:	3a3170 642520 00000a 000000 000000 000000     p1: %d..........
-40240fec:	000000 455600 4f444e 412052 495443 3a4e4f     ....VENDOR ACTIO
-40240ffc:	203a4e 6e656c 726520 726f72 747320 327065     N: len error ste
-4024100c:	3a3270 642520 000000 000000 000000 000000     p2: %d..........
-4024101c:	000000 455600 4f444e 412052 495443 3a4e4f     ....VENDOR ACTIO
-4024102c:	203a4e 6b6e75 776f6e 69206e 742065 657079     N: unknown ie ty
-4024103c:	0a6570 455600 4f444e 412052 495443 3a4e4f     pe..VENDOR ACTIO
-4024104c:	203a4e 707974 642065 6d7369 637461 252068     N: type dismatch
-4024105c:	642520 656900 386565 313230 615f31 697463      %d.ieee80211_ac
-4024106c:	6f6974 765f6e 646e65 5f726f 657073 615f63     tion_vendor_spec
-4024107c:	74615f 636174 722068 696765 657473 722072     _attach register
-4024108c:	657220 207663 6c6163 62206c 6b6361 726520      recv call back 
-4024109c:	727265 0a726f 030000                          error...
-
-402410a4 <ccmp>:
-402410a4:	000003 000800 080000 000000 000000 a93000     ................
-402410b4:	21a930 a9ac40 444021 504348 697420 6f656d     0.!@..!@DHCP tim
-402410c4:	756f65 000a74 640000 706368 735f73 726174     eout....dhcps_st
-402410d4:	747261 3a2928 6f6320 646c75 6f6e20 6f2074     art(): could not
-402410e4:	626f20 696174 70206e 0a6263 000000 826300      obtain pcb.....
-402410f4:	538263 732563 642520 00000a 207325 0a6425     c.Sc%s %d...%s %
-40241104:	000a64 732500 642520 00000a 207325 0a6425     d...%s %d...%s %
-40241114:	000a64 732500 642520 00000a 207325 0a6425     d...%s %d...%s %
-40241124:	000a64 732500 642520 00000a 207325 0a6425     d...%s %d...%s %
-40241134:	000a64 732500 642520 00000a 707365 6e6f63     d...%s %d...espc
-40241144:	6e6e6f 63745f 645f70 656c65 206574 2c6425     onn_tcp_delete %
-40241154:	202c64 0a6425 650000 207272 206e69 736f68     d, %d...err in h
-40241164:	74736f 6f6320 656e6e 657463 282064 297325     ost connected (%
-40241174:	0a2973 655200 487663 646c6f 42202c 702079     s)..RecvHold, By
-40241184:	657020 637073 6e6e6f 69662c 20646e 6e6f63      pespconn,find c
-40241194:	6e6e6f 736d5f 662067 6c6961 00000a 655200     onn_msg fail....
-402411a4:	636552 6f4876 2c646c 794220 657020 637073     RecvHold, By pes
-402411b4:	6f6370 2c6e6e 6e6966 632064 6e6e6f 736d5f     pconn,find conn_
-402411c4:	67736d 616620 0a6c69 000000 f0c112 42040c     msg fail........
-402411d4:	514204 502000 159c04 314f30 c04430 0094d6     .BQ. P...0O10D..
-402411e4:	420094 0b0002 414233 221b01 86040c 620002     ..B...3BA.."....
-402411f4:	126200 c33200 446afe 02c222 f123e6 051366     .b..2..jD"...#.f
-40241204:	220513 220002 220041 2a0011 204044 4040f5     ..".."A."..*D@ .
-40241214:	f44040 40442a 40f530 3af420 b51622 382000     @@.*D@0.@ .:"...
-40241224:	743820 112280 202320 f42020 f42020 10c112      8t.". #   .  ..
-40241234:	0d10c1 c112f0                                 ....
-
-40241238 <inet_chksum_pseudo>:
-40241238:	d0c112        	addi	a1, a1, -48
-4024123b:	81e9      	s32i.n	a14, a1, 32
-4024123d:	0e0c      	movi.n	a14, 0
-4024123f:	a1c9      	s32i.n	a12, a1, 40
-40241241:	91d9      	s32i.n	a13, a1, 36
-40241243:	71f9      	s32i.n	a15, a1, 28
-40241245:	b109      	s32i.n	a0, a1, 44
-40241247:	f4f060        	extui	a15, a6, 0, 16
-4024124a:	02dd      	mov.n	a13, a2
-4024124c:	037d      	mov.n	a7, a3
-4024124e:	745050        	extui	a5, a5, 0, 8
-40241251:	0ecd      	mov.n	a12, a14
-40241253:	160c      	movi.n	a6, 1
-40241255:	000ec6        	j	40241294 <inet_chksum_pseudo+0x5c>
-40241258:	051d32        	l16ui	a3, a13, 10
-4024125b:	1d28      	l32i.n	a2, a13, 4
-4024125d:	1149      	s32i.n	a4, a1, 4
-4024125f:	2159      	s32i.n	a5, a1, 8
-40241261:	3169      	s32i.n	a6, a1, 12
-40241263:	0179      	s32i.n	a7, a1, 0
-40241265:	fff685        	call0	402411d0 <ccmp+0x12c>
-40241268:	22ca      	add.n	a2, a2, a12
-4024126a:	f53020        	extui	a3, a2, 16, 16
-4024126d:	f4c020        	extui	a12, a2, 0, 16
-40241270:	051d22        	l16ui	a2, a13, 10
-40241273:	cc3a      	add.n	a12, a12, a3
-40241275:	1148      	l32i.n	a4, a1, 4
-40241277:	2158      	l32i.n	a5, a1, 8
-40241279:	3168      	l32i.n	a6, a1, 12
-4024127b:	0178      	l32i.n	a7, a1, 0
-4024127d:	116207        	bbci	a2, 0, 40241292 <inet_chksum_pseudo+0x5a>
-40241280:	7428c0        	extui	a2, a12, 8, 8
-40241283:	11cc80        	slli	a12, a12, 8
-40241286:	c0e6e0        	sub	a14, a6, a14
-40241289:	20c2c0        	or	a12, a2, a12
-4024128c:	74e0e0        	extui	a14, a14, 0, 8
-4024128f:	f4c0c0        	extui	a12, a12, 0, 16
-40241292:	0dd8      	l32i.n	a13, a13, 0
-40241294:	fc0d56        	bnez	a13, 40241258 <inet_chksum_pseudo+0x20>
-40241297:	ae8c      	beqz.n	a14, 402412a5 <inet_chksum_pseudo+0x6d>
-40241299:	7428c0        	extui	a2, a12, 8, 8
-4024129c:	11cc80        	slli	a12, a12, 8
-4024129f:	20c2c0        	or	a12, a2, a12
-402412a2:	f4c0c0        	extui	a12, a12, 0, 16
-402412a5:	0738      	l32i.n	a3, a7, 0
-402412a7:	0428      	l32i.n	a2, a4, 0
-402412a9:	f54030        	extui	a4, a3, 16, 16
-402412ac:	f43030        	extui	a3, a3, 0, 16
-402412af:	343a      	add.n	a3, a4, a3
-402412b1:	f44020        	extui	a4, a2, 0, 16
-402412b4:	334a      	add.n	a3, a3, a4
-402412b6:	f52020        	extui	a2, a2, 16, 16
-402412b9:	232a      	add.n	a2, a3, a2
-402412bb:	115580        	slli	a5, a5, 8
-402412be:	525a      	add.n	a5, a2, a5
-402412c0:	112f80        	slli	a2, a15, 8
-402412c3:	41f8f0        	srli	a15, a15, 8
-402412c6:	20f2f0        	or	a15, a2, a15
-402412c9:	f4f0f0        	extui	a15, a15, 0, 16
-402412cc:	55fa      	add.n	a5, a5, a15
-402412ce:	c5ca      	add.n	a12, a5, a12
-402412d0:	f520c0        	extui	a2, a12, 16, 16
-402412d3:	f4c0c0        	extui	a12, a12, 0, 16
-402412d6:	cc2a      	add.n	a12, a12, a2
-402412d8:	f520c0        	extui	a2, a12, 16, 16
-402412db:	f4c0c0        	extui	a12, a12, 0, 16
-402412de:	cc2a      	add.n	a12, a12, a2
-402412e0:	b108      	l32i.n	a0, a1, 44
-402412e2:	f27c      	movi.n	a2, -1
-402412e4:	3022c0        	xor	a2, a2, a12
-402412e7:	f42020        	extui	a2, a2, 0, 16
-402412ea:	a1c8      	l32i.n	a12, a1, 40
-402412ec:	91d8      	l32i.n	a13, a1, 36
-402412ee:	81e8      	l32i.n	a14, a1, 32
-402412f0:	71f8      	l32i.n	a15, a1, 28
-402412f2:	30c112        	addi	a1, a1, 48
-402412f5:	f00d      	ret.n
+40240e14 <chip_v6_set_sense>:
+40240e14:	f00d      	ret.n
 	...
 
-402412f8 <inet_chksum_pseudo_partial>:
-402412f8:	c0c112        	addi	a1, a1, -64
-402412fb:	b1f9      	s32i.n	a15, a1, 44
-402412fd:	0f0c      	movi.n	a15, 0
-402412ff:	e1c9      	s32i.n	a12, a1, 56
-40241301:	d1d9      	s32i.n	a13, a1, 52
-40241303:	c1e9      	s32i.n	a14, a1, 48
-40241305:	f109      	s32i.n	a0, a1, 60
-40241307:	02dd      	mov.n	a13, a2
-40241309:	038d      	mov.n	a8, a3
-4024130b:	745050        	extui	a5, a5, 0, 8
-4024130e:	f46060        	extui	a6, a6, 0, 16
-40241311:	f4e070        	extui	a14, a7, 0, 16
-40241314:	0fcd      	mov.n	a12, a15
-40241316:	001546        	j	4024136f <inet_chksum_pseudo_partial+0x77>
-40241319:	051d22        	l16ui	a2, a13, 10
-4024131c:	0e7d      	mov.n	a7, a14
-4024131e:	02b2e7        	bgeu	a2, a14, 40241324 <inet_chksum_pseudo_partial+0x2c>
-40241321:	207220        	or	a7, a2, a2
-40241324:	1d28      	l32i.n	a2, a13, 4
-40241326:	f47070        	extui	a7, a7, 0, 16
-40241329:	073d      	mov.n	a3, a7
-4024132b:	2149      	s32i.n	a4, a1, 8
-4024132d:	3159      	s32i.n	a5, a1, 12
-4024132f:	4169      	s32i.n	a6, a1, 16
-40241331:	0179      	s32i.n	a7, a1, 0
-40241333:	1189      	s32i.n	a8, a1, 4
-40241335:	ffe985        	call0	402411d0 <ccmp+0x12c>
-40241338:	22ca      	add.n	a2, a2, a12
-4024133a:	0178      	l32i.n	a7, a1, 0
-4024133c:	f53020        	extui	a3, a2, 16, 16
-4024133f:	f4c020        	extui	a12, a2, 0, 16
-40241342:	051d22        	l16ui	a2, a13, 10
-40241345:	c0ee70        	sub	a14, a14, a7
-40241348:	f4e0e0        	extui	a14, a14, 0, 16
-4024134b:	cc3a      	add.n	a12, a12, a3
-4024134d:	2148      	l32i.n	a4, a1, 8
-4024134f:	3158      	l32i.n	a5, a1, 12
-40241351:	4168      	l32i.n	a6, a1, 16
-40241353:	1188      	l32i.n	a8, a1, 4
-40241355:	146207        	bbci	a2, 0, 4024136d <inet_chksum_pseudo_partial+0x75>
-40241358:	01a022        	movi	a2, 1
-4024135b:	c0f2f0        	sub	a15, a2, a15
-4024135e:	7428c0        	extui	a2, a12, 8, 8
-40241361:	11cc80        	slli	a12, a12, 8
-40241364:	20c2c0        	or	a12, a2, a12
-40241367:	74f0f0        	extui	a15, a15, 0, 8
-4024136a:	f4c0c0        	extui	a12, a12, 0, 16
-4024136d:	0dd8      	l32i.n	a13, a13, 0
-4024136f:	1e8c      	beqz.n	a14, 40241374 <inet_chksum_pseudo_partial+0x7c>
-40241371:	fa4d56        	bnez	a13, 40241319 <inet_chksum_pseudo_partial+0x21>
-40241374:	af8c      	beqz.n	a15, 40241382 <inet_chksum_pseudo_partial+0x8a>
-40241376:	7428c0        	extui	a2, a12, 8, 8
-40241379:	11cc80        	slli	a12, a12, 8
-4024137c:	20c2c0        	or	a12, a2, a12
-4024137f:	f4c0c0        	extui	a12, a12, 0, 16
-40241382:	0838      	l32i.n	a3, a8, 0
-40241384:	0428      	l32i.n	a2, a4, 0
-40241386:	f54030        	extui	a4, a3, 16, 16
-40241389:	f43030        	extui	a3, a3, 0, 16
-4024138c:	343a      	add.n	a3, a4, a3
-4024138e:	f44020        	extui	a4, a2, 0, 16
-40241391:	334a      	add.n	a3, a3, a4
-40241393:	f52020        	extui	a2, a2, 16, 16
-40241396:	232a      	add.n	a2, a3, a2
-40241398:	115580        	slli	a5, a5, 8
-4024139b:	525a      	add.n	a5, a2, a5
-4024139d:	112680        	slli	a2, a6, 8
-402413a0:	416860        	srli	a6, a6, 8
-402413a3:	206260        	or	a6, a2, a6
-402413a6:	f46060        	extui	a6, a6, 0, 16
-402413a9:	556a      	add.n	a5, a5, a6
-402413ab:	c5ca      	add.n	a12, a5, a12
-402413ad:	f520c0        	extui	a2, a12, 16, 16
-402413b0:	f4c0c0        	extui	a12, a12, 0, 16
-402413b3:	cc2a      	add.n	a12, a12, a2
-402413b5:	f520c0        	extui	a2, a12, 16, 16
-402413b8:	f4c0c0        	extui	a12, a12, 0, 16
-402413bb:	cc2a      	add.n	a12, a12, a2
-402413bd:	f108      	l32i.n	a0, a1, 60
-402413bf:	f27c      	movi.n	a2, -1
-402413c1:	3022c0        	xor	a2, a2, a12
-402413c4:	f42020        	extui	a2, a2, 0, 16
-402413c7:	e1c8      	l32i.n	a12, a1, 56
-402413c9:	d1d8      	l32i.n	a13, a1, 52
-402413cb:	c1e8      	l32i.n	a14, a1, 48
-402413cd:	b1f8      	l32i.n	a15, a1, 44
-402413cf:	40c112        	addi	a1, a1, 64
-402413d2:	f00d      	ret.n
-
-402413d4 <inet_chksum>:
-402413d4:	f0c112        	addi	a1, a1, -16
-402413d7:	f43030        	extui	a3, a3, 0, 16
-402413da:	036102        	s32i	a0, a1, 12
-402413dd:	ffdf05        	call0	402411d0 <ccmp+0x12c>
-402413e0:	f37c      	movi.n	a3, -1
-402413e2:	3108      	l32i.n	a0, a1, 12
-402413e4:	302320        	xor	a2, a3, a2
-402413e7:	f42020        	extui	a2, a2, 0, 16
-402413ea:	10c112        	addi	a1, a1, 16
-402413ed:	f00d      	ret.n
+40240e18 <chip_v6_get_sense>:
+40240e18:	f00d      	ret.n
 	...
 
-402413f0 <inet_chksum_pbuf>:
-402413f0:	e0c112        	addi	a1, a1, -32
-402413f3:	41e9      	s32i.n	a14, a1, 16
-402413f5:	0e0c      	movi.n	a14, 0
-402413f7:	61c9      	s32i.n	a12, a1, 24
-402413f9:	51d9      	s32i.n	a13, a1, 20
-402413fb:	31f9      	s32i.n	a15, a1, 12
-402413fd:	7109      	s32i.n	a0, a1, 28
-402413ff:	02dd      	mov.n	a13, a2
-40241401:	0ecd      	mov.n	a12, a14
-40241403:	1f0c      	movi.n	a15, 1
-40241405:	000ac6        	j	40241434 <inet_chksum_pbuf+0x44>
-40241408:	051d32        	l16ui	a3, a13, 10
-4024140b:	1d28      	l32i.n	a2, a13, 4
-4024140d:	ffdc05        	call0	402411d0 <ccmp+0x12c>
-40241410:	22ca      	add.n	a2, a2, a12
-40241412:	f53020        	extui	a3, a2, 16, 16
-40241415:	f4c020        	extui	a12, a2, 0, 16
-40241418:	051d22        	l16ui	a2, a13, 10
-4024141b:	cc3a      	add.n	a12, a12, a3
-4024141d:	116207        	bbci	a2, 0, 40241432 <inet_chksum_pbuf+0x42>
-40241420:	7428c0        	extui	a2, a12, 8, 8
-40241423:	11cc80        	slli	a12, a12, 8
-40241426:	c0efe0        	sub	a14, a15, a14
-40241429:	20c2c0        	or	a12, a2, a12
-4024142c:	74e0e0        	extui	a14, a14, 0, 8
-4024142f:	f4c0c0        	extui	a12, a12, 0, 16
-40241432:	0dd8      	l32i.n	a13, a13, 0
-40241434:	fd0d56        	bnez	a13, 40241408 <inet_chksum_pbuf+0x18>
-40241437:	ae8c      	beqz.n	a14, 40241445 <inet_chksum_pbuf+0x55>
-40241439:	7428c0        	extui	a2, a12, 8, 8
-4024143c:	11cc80        	slli	a12, a12, 8
-4024143f:	20c2c0        	or	a12, a2, a12
-40241442:	f4c0c0        	extui	a12, a12, 0, 16
-40241445:	f27c      	movi.n	a2, -1
-40241447:	7108      	l32i.n	a0, a1, 28
-40241449:	3022c0        	xor	a2, a2, a12
-4024144c:	f42020        	extui	a2, a2, 0, 16
-4024144f:	61c8      	l32i.n	a12, a1, 24
-40241451:	51d8      	l32i.n	a13, a1, 20
-40241453:	41e8      	l32i.n	a14, a1, 16
-40241455:	31f8      	l32i.n	a15, a1, 12
-40241457:	20c112        	addi	a1, a1, 32
-4024145a:	f00d      	ret.n
-4024145c:	7069      	s32i.n	a6, a0, 28
-4024145e:	5f          	.byte 0x5f
-4024145f:	756f72        	s32i	a7, a15, 0x1d4
-40241462:	726574        	excw
-40241465:	642520        	extui	a2, a2, 5, 7
-40241468:	702520        	excw
-4024146b:	000a      	add.n	a0, a0, a0
-4024146d:	000000        	ill
-
-40241470 <ip_addr_broadcast>:
-40241470:	ffffff 0000ff                                 ....
-
-40241474 <ip_addr_any>:
-40241474:	000000 001c00                                 ....
-
-40241478 <memp_sizes>:
-40241478:	00001c 002400 b00000 000000 000024 001400     ....$.......$...
-40241488:	000014 000800 140000 000000 000010 001400     ................
-40241498:	000014 060000 540000                          ........
-
-402414a0 <tcp_pcb_lists>:
-402414a0:	fef054 f05c3f 4c3ffe 3ffef0 fef060 06033f     T..?\..?L..?`..?
-
-402414b0 <tcp_persist_backoff>:
-402414b0:	0c0603 603018 020178                          ....0`x
-
-402414b7 <tcp_backoff>:
-402414b7:	030201 060504 070707 070707 000007 000000     ................
+40240e1c <chip_v6_unset_chanfreq>:
+40240e1c:	020c      	movi.n	a2, 0
+40240e1e:	f00d      	ret.n
+40240e20:	6c6564        	excw
+40240e23:	666920        	excw
+40240e26:	0a6425        	excw
+40240e29:	000000        	ill
+40240e2c:	000000        	ill
+40240e2f:	686300        	excw
+40240e32:	692067        	blt	a0, a6, 40240e9f <chip_v6_unset_chanfreq+0x83>
+40240e35:	642566        	bnei	a5, 2, 40240e9d <chip_v6_unset_chanfreq+0x81>
+40240e38:	000a      	add.n	a0, a0, a0
+40240e3a:	000000        	ill
+40240e3d:	000000        	ill
+40240e40:	646461        	l32r	a6, 40219fd0 <cnx_sta_leave+0x23c>
+40240e43:	666920        	excw
+40240e46:	0a6425        	excw
+40240e49:	000000        	ill
+40240e4c:	000000        	ill
+40240e4f:	696100        	excw
+40240e52:	252064        	excw
+40240e55:	000a64        	excw
+40240e58:	6e6362        	s32i	a6, a3, 0x1b8
+40240e5b:	642520        	extui	a2, a2, 5, 7
+40240e5e:	000a      	add.n	a0, a0, a0
+40240e60:	746e63        	excw
+40240e63:	000a20        	excw
+40240e66:	750000        	extui	a0, a0, 16, 8
+40240e69:	6e          	.byte 0x6e
+40240e6a:	746e63        	excw
+40240e6d:	000a20        	excw
+40240e70:	207874        	excw
+40240e73:	737472        	excw
+40240e76:	726520        	excw
+40240e79:	726f72        	s32i	a7, a15, 0x1c8
+40240e7c:	783020        	excw
+40240e7f:	0a7825        	excw
 	...
-402414cf:	706100 6f635f 69666e 632e67 000000 630000     .ap_config.c....
-402414df:	6f6300 6f6d6d 632e6e 000000 000000 770000     .common.c.......
-402414ef:	707700 615f61 687475 00632e 000000 640000     .wpa_auth.c.....
-402414ff:	006400 f40000 000001 0003e8 000400 040000     .d..............
-4024150f:	000400 000000 000000 000000 000000 490000     ................
-4024151f:	6e4900 207469 756f43 65746e 000072 500000     .Init Counter...
-4024152f:	615000 777269 657369 656b20 652079 617078     .Pairwise key ex
-4024153f:	6e6170 6f6973 00006e 000000 000000 470000     pansion.........
-4024154f:	724700 70756f 656b20 652079 617078 69736e     .Group key expan
-4024155f:	6f6973 00006e 000000 000000 000000 770000     sion............
-4024156f:	707700 615f61 687475 65695f 00632e 500000     .wpa_auth_ie.c..
-4024157f:	615000 777269 657369 656b20 652079 617078     .Pairwise key ex
-4024158f:	6e6170 6f6973 00006e 000000 000000 500000     pansion.........
-4024159f:	4d5000 4e204b 656d61 000000 000000 080000     .PMK Name.......
-402415af:	000800 060000 000000 000006 000000 770000     ................
-402415bf:	707700 6d5f61 6e6961 00632e 000000 0a0000     .wpa_main.c.....
-402415cf:	630a00 6e6e6f 746365 206465 746977 252068     ..connected with
-402415df:	732520 63202c 6e6168 6c656e 642520 64000a      %s, channel %d.
-402415ef:	686400 207063 696c63 746e65 747320 747261     .dhcp client sta
-402415ff:	2e7472 0a2e2e 000000 000000 000000 630000     rt..............
-4024160f:	686300 6b6365 6f7920 207275 617473 636974     .check your stat
-4024161f:	206369 217069 00000a 000000 000000 610000     ic ip!..........
-4024162f:	656100 692d73 65746e 616e72 652d6c 2e636e     .aes-internal-en
-4024163f:	632e63 020000                                 c.c..
+40240e8e:	740000        	extui	a0, a0, 0, 8
+40240e91:	2078      	l32i.n	a7, a0, 8
+40240e93:	727265        	excw
+40240e96:	6f          	.byte 0x6f
+40240e97:	302072        	l32i	a7, a0, 192
+40240e9a:	2578      	l32i.n	a7, a5, 8
+40240e9c:	0a78      	l32i.n	a7, a10, 0
+40240e9e:	700000        	excw
+40240ea1:	2e6d      	excw
+40240ea3:	000063        	excw
+	...
+40240eae:	730000        	excw
+40240eb1:	656c      	movi.n	a5, -26
+40240eb3:	207065        	excw
+40240eb6:	736964        	excw
+40240eb9:	6c6261        	l32r	a6, 4021c044 <__wpa_send_eapol+0x240>
+40240ebc:	000065        	excw
+40240ebf:	6c7300        	excw
+40240ec2:	706565        	excw
+40240ec5:	6e6520        	excw
+40240ec8:	6c6261        	l32r	a6, 4021c050 <__wpa_send_eapol+0x24c>
+40240ecb:	000065        	excw
+40240ece:	2c0000        	excw
+40240ed1:	707974        	excw
+40240ed4:	203a65        	excw
+40240ed7:	006425        	excw
+40240eda:	000000        	ill
+40240edd:	000000        	ill
+40240ee0:	000a      	add.n	a0, a0, a0
+	...
+40240eee:	700000        	excw
+40240ef1:	206d      	excw
+40240ef3:	6b6177        	bbci	a1, 7, 40240f62 <chip_v6_unset_chanfreq+0x146>
+40240ef6:	707565        	excw
+40240ef9:	747320        	extui	a7, a2, 3, 8
+40240efc:	203a      	add.n	a2, a0, a3
+40240efe:	2c6425        	excw
+40240f01:	616320        	excw
+40240f04:	657375        	excw
+40240f07:	203a      	add.n	a2, a0, a3
+40240f09:	0a6425        	excw
+40240f0c:	000000        	ill
+40240f0f:	667200        	excw
+40240f12:	6c6320        	excw
+40240f15:	6f          	.byte 0x6f
+40240f16:	2c6573        	excw
+40240f19:	6e          	.byte 0x6e
+40240f1a:	6c6c75        	excw
+40240f1d:	746164        	excw
+40240f20:	745f61        	l32r	a6, 4021e09c <wpa_parse_kde_ies+0xb88>
+40240f23:	657275        	excw
+	...
+40240f2e:	720000        	excw
+40240f31:	632066        	bnei	a0, 2, 40240f98 <chip_v6_unset_chanfreq+0x17c>
+40240f34:	6f6c      	movi.n	a15, -26
+40240f36:	2c6573        	excw
+40240f39:	6e          	.byte 0x6e
+40240f3a:	6c6c75        	excw
+40240f3d:	746164        	excw
+40240f40:	665f61        	l32r	a6, 4021a8bc <ieee80211_recv_action_vendor_spec+0x128>
+40240f43:	736c61        	l32r	a6, 4021dcf4 <wpa_parse_kde_ies+0x7e0>
+40240f46:	000065        	excw
+40240f49:	000000        	ill
+40240f4c:	000000        	ill
+40240f4f:	6d7000        	excw
+40240f52:	6c6320        	excw
+40240f55:	6f          	.byte 0x6f
+40240f56:	206573        	excw
+40240f59:	0a6425        	excw
+40240f5c:	000000        	ill
+40240f5f:	6d7000        	excw
+40240f62:	5f          	.byte 0x5f
+40240f63:	727265        	excw
+40240f66:	662c      	movi.n	a6, 38
+40240f68:	616c      	movi.n	a1, -26
+40240f6a:	5f6873        	excw
+40240f6d:	706d74        	excw
+40240f70:	6c6120        	excw
+40240f73:	6f6c      	movi.n	a15, -26
+40240f75:	662063        	excw
+40240f78:	6c6961        	l32r	a6, 4021c11c <__wpa_send_eapol+0x318>
+40240f7b:	000a      	add.n	a0, a0, a0
+40240f7d:	000000        	ill
+40240f80:	5f6d70        	excw
+40240f83:	616c66        	bnei	a12, 6, 40240fe8 <chip_v6_unset_chanfreq+0x1cc>
+40240f86:	5f6873        	excw
+40240f89:	616572        	s32i	a7, a5, 0x184
+40240f8c:	652064        	excw
+40240f8f:	0a7272        	excw
+	...
+40240f9e:	700000        	excw
+40240fa1:	206d      	excw
+40240fa3:	6f          	.byte 0x6f
+40240fa4:	6e6570        	excw
+40240fa7:	742c      	movi.n	a4, 39
+40240fa9:	7079      	s32i.n	a7, a0, 28
+40240fab:	253a65        	excw
+40240fae:	252064        	excw
+40240fb1:	000a64        	excw
+	...
+40240fc0:	6e          	.byte 0x6e
+40240fc1:	6f          	.byte 0x6f
+40240fc2:	4d4954        	excw
+40240fc5:	0a2121        	l32r	a2, 4020384c <_lit4_end+0xfd424>
+	...
+40240fd0:	696c      	movi.n	a9, -26
+40240fd2:	5f7473        	excw
+40240fd5:	6e          	.byte 0x6e
+40240fd6:	6c6c75        	excw
+40240fd9:	000a      	add.n	a0, a0, a0
+40240fdb:	000000        	ill
+40240fde:	730000        	excw
+40240fe1:	0a6c      	movi.n	a10, -32
+40240fe3:	000000        	ill
+40240fe6:	750000        	extui	a0, a0, 16, 8
+40240fe9:	0a6c73        	excw
+40240fec:	000000        	ill
+40240fef:	6d7000        	excw
+40240ff2:	5f          	.byte 0x5f
+40240ff3:	726f66        	bnei	a15, 6, 40241069 <chip_v6_unset_chanfreq+0x24d>
+40240ff6:	5f          	.byte 0x5f
+40240ff7:	6e6362        	s32i	a6, a3, 0x1b8
+40240ffa:	5f          	.byte 0x5f
+40240ffb:	6f          	.byte 0x6f
+40240ffc:	6e          	.byte 0x6e
+40240ffd:	796c      	movi.n	a9, -25
+40240fff:	5f          	.byte 0x5f
+40241000:	6f6d      	excw
+40241002:	2e6564        	excw
+40241005:	000063        	excw
+	...
+40241010:	726f66        	bnei	a15, 6, 40241086 <chip_v6_unset_chanfreq+0x26a>
+40241013:	206563        	excw
+40241016:	706c73        	excw
+40241019:	696420        	excw
+4024101c:	626173        	excw
+4024101f:	656c      	movi.n	a5, -26
+	...
+4024102d:	000000        	ill
+40241030:	726f66        	bnei	a15, 6, 402410a6 <chip_v6_unset_chanfreq+0x28a>
+40241033:	206563        	excw
+40241036:	706c73        	excw
+40241039:	6e6520        	excw
+4024103c:	6c6261        	l32r	a6, 4021c1c4 <__wpa_send_eapol+0x3c0>
+4024103f:	000065        	excw
+	...
+4024104e:	2c0000        	excw
+40241051:	707974        	excw
+40241054:	203a65        	excw
+40241057:	006425        	excw
+4024105a:	000000        	ill
+4024105d:	000000        	ill
+40241060:	000a      	add.n	a0, a0, a0
+	...
+4024106e:	660000        	excw
+40241071:	206d70        	or	a6, a13, a7
+40241074:	6f6c63        	excw
+40241077:	206573        	excw
+4024107a:	206425        	excw
+4024107d:	000a      	add.n	a0, a0, a0
+4024107f:	706600        	excw
+40241082:	5f6d      	excw
+40241084:	727265        	excw
+40241087:	662c      	movi.n	a6, 38
+40241089:	616c      	movi.n	a1, -26
+4024108b:	5f6873        	excw
+4024108e:	706d74        	excw
+40241091:	6c6120        	excw
+40241094:	6f6c      	movi.n	a15, -26
+40241096:	662063        	excw
+40241099:	6c6961        	l32r	a6, 4021c240 <resend_eapol_handle+0x40>
+4024109c:	000a      	add.n	a0, a0, a0
+4024109e:	660000        	excw
+402410a1:	206d70        	or	a6, a13, a7
+402410a4:	6f          	.byte 0x6f
+402410a5:	6e6570        	excw
+402410a8:	742c      	movi.n	a4, 39
+402410aa:	7079      	s32i.n	a7, a0, 28
+402410ac:	253a65        	excw
+402410af:	252064        	excw
+402410b2:	000a64        	excw
+	...
+402410bd:	000000        	ill
+402410c0:	696c      	movi.n	a9, -26
+402410c2:	5f7473        	excw
+402410c5:	6e          	.byte 0x6e
+402410c6:	6c6c75        	excw
+402410c9:	000a      	add.n	a0, a0, a0
+402410cb:	000000        	ill
+402410ce:	6e0000        	excw
+402410d1:	206c75        	excw
+402410d4:	6f6d      	excw
+402410d6:	2c6564        	excw
+402410d9:	706620        	excw
+402410dc:	206d      	excw
+402410de:	747561        	l32r	a6, 4021e2b4 <wpa_parse_kde_ies+0xda0>
+402410e1:	6f          	.byte 0x6f
+402410e2:	6c7320        	excw
+402410e5:	706565        	excw
+402410e8:	657320        	extui	a7, a2, 19, 7
+402410eb:	003a74        	excw
+402410ee:	640000        	extui	a0, a0, 0, 7
+402410f1:	7369      	s32i.n	a6, a3, 28
+402410f3:	626c61        	l32r	a6, 40219aa4 <cnx_rc_update_rssi+0x4c>
+402410f6:	000a65        	excw
+402410f9:	000000        	ill
+402410fc:	000000        	ill
+402410ff:	6e6500        	excw
+40241102:	626c61        	l32r	a6, 40219ab4 <cnx_rc_update_rssi+0x5c>
+40241105:	000a65        	excw
+	...
+40241110:	2e7070        	excw
+40241113:	000063        	excw
+	...
+4024111e:	4c0000        	excw
+40241121:	616d      	excw
+40241123:	785263        	excw
+40241126:	6b6c42        	s32i	a4, a12, 0x1ac
+40241129:	253a      	add.n	a2, a5, a3
+4024112b:	000a64        	excw
+4024112e:	4c0000        	excw
+40241131:	616d      	excw
+40241133:	785463        	excw
+40241136:	6b6c42        	s32i	a4, a12, 0x1ac
+40241139:	253a      	add.n	a2, a5, a3
+4024113b:	000a64        	excw
+4024113e:	6d0000        	excw
+40241141:	207061        	l32r	a6, 40209304 <_lit4_end+0x102edc>
+40241144:	696166        	bnei	a1, 6, 402411b1 <chip_v6_unset_chanfreq+0x395>
+40241147:	0a6c      	movi.n	a10, -32
+40241149:	000000        	ill
+4024114c:	000000        	ill
+4024114f:	747300        	extui	a7, a0, 3, 8
+40241152:	732061        	l32r	a6, 4021ddd4 <wpa_parse_kde_ies+0x8c0>
+40241155:	6e6163        	excw
+40241158:	727420        	excw
+4024115b:	656361        	l32r	a6, 4021a6e8 <ieee80211_recv_action_register+0x2c>
+4024115e:	642520        	extui	a2, a2, 5, 7
+40241161:	000a      	add.n	a0, a0, a0
+	...
+4024116f:	747300        	extui	a7, a0, 3, 8
+40241172:	742061        	l32r	a6, 4021e1f4 <wpa_parse_kde_ies+0xce0>
+40241175:	636172        	s32i	a7, a1, 0x18c
+40241178:	252065        	excw
+4024117b:	000a64        	excw
+4024117e:	3d0000        	excw
+40241181:	643d      	excw
+40241183:	0a6c      	movi.n	a10, -32
+	...
+4024118d:	000000        	ill
+40241190:	646461        	l32r	a6, 4021a320 <cnx_node_leave+0x6c>
+40241193:	696d20        	excw
+40241196:	616d73        	excw
+40241199:	686374        	excw
+4024119c:	000a      	add.n	a0, a0, a0
+4024119e:	610000        	excw
+402411a1:	206464        	excw
+402411a4:	0a6425        	excw
+402411a7:	6d7200        	excw
+402411aa:	642520        	extui	a2, a2, 5, 7
+402411ad:	000a      	add.n	a0, a0, a0
+402411af:	6d7200        	excw
+402411b2:	696d20        	excw
+402411b5:	000a73        	excw
+402411b8:	656477        	bbci	a4, 7, 40241221 <ieee80211_opcap+0x41>
+402411bb:	632e76        	excw
+402411be:	650000        	extui	a0, a0, 16, 7
+402411c1:	5f6673        	excw
+402411c4:	667562        	excw
+402411c7:	2e          	.byte 0x2e
+402411c8:	000063        	excw
+402411cb:	000000        	ill
+402411ce:	690000        	excw
+402411d1:	656565        	excw
+402411d4:	3038      	l32i.n	a3, a0, 12
+402411d6:	313132        	excw
+402411d9:	2e          	.byte 0x2e
+402411da:	000063        	excw
+402411dd:	000000        	ill
 
-40241644 <tkip>:
-40241644:	000002 000800 0c0000 000000 000008 ac0000     ................
-40241654:	21ac00 ac9440 014021                          ..!@..!@
+402411e0 <ieee80211_opcap>:
+402411e0:	000001 040000 6d0000 65646f 203a20 756e00     ........mode : .
+402411f0:	6c756e 00006c 730000 006174 000000 252800     null....sta.....
+40241200:	302528 3a7832 323025 253a78 783230 30253a     (%02x:%02x:%02x:
+40241210:	323025 253a78 783230 30253a 297832 2b2000     %02x:%02x:%02x).
+40241220:	202b20 000000 730000 74666f 005041 252800      + .....softAP..
+40241230:	302528 3a7832 323025 253a78 783230 30253a     (%02x:%02x:%02x:
+40241240:	323025 253a78 783230 30253a 297832 000a00     %02x:%02x:%02x).
+40241250:	00000a 000000 000000 000000 000000 656900     ................
+40241260:	656569 303865 313132 6f685f 617473 632e70     ieee80211_hostap
+40241270:	00632e 000000 000000 000000 000000 706100     .c..............
+40241280:	207061 657266 6a2071 706d75 742030 25206f     ap freq jump0 to
+40241290:	642520 00000a 000000 000000 000000 706100      %d.............
+402412a0:	207061 617274 206563 0a6425 000000 6f6e00     ap trace %d.....
+402412b0:	206f6e 667562 6f6620 612072 697463 206e6f     no buf for actio
+402412c0:	66206e 6d6172 000a65 000000 000000 656900     n frame.........
+402412d0:	656569 303865 313132 6e695f 747570 00632e     ieee80211_input.
+402412e0:	000063 000000 000000 000000 000000 656900     c...............
+402412f0:	656569 303865 313132 756f5f 757074 632e74     ieee80211_output
+40241300:	00632e 000000 000000 000000 000000 6f6e00     .c..............
+40241310:	206f6e 667562 6f6620 702072 626f72 202c65     no buf for probe
+40241320:	69202c 6c2065 206e65 0a6425 000000 656900     , ie len %d.....
+40241330:	656569 303865 313132 68705f 632e79 000400     ieee80211_phy.c.
+40241340:	000004 000000 000000 000000 000000 000000     ................
+	...
+40241358:	00157c 020400 df018b 007f00 000000 2af800     |...............
+40241368:	002af8 030400 d50196 007500 000000 03e800     .*........u.....
+40241378:	0003e8 000000 3a0082 013a01 000000 07d000     ........:.:.....
+40241388:	0007d0 010400 020184 00a201 000000 000000     ................
+	...
+40241414:	00000c 000000 000000 000000 000000 000000     ................
+	...
+4024142c:	00157c 020400 df028b 007f00 000000 2af800     |...............
+4024143c:	002af8 030400 d50396 007500 000000 03e800     .*........u.....
+4024144c:	0003e8 000000 3a0082 013a01 000000 07d000     ........:.:.....
+4024145c:	0007d0 010400 020184 00a201 000001 177000     ................
+4024146c:	001770 0b0000 3c040c 003c00 000001 2ee000     p.......<.<.....
+4024147c:	002ee0 0a0000 300618 003000 000001 5dc000     ........0.0.....
+4024148c:	005dc0 090000 2c0830 002c00 000001 bb8000     .]....0.,.,.....
+4024149c:	00bb80 080000 2c0860 002c00 000001 d2f000     ......`.,.,.....
+402414ac:	00d2f0 0c0000 2c086c 002c00 000001 232800     ......l.,.,.....
+402414bc:	002328 0f0000 3c0412 003c00 000001 465000     (#......<.<.....
+402414cc:	004650 0e0000 300624 003000 000001 8ca000     PF....$.0.0.....
+402414dc:	008ca0 0d0000 2c0848 002c00 000000 000000     ......H.,.,.....
+402414ec:	000000 656900 386565 313230 735f31 6e6163     ....ieee80211_sc
+402414fc:	2e6e61 000063 000000 000000 000000 000000     an.c............
+4024150c:	000000 206600 30322d 202c30 000000 000000     ....f -200, ....
+4024151c:	000000 206600 202c30 000000 722066 2c6425     ....f 0, ...f r%
+4024152c:	202c64 637300 646e61 656e6f 00000a 000000     d, .scandone....
+4024153c:	000000 676200 00000a 000000 000000 000000     ....bg..........
+4024154c:	000000 6e4900 6c6176 206469 504557 656b20     ....Invalid WEP 
+4024155c:	79656b 732520 00000a 000000 000000 000000     key %s..........
+4024156c:	000000 706100 6f6c5f 0a7373 000000 000000     ....ap_loss.....
+4024157c:	000000 656900 386565 313230 735f31 2e6174     ....ieee80211_st
+4024158c:	632e61 747300 657461 25203a 2d2064 25203e     a.c.state: %d ->
+4024159c:	642520 252820 0a2978 000000 000000 000000      %d (%x)........
+402415ac:	000000 6c7700 6e635f 632e78 000000 000000     ....wl_cnx.c....
+402415bc:	000000 745300 697461 206e6f 6f7473 202c70     ....Station stop
+402415cc:	73202c 706f74 637320 0a6e61 000000 000000     , stop scan.....
+402415dc:	000000 657200 6e6f63 63656e 000a74 000000     ....reconnect...
+402415ec:	000000 6f6e00 732520 6f6620 646e75 72202c     ....no %s found,
+402415fc:	657220 6e6f63 63656e 612074 657466 312072      reconnect after
+4024160c:	733120 00000a 000000 000000 000000 000000      1s.............
+4024161c:	000000 777300 637469 742068 63206f 6e6168     ....switch to ch
+4024162c:	6e6e61 206c65 0a6425 000000 000000 000000     annel %d........
+4024163c:	000000 636200 745f6e 6f6d69 2c7475 5f7061     ....bcn_timout,a
+4024164c:	705f70 626f72 735f65 646e65 74735f 747261     p_probe_send_sta
+4024165c:	0a7472 706100 72705f 65626f 65735f 20646e     rt..ap_probe_sen
+4024166c:	6f2064 726576 72202c 747365 697720 206966     d over, rest wif
+4024167c:	732069 746174 207375 206f74 736964 737361     i status to disa
+4024168c:	6f7373 000a63 000000 000000 000000 000000     ssoc............
+4024169c:	000000 747300 697461 3a6e6f 302520 3a7832     ....station: %02
+402416ac:	253a78 783230 30253a 3a7832 323025 253a78     x:%02x:%02x:%02x
+402416bc:	30253a 3a7832 323025 6c2078 766165 202c65     :%02x:%02x leave
+402416cc:	41202c 204449 25203d 000a64 000000 000000     , AID = %d......
+402416dc:	000000 616d00 632078 6e6e6f 746365 6e6f69     ....max connecti
+402416ec:	216e6f 00000a 000000 000000 000000 000000     on!.............
+402416fc:	000000 616d00 632078 6e6e6f 746365 6e6f69     ....max connecti
+4024170c:	216e6f 00000a 000000 000000 000000 000000     on!.............
+4024171c:	000000 726500 612072 65726c 796461 736120     ....err already 
+4024172c:	737361 69636f 216465 00000a 000000 000000     associed!.......
+4024173c:	000000 747300 697461 3a6e6f 302520 3a7832     ....station: %02
+4024174c:	253a78 783230 30253a 3a7832 323025 253a78     x:%02x:%02x:%02x
+4024175c:	30253a 3a7832 323025 6a2078 6e696f 41202c     :%02x:%02x join,
+4024176c:	494120 3d2044 642520 00000a 000000 000000      AID = %d.......
+4024177c:	000000 455600 4f444e 412052 495443 3a4e4f     ....VENDOR ACTIO
+4024178c:	203a4e 6e656c 726520 726f72 747320 317065     N: len error ste
+4024179c:	3a3170 642520 00000a 000000 000000 000000     p1: %d..........
+402417ac:	000000 455600 4f444e 412052 495443 3a4e4f     ....VENDOR ACTIO
+402417bc:	203a4e 6e656c 726520 726f72 747320 327065     N: len error ste
+402417cc:	3a3270 642520 000000 000000 000000 000000     p2: %d..........
+402417dc:	000000 455600 4f444e 412052 495443 3a4e4f     ....VENDOR ACTIO
+402417ec:	203a4e 6b6e75 776f6e 69206e 742065 657079     N: unknown ie ty
+402417fc:	0a6570 455600 4f444e 412052 495443 3a4e4f     pe..VENDOR ACTIO
+4024180c:	203a4e 707974 642065 6d7369 637461 252068     N: type dismatch
+4024181c:	642520 656900 386565 313230 615f31 697463      %d.ieee80211_ac
+4024182c:	6f6974 765f6e 646e65 5f726f 657073 615f63     tion_vendor_spec
+4024183c:	74615f 636174 722068 696765 657473 722072     _attach register
+4024184c:	657220 207663 6c6163 62206c 6b6361 726520      recv call back 
+4024185c:	727265 0a726f 030000                          error...
 
-4024165c <wep>:
-4024165c:	000001 000400 040000 000000 000000 ad8c00     ................
-4024166c:	21ad8c b01840 eb4021                          ..!@..!@
+40241864 <ccmp>:
+40241864:	000003 000800 080000 000000 000000 a93000     ................
+40241874:	21a930 a9ac40 444021 504348 697420 6f656d     0.!@..!@DHCP tim
+40241884:	756f65 000a74 640000 706368 735f73 726174     eout....dhcps_st
+40241894:	747261 3a2928 6f6320 646c75 6f6e20 6f2074     art(): could not
+402418a4:	626f20 696174 70206e 0a6263 000000 826300      obtain pcb.....
+402418b4:	538263 732563 642520 00000a 207325 0a6425     c.Sc%s %d...%s %
+402418c4:	000a64 732500 642520 00000a 207325 0a6425     d...%s %d...%s %
+402418d4:	000a64 732500 642520 00000a 207325 0a6425     d...%s %d...%s %
+402418e4:	000a64 732500 642520 00000a 207325 0a6425     d...%s %d...%s %
+402418f4:	000a64 732500 642520 00000a 707365 6e6f63     d...%s %d...espc
+40241904:	6e6e6f 63745f 645f70 656c65 206574 2c6425     onn_tcp_delete %
+40241914:	202c64 0a6425 650000 207272 206e69 736f68     d, %d...err in h
+40241924:	74736f 6f6320 656e6e 657463 282064 297325     ost connected (%
+40241934:	0a2973 655200 487663 646c6f 42202c 702079     s)..RecvHold, By
+40241944:	657020 637073 6e6e6f 69662c 20646e 6e6f63      pespconn,find c
+40241954:	6e6e6f 736d5f 662067 6c6961 00000a 655200     onn_msg fail....
+40241964:	636552 6f4876 2c646c 794220 657020 637073     RecvHold, By pes
+40241974:	6f6370 2c6e6e 6e6966 632064 6e6e6f 736d5f     pconn,find conn_
+40241984:	67736d 616620 0a6c69 000000 f0c112 42040c     msg fail........
+40241994:	514204 502000 159c04 314f30 c04430 0094d6     .BQ. P...0O10D..
+402419a4:	420094 0b0002 414233 221b01 86040c 620002     ..B...3BA.."....
+402419b4:	126200 c33200 446afe 02c222 f123e6 051366     .b..2..jD"...#.f
+402419c4:	220513 220002 220041 2a0011 204044 4040f5     ..".."A."..*D@ .
+402419d4:	f44040 40442a 40f530 3af420 b51622 382000     @@.*D@0.@ .:"...
+402419e4:	743820 112280 202320 f42020 f42020 10c112      8t.". #   .  ..
+402419f4:	0d10c1 c112f0                                 ....
+
+402419f8 <inet_chksum_pseudo>:
+402419f8:	d0c112        	addi	a1, a1, -48
+402419fb:	81e9      	s32i.n	a14, a1, 32
+402419fd:	0e0c      	movi.n	a14, 0
+402419ff:	a1c9      	s32i.n	a12, a1, 40
+40241a01:	91d9      	s32i.n	a13, a1, 36
+40241a03:	71f9      	s32i.n	a15, a1, 28
+40241a05:	b109      	s32i.n	a0, a1, 44
+40241a07:	f4f060        	extui	a15, a6, 0, 16
+40241a0a:	02dd      	mov.n	a13, a2
+40241a0c:	037d      	mov.n	a7, a3
+40241a0e:	745050        	extui	a5, a5, 0, 8
+40241a11:	0ecd      	mov.n	a12, a14
+40241a13:	160c      	movi.n	a6, 1
+40241a15:	000ec6        	j	40241a54 <inet_chksum_pseudo+0x5c>
+40241a18:	051d32        	l16ui	a3, a13, 10
+40241a1b:	1d28      	l32i.n	a2, a13, 4
+40241a1d:	1149      	s32i.n	a4, a1, 4
+40241a1f:	2159      	s32i.n	a5, a1, 8
+40241a21:	3169      	s32i.n	a6, a1, 12
+40241a23:	0179      	s32i.n	a7, a1, 0
+40241a25:	fff685        	call0	40241990 <ccmp+0x12c>
+40241a28:	22ca      	add.n	a2, a2, a12
+40241a2a:	f53020        	extui	a3, a2, 16, 16
+40241a2d:	f4c020        	extui	a12, a2, 0, 16
+40241a30:	051d22        	l16ui	a2, a13, 10
+40241a33:	cc3a      	add.n	a12, a12, a3
+40241a35:	1148      	l32i.n	a4, a1, 4
+40241a37:	2158      	l32i.n	a5, a1, 8
+40241a39:	3168      	l32i.n	a6, a1, 12
+40241a3b:	0178      	l32i.n	a7, a1, 0
+40241a3d:	116207        	bbci	a2, 0, 40241a52 <inet_chksum_pseudo+0x5a>
+40241a40:	7428c0        	extui	a2, a12, 8, 8
+40241a43:	11cc80        	slli	a12, a12, 8
+40241a46:	c0e6e0        	sub	a14, a6, a14
+40241a49:	20c2c0        	or	a12, a2, a12
+40241a4c:	74e0e0        	extui	a14, a14, 0, 8
+40241a4f:	f4c0c0        	extui	a12, a12, 0, 16
+40241a52:	0dd8      	l32i.n	a13, a13, 0
+40241a54:	fc0d56        	bnez	a13, 40241a18 <inet_chksum_pseudo+0x20>
+40241a57:	ae8c      	beqz.n	a14, 40241a65 <inet_chksum_pseudo+0x6d>
+40241a59:	7428c0        	extui	a2, a12, 8, 8
+40241a5c:	11cc80        	slli	a12, a12, 8
+40241a5f:	20c2c0        	or	a12, a2, a12
+40241a62:	f4c0c0        	extui	a12, a12, 0, 16
+40241a65:	0738      	l32i.n	a3, a7, 0
+40241a67:	0428      	l32i.n	a2, a4, 0
+40241a69:	f54030        	extui	a4, a3, 16, 16
+40241a6c:	f43030        	extui	a3, a3, 0, 16
+40241a6f:	343a      	add.n	a3, a4, a3
+40241a71:	f44020        	extui	a4, a2, 0, 16
+40241a74:	334a      	add.n	a3, a3, a4
+40241a76:	f52020        	extui	a2, a2, 16, 16
+40241a79:	232a      	add.n	a2, a3, a2
+40241a7b:	115580        	slli	a5, a5, 8
+40241a7e:	525a      	add.n	a5, a2, a5
+40241a80:	112f80        	slli	a2, a15, 8
+40241a83:	41f8f0        	srli	a15, a15, 8
+40241a86:	20f2f0        	or	a15, a2, a15
+40241a89:	f4f0f0        	extui	a15, a15, 0, 16
+40241a8c:	55fa      	add.n	a5, a5, a15
+40241a8e:	c5ca      	add.n	a12, a5, a12
+40241a90:	f520c0        	extui	a2, a12, 16, 16
+40241a93:	f4c0c0        	extui	a12, a12, 0, 16
+40241a96:	cc2a      	add.n	a12, a12, a2
+40241a98:	f520c0        	extui	a2, a12, 16, 16
+40241a9b:	f4c0c0        	extui	a12, a12, 0, 16
+40241a9e:	cc2a      	add.n	a12, a12, a2
+40241aa0:	b108      	l32i.n	a0, a1, 44
+40241aa2:	f27c      	movi.n	a2, -1
+40241aa4:	3022c0        	xor	a2, a2, a12
+40241aa7:	f42020        	extui	a2, a2, 0, 16
+40241aaa:	a1c8      	l32i.n	a12, a1, 40
+40241aac:	91d8      	l32i.n	a13, a1, 36
+40241aae:	81e8      	l32i.n	a14, a1, 32
+40241ab0:	71f8      	l32i.n	a15, a1, 28
+40241ab2:	30c112        	addi	a1, a1, 48
+40241ab5:	f00d      	ret.n
+	...
+
+40241ab8 <inet_chksum_pseudo_partial>:
+40241ab8:	c0c112        	addi	a1, a1, -64
+40241abb:	b1f9      	s32i.n	a15, a1, 44
+40241abd:	0f0c      	movi.n	a15, 0
+40241abf:	e1c9      	s32i.n	a12, a1, 56
+40241ac1:	d1d9      	s32i.n	a13, a1, 52
+40241ac3:	c1e9      	s32i.n	a14, a1, 48
+40241ac5:	f109      	s32i.n	a0, a1, 60
+40241ac7:	02dd      	mov.n	a13, a2
+40241ac9:	038d      	mov.n	a8, a3
+40241acb:	745050        	extui	a5, a5, 0, 8
+40241ace:	f46060        	extui	a6, a6, 0, 16
+40241ad1:	f4e070        	extui	a14, a7, 0, 16
+40241ad4:	0fcd      	mov.n	a12, a15
+40241ad6:	001546        	j	40241b2f <inet_chksum_pseudo_partial+0x77>
+40241ad9:	051d22        	l16ui	a2, a13, 10
+40241adc:	0e7d      	mov.n	a7, a14
+40241ade:	02b2e7        	bgeu	a2, a14, 40241ae4 <inet_chksum_pseudo_partial+0x2c>
+40241ae1:	207220        	or	a7, a2, a2
+40241ae4:	1d28      	l32i.n	a2, a13, 4
+40241ae6:	f47070        	extui	a7, a7, 0, 16
+40241ae9:	073d      	mov.n	a3, a7
+40241aeb:	2149      	s32i.n	a4, a1, 8
+40241aed:	3159      	s32i.n	a5, a1, 12
+40241aef:	4169      	s32i.n	a6, a1, 16
+40241af1:	0179      	s32i.n	a7, a1, 0
+40241af3:	1189      	s32i.n	a8, a1, 4
+40241af5:	ffe985        	call0	40241990 <ccmp+0x12c>
+40241af8:	22ca      	add.n	a2, a2, a12
+40241afa:	0178      	l32i.n	a7, a1, 0
+40241afc:	f53020        	extui	a3, a2, 16, 16
+40241aff:	f4c020        	extui	a12, a2, 0, 16
+40241b02:	051d22        	l16ui	a2, a13, 10
+40241b05:	c0ee70        	sub	a14, a14, a7
+40241b08:	f4e0e0        	extui	a14, a14, 0, 16
+40241b0b:	cc3a      	add.n	a12, a12, a3
+40241b0d:	2148      	l32i.n	a4, a1, 8
+40241b0f:	3158      	l32i.n	a5, a1, 12
+40241b11:	4168      	l32i.n	a6, a1, 16
+40241b13:	1188      	l32i.n	a8, a1, 4
+40241b15:	146207        	bbci	a2, 0, 40241b2d <inet_chksum_pseudo_partial+0x75>
+40241b18:	01a022        	movi	a2, 1
+40241b1b:	c0f2f0        	sub	a15, a2, a15
+40241b1e:	7428c0        	extui	a2, a12, 8, 8
+40241b21:	11cc80        	slli	a12, a12, 8
+40241b24:	20c2c0        	or	a12, a2, a12
+40241b27:	74f0f0        	extui	a15, a15, 0, 8
+40241b2a:	f4c0c0        	extui	a12, a12, 0, 16
+40241b2d:	0dd8      	l32i.n	a13, a13, 0
+40241b2f:	1e8c      	beqz.n	a14, 40241b34 <inet_chksum_pseudo_partial+0x7c>
+40241b31:	fa4d56        	bnez	a13, 40241ad9 <inet_chksum_pseudo_partial+0x21>
+40241b34:	af8c      	beqz.n	a15, 40241b42 <inet_chksum_pseudo_partial+0x8a>
+40241b36:	7428c0        	extui	a2, a12, 8, 8
+40241b39:	11cc80        	slli	a12, a12, 8
+40241b3c:	20c2c0        	or	a12, a2, a12
+40241b3f:	f4c0c0        	extui	a12, a12, 0, 16
+40241b42:	0838      	l32i.n	a3, a8, 0
+40241b44:	0428      	l32i.n	a2, a4, 0
+40241b46:	f54030        	extui	a4, a3, 16, 16
+40241b49:	f43030        	extui	a3, a3, 0, 16
+40241b4c:	343a      	add.n	a3, a4, a3
+40241b4e:	f44020        	extui	a4, a2, 0, 16
+40241b51:	334a      	add.n	a3, a3, a4
+40241b53:	f52020        	extui	a2, a2, 16, 16
+40241b56:	232a      	add.n	a2, a3, a2
+40241b58:	115580        	slli	a5, a5, 8
+40241b5b:	525a      	add.n	a5, a2, a5
+40241b5d:	112680        	slli	a2, a6, 8
+40241b60:	416860        	srli	a6, a6, 8
+40241b63:	206260        	or	a6, a2, a6
+40241b66:	f46060        	extui	a6, a6, 0, 16
+40241b69:	556a      	add.n	a5, a5, a6
+40241b6b:	c5ca      	add.n	a12, a5, a12
+40241b6d:	f520c0        	extui	a2, a12, 16, 16
+40241b70:	f4c0c0        	extui	a12, a12, 0, 16
+40241b73:	cc2a      	add.n	a12, a12, a2
+40241b75:	f520c0        	extui	a2, a12, 16, 16
+40241b78:	f4c0c0        	extui	a12, a12, 0, 16
+40241b7b:	cc2a      	add.n	a12, a12, a2
+40241b7d:	f108      	l32i.n	a0, a1, 60
+40241b7f:	f27c      	movi.n	a2, -1
+40241b81:	3022c0        	xor	a2, a2, a12
+40241b84:	f42020        	extui	a2, a2, 0, 16
+40241b87:	e1c8      	l32i.n	a12, a1, 56
+40241b89:	d1d8      	l32i.n	a13, a1, 52
+40241b8b:	c1e8      	l32i.n	a14, a1, 48
+40241b8d:	b1f8      	l32i.n	a15, a1, 44
+40241b8f:	40c112        	addi	a1, a1, 64
+40241b92:	f00d      	ret.n
+
+40241b94 <inet_chksum>:
+40241b94:	f0c112        	addi	a1, a1, -16
+40241b97:	f43030        	extui	a3, a3, 0, 16
+40241b9a:	036102        	s32i	a0, a1, 12
+40241b9d:	ffdf05        	call0	40241990 <ccmp+0x12c>
+40241ba0:	f37c      	movi.n	a3, -1
+40241ba2:	3108      	l32i.n	a0, a1, 12
+40241ba4:	302320        	xor	a2, a3, a2
+40241ba7:	f42020        	extui	a2, a2, 0, 16
+40241baa:	10c112        	addi	a1, a1, 16
+40241bad:	f00d      	ret.n
+	...
+
+40241bb0 <inet_chksum_pbuf>:
+40241bb0:	e0c112        	addi	a1, a1, -32
+40241bb3:	41e9      	s32i.n	a14, a1, 16
+40241bb5:	0e0c      	movi.n	a14, 0
+40241bb7:	61c9      	s32i.n	a12, a1, 24
+40241bb9:	51d9      	s32i.n	a13, a1, 20
+40241bbb:	31f9      	s32i.n	a15, a1, 12
+40241bbd:	7109      	s32i.n	a0, a1, 28
+40241bbf:	02dd      	mov.n	a13, a2
+40241bc1:	0ecd      	mov.n	a12, a14
+40241bc3:	1f0c      	movi.n	a15, 1
+40241bc5:	000ac6        	j	40241bf4 <inet_chksum_pbuf+0x44>
+40241bc8:	051d32        	l16ui	a3, a13, 10
+40241bcb:	1d28      	l32i.n	a2, a13, 4
+40241bcd:	ffdc05        	call0	40241990 <ccmp+0x12c>
+40241bd0:	22ca      	add.n	a2, a2, a12
+40241bd2:	f53020        	extui	a3, a2, 16, 16
+40241bd5:	f4c020        	extui	a12, a2, 0, 16
+40241bd8:	051d22        	l16ui	a2, a13, 10
+40241bdb:	cc3a      	add.n	a12, a12, a3
+40241bdd:	116207        	bbci	a2, 0, 40241bf2 <inet_chksum_pbuf+0x42>
+40241be0:	7428c0        	extui	a2, a12, 8, 8
+40241be3:	11cc80        	slli	a12, a12, 8
+40241be6:	c0efe0        	sub	a14, a15, a14
+40241be9:	20c2c0        	or	a12, a2, a12
+40241bec:	74e0e0        	extui	a14, a14, 0, 8
+40241bef:	f4c0c0        	extui	a12, a12, 0, 16
+40241bf2:	0dd8      	l32i.n	a13, a13, 0
+40241bf4:	fd0d56        	bnez	a13, 40241bc8 <inet_chksum_pbuf+0x18>
+40241bf7:	ae8c      	beqz.n	a14, 40241c05 <inet_chksum_pbuf+0x55>
+40241bf9:	7428c0        	extui	a2, a12, 8, 8
+40241bfc:	11cc80        	slli	a12, a12, 8
+40241bff:	20c2c0        	or	a12, a2, a12
+40241c02:	f4c0c0        	extui	a12, a12, 0, 16
+40241c05:	f27c      	movi.n	a2, -1
+40241c07:	7108      	l32i.n	a0, a1, 28
+40241c09:	3022c0        	xor	a2, a2, a12
+40241c0c:	f42020        	extui	a2, a2, 0, 16
+40241c0f:	61c8      	l32i.n	a12, a1, 24
+40241c11:	51d8      	l32i.n	a13, a1, 20
+40241c13:	41e8      	l32i.n	a14, a1, 16
+40241c15:	31f8      	l32i.n	a15, a1, 12
+40241c17:	20c112        	addi	a1, a1, 32
+40241c1a:	f00d      	ret.n
+40241c1c:	7069      	s32i.n	a6, a0, 28
+40241c1e:	5f          	.byte 0x5f
+40241c1f:	756f72        	s32i	a7, a15, 0x1d4
+40241c22:	726574        	excw
+40241c25:	642520        	extui	a2, a2, 5, 7
+40241c28:	702520        	excw
+40241c2b:	000a      	add.n	a0, a0, a0
+40241c2d:	000000        	ill
+
+40241c30 <ip_addr_broadcast>:
+40241c30:	ffffff 0000ff                                 ....
+
+40241c34 <ip_addr_any>:
+40241c34:	000000 001c00                                 ....
+
+40241c38 <memp_sizes>:
+40241c38:	00001c 002400 b00000 000000 000024 001400     ....$.......$...
+40241c48:	000014 000800 140000 000000 000010 001400     ................
+40241c58:	000014 060000 540000                          ........
+
+40241c60 <tcp_pcb_lists>:
+40241c60:	fef054 f05c3f 4c3ffe 3ffef0 fef060 06033f     T..?\..?L..?`..?
+
+40241c70 <tcp_persist_backoff>:
+40241c70:	0c0603 603018 020178                          ....0`x
+
+40241c77 <tcp_backoff>:
+40241c77:	030201 060504 070707 070707 000007 000000     ................
+	...
+40241c8f:	706100 6f635f 69666e 632e67 000000 630000     .ap_config.c....
+40241c9f:	6f6300 6f6d6d 632e6e 000000 000000 770000     .common.c.......
+40241caf:	707700 615f61 687475 00632e 000000 640000     .wpa_auth.c.....
+40241cbf:	006400 f40000 000001 0003e8 000400 040000     .d..............
+40241ccf:	000400 000000 000000 000000 000000 490000     ................
+40241cdf:	6e4900 207469 756f43 65746e 000072 500000     .Init Counter...
+40241cef:	615000 777269 657369 656b20 652079 617078     .Pairwise key ex
+40241cff:	6e6170 6f6973 00006e 000000 000000 470000     pansion.........
+40241d0f:	724700 70756f 656b20 652079 617078 69736e     .Group key expan
+40241d1f:	6f6973 00006e 000000 000000 000000 770000     sion............
+40241d2f:	707700 615f61 687475 65695f 00632e 500000     .wpa_auth_ie.c..
+40241d3f:	615000 777269 657369 656b20 652079 617078     .Pairwise key ex
+40241d4f:	6e6170 6f6973 00006e 000000 000000 500000     pansion.........
+40241d5f:	4d5000 4e204b 656d61 000000 000000 080000     .PMK Name.......
+40241d6f:	000800 060000 000000 000006 000000 770000     ................
+40241d7f:	707700 6d5f61 6e6961 00632e 000000 0a0000     .wpa_main.c.....
+40241d8f:	630a00 6e6e6f 746365 206465 746977 252068     ..connected with
+40241d9f:	732520 63202c 6e6168 6c656e 642520 64000a      %s, channel %d.
+40241daf:	686400 207063 696c63 746e65 747320 747261     .dhcp client sta
+40241dbf:	2e7472 0a2e2e 000000 000000 000000 630000     rt..............
+40241dcf:	686300 6b6365 6f7920 207275 617473 636974     .check your stat
+40241ddf:	206369 217069 00000a 000000 000000 610000     ic ip!..........
+40241def:	656100 692d73 65746e 616e72 652d6c 2e636e     .aes-internal-en
+40241dff:	632e63 020000                                 c.c..
+
+40241e04 <tkip>:
+40241e04:	000002 000800 0c0000 000000 000008 ac0000     ................
+40241e14:	21ac00 ac9440 014021                          ..!@..!@
+
+40241e1c <wep>:
+40241e1c:	000001 000400 040000 000000 000000 ad8c00     ................
+40241e2c:	21ad8c b01840 eb4021                          ..!@..!@
 
 Disassembly of section .text:
 
@@ -83573,7 +83699,7 @@ bool wifi_softap_setup( void ){
 40103984:	fb3531        	l32r	a3, 40102658 <clockgate_watchdog+0x2c>
 40103987:	004322        	s8i	a2, a3, 0
 4010398a:	f00d      	ret.n
-4010398c:	2406b0        	extui	a0, a11, 6, 3
+4010398c:	240e70        	extui	a0, a7, 14, 3
 4010398f:	c11240        	mul16u	a1, a2, a4
 
 40103990 <lmacProcessTxRtsError>:
@@ -83634,7 +83760,7 @@ bool wifi_softap_setup( void ){
 40103a24:	030c      	movi.n	a3, 0
 40103a26:	ff5a05        	call0	40102fc8 <lmacRecycleMPDU+0x178>
 40103a29:	fff786        	j	40103a0b <lmacProcessTxRtsError+0x7b>
-40103a2c:	2406d0        	extui	a0, a13, 6, 3
+40103a2c:	240e90        	extui	a0, a9, 14, 3
 40103a2f:	c11240        	mul16u	a1, a2, a4
 
 40103a30 <lmacProcessTxError>:
@@ -85170,7 +85296,7 @@ bool wifi_softap_setup( void ){
 40104914:	f00d      	ret.n
 40104916:	540000        	extui	a0, a0, 0, 6
 40104919:	3ffe86        	j	40114917 <_etext+0xe4ef>
-4010491c:	2409c0        	extui	a0, a12, 9, 3
+4010491c:	241180        	extui	a1, a8, 1, 3
 4010491f:	859440        	extui	a9, a4, 20, 9
 40104922:	fe          	.byte 0xfe
 40104923:	3f          	.byte 0x3f
@@ -87073,7 +87199,7 @@ bool wifi_softap_setup( void ){
 40105c85:	445a      	add.n	a4, a4, a5
 40105c87:	0439      	s32i.n	a3, a4, 0
 40105c89:	f00d      	ret.n
-40105c8b:	09f800        	excw
+40105c8b:	11b800        	slli	a11, a8, 16
 40105c8e:	124024        	excw
 40105c91:	c9f0c1        	l32r	a12, 400f8454 <__floatsidf+0xea164>
 40105c94:	21d911        	l32r	a1, 400ce3f8 <__floatsidf+0xc0108>
