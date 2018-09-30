@@ -5,9 +5,9 @@
 <script>\
 function refresh(n){\
 	if(n==1)\
-		window.TableTXT.rows[0].cells[0].innerHTML=window.dt1.value;\
+		window.area1.value=window.dt1.value;\
 	else\
-		window.TableTXT.rows[1].cells[0].innerHTML=window.dt2.value;\
+		window.area2.value=window.dt2.value;\
 }\
 function refreshTxt(n){\
 	if(n==1)\

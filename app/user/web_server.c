@@ -87,9 +87,53 @@ static void ICACHE_FLASH_ATTR handle_set_cmd(void *arg, char *cmd, char* val)
     console_handle_command(pespconn);
 }
 
-char *strstr(const char *string, const char *needle);
-char *strtok ( char * str, const char * delimiters );
-char *strtok_r(char *s, const char *delim, char **last);
+//char *strstr(const char *string, const char *needle);
+//char *strtok ( char * str, const char * delimiters );
+//char *strtok_r(char *s, const char *delim, char **last);
+
+/********************************************************
+ *
+ * 根据客户端浏览器请求生成网页并发送
+ *
+ *********************************************************/
+void ICACHE_FLASH_ATTR read_sent_page(void *arg)
+{
+	struct espconn *pespconn = (struct espconn *)arg;
+
+	static const uint8_t index_page_str[] ICACHE_RODATA_ATTR STORE_ATTR = INDEX_PAGE;
+
+	os_printf("get index page.\r\n");
+	uint32_t slen = (sizeof(index_page_str) + 4) & ~3;
+	uint8_t *index_page = (char *)os_malloc(slen);
+	if (index_page == NULL)
+		return;
+	os_printf("malloc page addr.\r\n");
+	os_memcpy(index_page, index_page_str, slen);
+
+	uint8_t *page_buf = (char *)os_malloc(slen+200);
+	if (page_buf == NULL)
+		return;
+	os_printf("malloc buff.\r\n");
+	/*
+	os_sprintf(page_buf, index_page, ESP_AP_SSID, ESP_AP_PASSWORD,
+	   "",
+	   ESP_AP_SSID, ESP_AP_PASSWORD,
+	   ""," selected",
+	   192,168,10,254);
+	 */
+	os_sprintf(page_buf, index_page);
+
+	os_free(index_page);
+
+	os_printf("load web page OK.\r\n");
+
+	espconn_send(pespconn, page_buf, os_strlen(page_buf));
+
+	os_free(page_buf);
+}
+
+
+
 
 static void ICACHE_FLASH_ATTR web_client_recv_cb(void *arg, char *data, unsigned short length)
 {
@@ -98,11 +142,17 @@ static void ICACHE_FLASH_ATTR web_client_recv_cb(void *arg, char *data, unsigned
     bool do_reset = false;
     char *token[1];
     char *str;
+    os_printf("recv form host:%s\n",data);
+    read_sent_page(pespconn);
+    //recv form host:GET / HTTP/1.1
+    //Host: 192.168.10.254
+    //recv form host:GET /favicon.ico HTTP/1.1
 
-    str = strstr(data, " /?");
+    str = strstr(data, "area1");
+    //os_printf("recv data=%s\n",str);
     if (str != NULL)
     {
-        str = strtok(str+3," ");
+        //str = strtok(str+3," ");
 
         char* keyval = strtok_r(str,"&",&kv);
         while (keyval != NULL)
@@ -115,23 +165,16 @@ static void ICACHE_FLASH_ATTR web_client_recv_cb(void *arg, char *data, unsigned
             if (val != NULL)
             {
 
-                if (strcmp(key, "ssid") == 0)
+                if (strcmp(key, "area1") == 0)
                 {
-                	parse_str_into_tokens(val, token, 1);
-                	handle_set_cmd(pespconn, "set ssid", token[0]);
-                	//config.automesh_mode = AUTOMESH_OFF;
                     do_reset = true;
                 }
-                else if (strcmp(key, "password") == 0)
+                else if (strcmp(key, "area2") == 0)
                 {
-                	parse_str_into_tokens(val, token, 1);
-                    handle_set_cmd(pespconn, "set password", token[0]);
                     do_reset = true;
                 }
                 else if (strcmp(key, "am") == 0)
                 {
-                    //config.automesh_mode = AUTOMESH_LEARNING;
-                    //config.automesh_checked = 0;
                     do_reset = true;
                 }
                 else if (strcmp(key, "lock") == 0)
@@ -184,8 +227,8 @@ static void ICACHE_FLASH_ATTR web_client_recv_cb(void *arg, char *data, unsigned
         if (do_reset == true)
         {
             do_reset = false;
-            ringbuf_memcpy_into(console_rx_buffer, "reset", os_strlen("reset"));
-            console_handle_command(pespconn);
+            //ringbuf_memcpy_into(console_rx_buffer, "reset", os_strlen("reset"));
+            //console_handle_command(pespconn);
         }
     }
 }
@@ -227,36 +270,6 @@ static void ICACHE_FLASH_ATTR web_client_connected_cb(void *arg)
 os_printf("espconn_regist OK.\r\n");
     //ringbuf_reset(console_rx_buffer);
     //ringbuf_reset(console_tx_buffer);
-
-  	static const uint8_t index_page_str[] ICACHE_RODATA_ATTR STORE_ATTR = INDEX_PAGE;
-os_printf("get index page.\r\n");
-  	uint32_t slen = (sizeof(index_page_str) + 4) & ~3;
-	uint8_t *index_page = (char *)os_malloc(slen);
-	if (index_page == NULL)
-	    return;
-os_printf("malloc page addr.\r\n");
-	os_memcpy(index_page, index_page_str, slen);
-
-	uint8_t *page_buf = (char *)os_malloc(slen+200);
-	if (page_buf == NULL)
-	    return;
-os_printf("malloc buff.\r\n");
-/*
-os_sprintf(page_buf, index_page, ESP_AP_SSID, ESP_AP_PASSWORD,
-		   "",
-		   ESP_AP_SSID, ESP_AP_PASSWORD,
-		   ""," selected",
-		   192,168,10,254);
-*/
-	os_sprintf(page_buf, index_page);
-
-	os_free(index_page);
-
-os_printf("load web page OK.\r\n");
-
-	espconn_send(pespconn, page_buf, os_strlen(page_buf));
-
-	os_free(page_buf);
 }
 
 void ICACHE_FLASH_ATTR init_webserver()
